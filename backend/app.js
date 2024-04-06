@@ -2,6 +2,7 @@ require('dotenv').config()
 
 const express = require('express')
 const app = express()
+const cors = require('cors')
 
 const connectDB = require('./db/connect')
 const locations = require('./routes/locations')
@@ -11,10 +12,9 @@ app.get('/', (req, res) => {
     res.send('Testing backend')
 })
 
-// app.post('/', (req, res) => {
-    
-// })
 
+// Update before depoloying
+app.use(cors({origin: process.env.LOCAL_HOST_URL}))
 app.use('/api/v1/locations', locations )
 
 const port = 3001

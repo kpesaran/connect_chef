@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 
 const locationSchema = new mongoose.Schema({
     zipcode: {
-        type: Number,
+        type: Number || String,
         // required: [true, "Zipcode must be provided"]
     },
     dateStamp: {
