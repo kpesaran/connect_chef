@@ -4,8 +4,10 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 
+
 const connectDB = require('./db/connect')
 const locations = require('./routes/locations')
+const routeNotFoundMW = require('./middleware/route-not-found')
 
 app.use(express.json())
 app.get('/', (req, res) => {
@@ -13,9 +15,13 @@ app.get('/', (req, res) => {
 })
 
 
+
+
 // Update before depoloying
 app.use(cors({origin: process.env.LOCAL_HOST_URL}))
 app.use('/api/v1/locations', locations )
+
+app.use(routeNotFoundMW)
 
 const port = 3001
 
