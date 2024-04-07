@@ -1,41 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import ZipCodeForm from './components/ZipCodeForm';
-import axios from 'axios';
+import LocationButton from './components/LocationButton'
+// import axios from 'axios';
 
-const LocationComponent = () => {
-  const [latitude, setLatitude] = useState<number | null>(null);
-  const [longitude, setLongitude] = useState<number | null>(null);
-
-  // async function fetchGeoCode() {
-  //   if (latitude && longitude) {
-  //     const response = await axios()
-  //   }
-
-  // }
-  useEffect(() => {
-    if ('geolocation' in navigator) {
-      console.log('Geolation is available');
-      navigator.geolocation.getCurrentPosition((position) => {
-        // console.log('Latitude is: ', position.coords.latitude);
-        setLatitude(position.coords.latitude);
-
-        setLongitude(position.coords.longitude);
-      });
-    }
-  });
-  return (
-    <div className = "flex gap-5 allign-items">
-      <p>Latitude: {latitude}</p>
-      <p>Longitude:{longitude}</p>
-      <button
-      // onClick={fetchGeoCode}
-      >
-        Use Current Location</button>
-    </div>
-    
-  );
-};
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -53,7 +21,9 @@ function App() {
         <ZipCodeForm />
         
       </div>
-      <LocationComponent />
+      {/* <button onClick = {getLocation}></button>
+      <LocationComponent /> */}
+      <LocationButton />
     </>
   );
 }
