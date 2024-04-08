@@ -12,4 +12,6 @@ const locationSchema = new mongoose.Schema({
     }
 })
 
+// const postSchema = n
+
 module.exports = mongoose.model('Location', locationSchema)

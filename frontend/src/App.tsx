@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import ZipCodeForm from './components/ZipCodeForm';
-import LocationButton from './components/LocationButton'
+import LocationButton from './components/LocationButton';
+import NavBar from './components/NavigationBar';
 // import axios from 'axios';
-
 
 function App() {
   // const [count, setCount] = useState(0);
 
   return (
     <>
+      {/* <NavBar /> */}
       <h1 className='text-4xl font-bold font-sans p-8'>App</h1>
       {/* Later fetch data from the api to display the number of zipcodes stored */}
       {/* <div className='card text-4xl'>
@@ -19,7 +20,6 @@ function App() {
       </div> */}
       <div className='card text-4xl border '>
         <ZipCodeForm />
-        
       </div>
       {/* <button onClick = {getLocation}></button>
       <LocationComponent /> */}
