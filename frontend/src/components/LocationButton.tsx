@@ -29,7 +29,7 @@ const LocationComponent = () => {
         const endpoint = 'http://localhost:3001/api/v1/reverse-geocode'
         const response = await axios.post(endpoint, coordData )
         console.log(response)
-        setData(response.data.results[0].formatted_address)
+        setData(response.data)
     }
     const error = () => {
         alert("unable to retrieve location")
@@ -57,7 +57,17 @@ const LocationComponent = () => {
         {/* <p>Latitude: {latitude}</p>
         <p>Longitude:{longitude}</p> */}
             <button onClick={getLocation}>Get Current Location</button>
-            <p>{ data}</p>
+            {data !== null && (
+            <div>
+                <p>{`Neighborhood: ${data.neighborhood}`}</p>
+                <p>{`City: ${data.city}`}</p>
+                <p>{`County: ${data.county}`}</p>
+                <p>{`State: ${data.state}`}</p>
+                <p>{`Country: ${data.country}`}</p>
+                <p>{`Zipcode: ${data.zipcode}`}</p>
+            </div>
+)}
+
       </div>
       
     );

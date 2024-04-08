@@ -11,17 +11,12 @@ const reverseGeoCode = async (req, res) => {
     // Get request for reversed geocode data from google geocode API
     try {
         const response = await axios.get(googleApiUrl);
-        const data = response.data 
+        const data = response.data.results 
         // console.log(data)
-        
-    }
-    catch (err) {
-        console.log(err)
-    }
-    // Extract needed data from response 
+         // Extract needed data from response 
     const locationData = {}
     // Consider changing to only looking at the first results array if consistently provides all required data 
-    for (let result of response.data.results) {
+    for (let result of data) {
         for (let component of result.address_components) {
             if (component.types.includes('neighborhood')) {
                 locationData.neighborhood = component.long_name
@@ -39,16 +34,21 @@ const reverseGeoCode = async (req, res) => {
                 locationData.county = component.long_name
             }
             else if (component.types.includes('country')) {
-                country = component.long_name
+                locationData.country = component.long_name
             }
         }
-        if ( location.neighborhood && locationData.county && locationData.state && locationData.city && locationData.zipcode) {
+        if ( locationData.neighborhood && locationData.county && locationData.state && locationData.city && locationData.zipcode && locationData.country) {
             break
         }
             
     }
     console.log(locationData)
     res.status(200).json(locationData)
+   
+    }
+    catch (err) {
+        console.log(err)
+    }
    
 }
 
