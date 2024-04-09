@@ -42,7 +42,6 @@ const reverseGeoCode = async (req, res) => {
         }
             
     }
-    console.log(locationData)
     res.status(200).json(locationData)
    
     }

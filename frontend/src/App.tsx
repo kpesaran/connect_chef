@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import ZipCodeForm from './components/ZipCodeForm';
 import LocationButton from './components/LocationButton';
-import NavBar from './components/NavigationBar';
+// import NavBar from './components/NavigationBar';
 // import axios from 'axios';
+import PostForm from './components/PostForm';
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -18,6 +19,7 @@ function App() {
           count is {count}
         </button>
       </div> */}
+      <PostForm />
       <div className='card text-4xl border '>
         <ZipCodeForm />
       </div>
