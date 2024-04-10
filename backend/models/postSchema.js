@@ -51,4 +51,4 @@ const postSchema = new mongoose.Schema({
 
 })
 
-module.exports = mongoose.model('Location', postSchema)
+module.exports = mongoose.model('Posting', postSchema)

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState }
+  from 'react';
 import './App.css';
 import ZipCodeForm from './components/ZipCodeForm';
 import LocationButton from './components/LocationButton';
@@ -12,6 +13,7 @@ function App() {
   return (
     <>
       {/* <NavBar /> */}
+      {/* <NavBar />  */}
       <h1 className='text-4xl font-bold font-sans p-8'>App</h1>
       {/* Later fetch data from the api to display the number of zipcodes stored */}
       {/* <div className='card text-4xl'>

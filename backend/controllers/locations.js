@@ -8,7 +8,9 @@ const getAllLocations = async (req, res) => {
 const createLocation = async (req, res) => {
     try {
         const location = await Locations.create(req.body)
-        res.status(201).json({location})
+        console.log(location)
+        res.status(201).json({ location })
+        
     }
     catch (err) {
         console.log(err)
