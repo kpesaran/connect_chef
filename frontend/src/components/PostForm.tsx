@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import fetchLocationData from '../utilities/locationUtils.ts';
 
 interface CategoryOptions {
   label: string;
@@ -21,17 +22,26 @@ const PostForm: React.FC = () => {
   const options = categoryOptions.map((category) => {
     return <option value={category.value}> {category.label} </option>;
   });
+
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-      try {
-    e.preventDefault();
+    try {
+      e.preventDefault();
+
       console.log('attemping to send user post to backend');
+      const locationData = await fetchLocationData();
+
       const userPost = {
         title: title,
         body: body,
         category: selectedCategory,
+        neighborhood: locationData.neighborhood,
+        city: locationData.city,
+        county: locationData.country,
+        state: locationData.state,
+        country: locationData.country,
+        zipcode: locationData.zipcode,
       };
 
-     
       const endpoint = 'http://localhost:3001/api/v1/postings';
       const response = await axios.post(endpoint, userPost);
 
@@ -66,7 +76,13 @@ const PostForm: React.FC = () => {
         >
           {options}
         </select>
-        <button type='submit'> Submit Form</button>
+        <button
+          className=' focus:ring bg-sky-500 hover:bg-sky-700'
+          type='submit'
+        >
+          {' '}
+          Submit Form
+        </button>
       </form>
     </>
   );

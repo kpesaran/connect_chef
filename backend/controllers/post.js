@@ -18,7 +18,6 @@ const getAllPosts = async (req, res) => {
 const createPost = async (req, res) => {
     try {
         const newPost = await PostSchema.create(req.body)
-        
         res.status(201).json(newPost)
     }
     catch (err) {

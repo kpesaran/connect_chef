@@ -6,6 +6,7 @@ import LocationButton from './components/LocationButton';
 // import NavBar from './components/NavigationBar';
 // import axios from 'axios';
 import PostForm from './components/PostForm';
+import PostContainer from './components/PostContainer';
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -28,6 +29,7 @@ function App() {
       {/* <button onClick = {getLocation}></button>
       <LocationComponent /> */}
       <LocationButton />
+      <PostContainer/>
     </>
   );
 }
