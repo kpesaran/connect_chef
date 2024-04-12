@@ -8,16 +8,17 @@ interface CategoryOptions {
 }
 
 const categoryOptions: CategoryOptions[] = [
-  { label: 'Event', value: 'event' },
+  
   { label: 'Recipe', value: 'recipe' },
   { label: 'Podcast', value: 'podcast' },
   { label: 'Music', value: 'music' },
+  { label: 'Event', value: 'event' },
 ];
 
 const PostForm: React.FC = () => {
   const [title, setTitle] = useState<string>('');
   const [body, setBody] = useState<string>('');
-  const [selectedCategory, setSelectedCatergory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
 
   const options = categoryOptions.map((category) => {
     return <option value={category.value}> {category.label} </option>;
@@ -44,7 +45,9 @@ const PostForm: React.FC = () => {
 
       const endpoint = 'http://localhost:3001/api/v1/postings';
       const response = await axios.post(endpoint, userPost);
-
+      setTitle('')
+      setBody('')
+      setSelectedCategory('')
       console.log(response);
     } catch (err) {
       console.log(err);
@@ -61,6 +64,7 @@ const PostForm: React.FC = () => {
           onChange={(e) => setTitle(e.target.value)}
           placeholder='Enter Title'
           required
+          
         ></input>
         {/* body */}
         <input
@@ -72,7 +76,7 @@ const PostForm: React.FC = () => {
         ></input>
         <select
           value={selectedCategory}
-          onChange={(e) => setSelectedCatergory(e.target.value)}
+          onChange={(e) => setSelectedCategory(e.target.value)}
         >
           {options}
         </select>

@@ -15,9 +15,6 @@ const LocationComponent = () => {
             return
         }
         navigator.geolocation.getCurrentPosition(success, error);
-      
-
- 
     }
     const success = async (position) => {
         const latitude = position.coords.latitude

@@ -1,5 +1,4 @@
-import React, { useEffect, useState }
-  from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import ZipCodeForm from './components/ZipCodeForm';
 import LocationButton from './components/LocationButton';
@@ -9,7 +8,7 @@ import PostForm from './components/PostForm';
 import PostContainer from './components/PostContainer';
 
 function App() {
-  // const [count, setCount] = useState(0);
+  const [showForm, setShowForm] = useState(false);
 
   return (
     <>
@@ -22,14 +21,18 @@ function App() {
           count is {count}
         </button>
       </div> */}
-      <PostForm />
-      <div className='card text-4xl border '>
-        <ZipCodeForm />
-      </div>
+
+  
+      {showForm && <PostForm />}
+ 
       {/* <button onClick = {getLocation}></button>
       <LocationComponent /> */}
-      <LocationButton />
-      <PostContainer/>
+      {/* <LocationButton /> */}
+      <button className='mb-4 hover:: 0' onClick={() => setShowForm(!showForm)}>
+        Make Post{' '}
+      </button>
+      <PostContainer />
+      <ZipCodeForm />
     </>
   );
 }
