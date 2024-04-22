@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import './styles.css';
+
 import axios from 'axios';
 
 interface PostProps {
@@ -21,7 +23,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
 
         <div className='py-14 '>
           <div className='rounded-full'>{post.neighborhood} </div>
-          <div> {post.city}</div>
+          <div className='city-title'> {post.city}</div>
         </div>
       </div>
       <div>{post.body}</div>

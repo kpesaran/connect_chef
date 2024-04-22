@@ -25,8 +25,9 @@ const PostForm: React.FC = () => {
   });
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     try {
-      e.preventDefault();
+      
 
       console.log('attemping to send user post to backend');
       const locationData = await fetchLocationData();
