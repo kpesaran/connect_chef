@@ -10,8 +10,9 @@ import PostForm from './components/PostForm';
 import PostContainer from './components/posts/PostContainer';
 import Home from './pages/home';
 import Login from "./pages/login"
-import NavBar from './components/navigation/NavBar';
 //import Page1 from "./pages/page-1"
+import Map from './pages/Map'
+import Layout from './Layout'
 
 function App() {
   return (
@@ -19,10 +20,16 @@ function App() {
 
       <Router>
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route element = {<Layout/>}>
+            <Route path='/' element={<Home />} />
           
-          <Route path='/login' element={<Login />} />
-          {/* <Route path = '/page1' element = {<Page1/>} /> */}
+            <Route path='/login' element={<Login />} />
+            <Route path='/map' element={<Map />} />
+            
+            {/* <Route path = '/page1' element = {<Page1/>} /> */}
+
+          </Route>
+          
         </Routes>
       </Router>
       {/* <NavBar/> */}

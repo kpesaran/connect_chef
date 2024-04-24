@@ -29,6 +29,9 @@ app.use('/api/v1/reverse-geocode', reverseGeoCode)
 app.use('/api/v1/postings', postings)
 
 
+app.use
+
+
 app.use(routeNotFoundMW)
 
 const port = 3001

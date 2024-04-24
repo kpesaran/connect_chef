@@ -5,7 +5,8 @@ const express = require('express')
 
 const getAllPosts = async (req, res) => {
     try {
-        const allPosts = await PostSchema.find({})
+        const allPosts = await PostSchema.find({
+        }).sort({_id:-1})
         res.status(201).json(allPosts)
     }
     catch (err) {
