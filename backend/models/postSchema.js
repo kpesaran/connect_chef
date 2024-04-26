@@ -8,6 +8,9 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    recipe: {
+        type: [String]
+    },
     // change to connect to user 
     // author: {
     //     type: String,
@@ -15,6 +18,14 @@ const postSchema = new mongoose.Schema({
     //     // unique: true
     // },
     // add comments later
+    ingredients: {
+        name: {
+            type: String
+        },
+        quantity: {
+            type: String
+        }
+    },
     dateStamp: {
         type: Date,
         default: Date.now()
@@ -48,6 +59,16 @@ const postSchema = new mongoose.Schema({
         type: String,
         // required: [true, "Zipcode must be provided"]
     },
+    lat: {
+        type: Number
+    },
+    lng: {
+        type: Number
+    },
+    picUrl: {
+        type:String 
+    }
+
 
 })
 

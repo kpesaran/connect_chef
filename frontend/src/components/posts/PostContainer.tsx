@@ -5,37 +5,16 @@ import './styles.css';
 import axios from 'axios';
 import SearchFilterSortSidebar from '../searchFilterSort/SearchFilterSortSidebar';
 
-interface PostProps {
-  post: {
-    id: number;
-    title: string;
-    body: string;
-    category: string;
-    neighborhood: string;
-    city: string;
-  };
-}
-const Post: React.FC<PostProps> = ({ post }) => {
-  return (
-    <div className='px-6 py-4 border h-80 flex gap-12 hover:bg-zinc-700 '>
-      <div className='shadow-lg border'>
-        <div className='font-bold text-xl mb2'>{post.title}</div>
-        <div>{post.category}</div>
+import Post from './Post'
 
-        <div className='py-14 '>
-          <div className='rounded-full'>{post.neighborhood} </div>
-          <div className='city-title'> {post.city}</div>
-        </div>
-      </div>
-      <div>{post.body}</div>
-    </div>
-  );
-};
+
 
 const PostContainer: React.FC = () => {
+  
   const [posts, setPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('');
+  
   
   function handleFilterChange(newFilter) {
     setFilter(newFilter)
@@ -54,7 +33,8 @@ const PostContainer: React.FC = () => {
         console.log(response.data);
       
         if (searchTerm != "") {
-          const postsToDisplay = response.data.filter(post => post.title && post.title.includes(searchTerm));
+          const searchTermLowerCase = searchTerm.toLowerCase()
+          const postsToDisplay = response.data.filter(post => post.title && post.title.toLowerCase().includes(searchTermLowerCase));
           setPosts([...postsToDisplay])
           return
 
@@ -75,7 +55,7 @@ const PostContainer: React.FC = () => {
       <SearchFilterSortSidebar onSearch={handleSearchChange} onFilterChange={handleFilterChange} />
       <div className=' '>
         {posts.map((post, i) => (
-          <Post key={i} post={post} />
+          <Post key={i} post={post} post_i ={i} />
         ))}
       </div>
     </div>

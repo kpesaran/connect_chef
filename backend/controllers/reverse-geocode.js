@@ -14,7 +14,7 @@ const reverseGeoCode = async (req, res) => {
         const data = response.data.results 
         // console.log(data)
          // Extract needed data from response 
-    const locationData = {}
+        const locationData = { lat: latitude, lng: longitude}
     // Consider changing to only looking at the first results array if consistently provides all required data 
     for (let result of data) {
         for (let component of result.address_components) {
