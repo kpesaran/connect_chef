@@ -2,7 +2,7 @@
     {
       "title": "Spaghetti Carbonara",
       "body": "Classic Italian pasta dish made with eggs, cheese, pancetta, and black pepper.",
-      "recipe": [
+      "steps": [
         "Cook spaghetti according to package instructions until al dente.",
         "In a separate bowl, whisk together eggs, grated Parmesan cheese, and black pepper.",
         "In a skillet, cook pancetta until crispy.",
@@ -33,7 +33,7 @@
     {
       "title": "Chicken Tikka Masala",
       "body": "A popular Indian dish with tender chicken cooked in a creamy tomato-based sauce.",
-      "recipe": [
+      "steps": [
         "Marinate chicken pieces in yogurt, ginger, garlic, and spices.",
         "Grill or bake marinated chicken until cooked through.",
         "In a separate pan, sauté onions, garlic, and spices until fragrant.",
@@ -67,7 +67,7 @@
     {
       "title": "Sushi Rolls",
       "body": "Delicious Japanese sushi rolls filled with fresh seafood, vegetables, and rice.",
-      "recipe": [
+      "steps": [
         "Prepare sushi rice according to package instructions.",
         "Lay out a sheet of nori on a bamboo rolling mat.",
         "Spread sushi rice evenly over the nori, leaving a small border along the edges.",
@@ -100,7 +100,7 @@
     {
       "title": "Tacos al Pastor",
       "body": "Traditional Mexican street food featuring marinated pork cooked on a vertical spit.",
-      "recipe": [
+      "steps": [
         "Marinate thinly sliced pork shoulder in a mixture of pineapple, chili peppers, and spices.",
         "Skewer marinated pork onto a vertical spit and cook until charred and crispy.",
         "Slice cooked pork thinly and serve in corn tortillas with chopped onions, cilantro, and pineapple.",
@@ -133,7 +133,7 @@
     {
       "title": "Pad Thai",
       "body": "A flavorful Thai stir-fried noodle dish with shrimp, tofu, peanuts, and tamarind sauce.",
-      "recipe": [
+      "steps": [
         "Soak rice noodles in warm water until softened, then drain.",
         "In a hot wok, stir-fry tofu until golden brown, then remove from pan.",
         "Stir-fry shrimp until cooked through, then remove from pan.",
@@ -174,7 +174,7 @@
     {
       "title": "Margherita Pizza",
       "body": "A classic Italian pizza topped with tomatoes, fresh mozzarella, basil, and olive oil.",
-      "recipe": [
+      "steps": [
         "Preheat oven to highest temperature setting with a pizza stone inside.",
         "Roll out pizza dough into a circle on a floured surface.",
         "Spread crushed tomatoes evenly over the dough, leaving a border for the crust.",
@@ -209,7 +209,7 @@
     {
       "title": "Beef Bulgogi",
       "body": "Korean marinated beef grilled to perfection, served with rice and kimchi.",
-      "recipe": [
+      "steps": [
         "Thinly slice beef (e.g., sirloin or ribeye) against the grain.",
         "Marinate beef slices in a mixture of soy sauce, sugar, sesame oil, garlic, and ginger.",
         "Grill marinated beef over high heat until caramelized and cooked through.",
@@ -241,7 +241,7 @@
     {
       "title": "Chicken Parmesan",
       "body": "Breaded chicken breasts topped with marinara sauce and melted cheese, served with pasta.",
-      "recipe": [
+      "steps": [
         "Pound chicken breasts to an even thickness, then season with salt and pepper.",
         "Dip chicken breasts in beaten eggs, then coat with breadcrumbs mixed with grated Parmesan cheese and Italian seasoning.",
         "Pan-fry breaded chicken until golden brown and cooked through.",
@@ -275,7 +275,7 @@
     {
       "title": "Miso Soup",
       "body": "A simple Japanese soup made with dashi broth, miso paste, tofu, seaweed, and green onions.",
-      "recipe": [
+      "steps": [
         "In a pot, bring dashi broth to a simmer.",
         "Add cubed tofu and sliced seaweed to the pot and simmer for a few minutes.",
         "In a small bowl, dissolve miso paste in a little hot broth, then add to the pot and stir to combine.",
@@ -307,7 +307,7 @@
     {
       "title": "Pasta Primavera",
       "body": "A light and fresh pasta dish with mixed vegetables, garlic, and olive oil.",
-      "recipe": [
+      "steps": [
         "Cook pasta according to package instructions until al dente.",
         "In a large skillet, heat olive oil over medium heat.",
         "Add minced garlic and sauté until fragrant.",

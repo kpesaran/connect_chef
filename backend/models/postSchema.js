@@ -1,4 +1,7 @@
 const mongoose = require('mongoose')
+
+const ingredientSchema = new mongoose.Schema({name: {type: String}, quantity: {type: String}})
+
 const postSchema = new mongoose.Schema({  
     title: {
         type: String,
@@ -8,7 +11,7 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    recipe: {
+    steps: {
         type: [String]
     },
     // change to connect to user 
@@ -18,14 +21,9 @@ const postSchema = new mongoose.Schema({
     //     // unique: true
     // },
     // add comments later
-    ingredients: {
-        name: {
-            type: String
-        },
-        quantity: {
-            type: String
-        }
-    },
+    ingredients: 
+        [ingredientSchema]
+    ,
     dateStamp: {
         type: Date,
         default: Date.now()
