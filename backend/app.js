@@ -6,12 +6,18 @@ const cors = require('cors')
 
 
 const connectDB = require('./db/connect')
+
+
+const authRouter = require('./routes/auth')
 const locations = require('./routes/locations')
 const reverseGeoCode = require('./routes/reverse-geocode')
 const postings = require('./routes/post')
 const routeNotFoundMW = require('./middleware/route-not-found')
 
 app.use(express.json())
+
+
+
 app.get('/', (req, res) => {
     res.send('Testing backend')
 })
@@ -22,6 +28,7 @@ app.get('/', (req, res) => {
 // Update before depoloying
 app.use(cors({ origin: process.env.LOCAL_HOST_URL }))
 //testing frontend and backend requests/responses
+app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/locations', locations )
 // testing reverse geocoding based on current location
 app.use('/api/v1/reverse-geocode', reverseGeoCode)

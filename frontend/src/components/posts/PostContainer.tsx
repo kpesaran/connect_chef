@@ -6,6 +6,8 @@ import axios from 'axios';
 import SearchFilterSortSidebar from '../searchFilterSort/SearchFilterSortSidebar';
 
 import Post from './Post'
+import PostCard from './PostCard';
+import PostFullScreen from './PostFullScreen'
 
 
 
@@ -14,6 +16,7 @@ const PostContainer: React.FC = () => {
   const [posts, setPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('');
+  const [selectedPost, setSelectedPost] = useState('')
   
   
   function handleFilterChange(newFilter) {
@@ -54,6 +57,9 @@ const PostContainer: React.FC = () => {
     <div className=''>
       <SearchFilterSortSidebar onSearch={handleSearchChange} onFilterChange={handleFilterChange} />
       <div className=' '>
+        {/* {selectedPost ? (
+          <PostFullScreen post = {selectedPost} onClose = {handleClose}/>
+        )} */}
         {posts.map((post, i) => (
           <Post key={i} post={post} post_i ={i} />
         ))}

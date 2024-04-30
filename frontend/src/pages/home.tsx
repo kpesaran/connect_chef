@@ -2,9 +2,26 @@ import React, { useEffect, useState } from 'react';
 import ZipCodeForm from '../components/ZipCodeForm';
 import PostForm from '../components/PostForm';
 import PostContainer from '../components/posts/PostContainer';
+import ChooseLocation from '../components/ChooseLocation/ChooseLocation';
+import fetchLocationData from '../utilities/locationUtils';
 
 export default function Home() {
+  const [location, setLocation] = useState({});
+  const [locationProvided, setLocationProvided] = useState(true);
   const [showForm, setShowForm] = useState(false);
+
+  useEffect(() => {
+    async function getLocation() {
+      try {
+        const locationData = await fetchLocationData();
+        console.log(locationData);
+        setLocation({ ...locationData });
+      } catch (err) {
+        console.error('Error fetching location:', err);
+      }
+    }
+      getLocation()
+  }, []);
 
   return (
     <>
@@ -17,16 +34,24 @@ export default function Home() {
         </button>
       </div> */}
 
-      {showForm && <PostForm />}
+      {!locationProvided ? (
+        <ChooseLocation />
+      ) : (
+        <div>
+          {showForm && <PostForm />}
 
-      {/* <button onClick = {getLocation}></button>
-      <LocationComponent /> */}
-      {/* <LocationButton /> */}
-      <button className='mb-4 hover:: 0' onClick={() => setShowForm(!showForm)}>
-        Make Post{' '}
-      </button>
-      <PostContainer />
-      <ZipCodeForm />
+          <button
+            className='mb-4 hover:: 0'
+            onClick={() => setShowForm(!showForm)}
+          >
+            Make Post{' '}
+          </button>
+                      <div>Location: {location.neighborhood}</div>
+                      <div></div>
+          <PostContainer  />
+          <ZipCodeForm />
+        </div>
+      )}
     </>
   );
 }

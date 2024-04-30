@@ -14,6 +14,7 @@ import Login from "./pages/login"
 import Map from './pages/Map'
 import Layout from './Layout'
 
+
 function App() {
   return (
     <>
@@ -25,7 +26,7 @@ function App() {
           
             <Route path='/login' element={<Login />} />
             <Route path='/map' element={<Map />} />
-            
+         
             {/* <Route path = '/page1' element = {<Page1/>} /> */}
 
           </Route>
