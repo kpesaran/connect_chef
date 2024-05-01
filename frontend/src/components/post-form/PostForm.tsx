@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import fetchLocationData from '../utilities/locationUtils.ts';
+import fetchLocationData from '../../utilities/locationUtils.ts';
 
 interface CategoryOptions {
   label: string;
@@ -18,8 +18,12 @@ const PostForm: React.FC = () => {
   const [title, setTitle] = useState<string>('');
   const [body, setBody] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [ingredients, setIngredients] = useState([{ name: '', quantity: '' },{ name: '', quantity: '' },{ name: '', quantity: '' }]);
-  const [steps, setSteps] = useState([''])
+  const [ingredients, setIngredients] = useState([
+    { name: '', quantity: '' },
+    { name: '', quantity: '' },
+    { name: '', quantity: '' },
+  ]);
+  const [steps, setSteps] = useState(['']);
 
   const options = categoryOptions.map((category) => {
     return <option value={category.value}> {category.label} </option>;
@@ -29,13 +33,11 @@ const PostForm: React.FC = () => {
     const newIngredients = [...ingredients];
     newIngredients[index] = {
       ...newIngredients[index],
-      [key] : value
-    }
+      [key]: value,
+    };
     setIngredients(newIngredients);
-    console.log(newIngredients)
+    console.log(newIngredients);
   };
-
- 
 
   const addIngredient = () => {
     setIngredients([...ingredients, { name: '', quantity: '' }]);
@@ -46,22 +48,19 @@ const PostForm: React.FC = () => {
     setIngredients(newIngredients);
   };
   const handleStepChange = (index, value) => {
-    const newSteps = [...steps]
-    newSteps[index] = value
-    setSteps(newSteps)
-  }
+    const newSteps = [...steps];
+    newSteps[index] = value;
+    setSteps(newSteps);
+  };
   const addStep = () => {
-    setSteps([...steps, ''])
-  }
+    setSteps([...steps, '']);
+  };
 
   const removeStep = (index) => {
-    const newSteps = [...steps]
-    newSteps.splice(index, 1)
-    setSteps(newSteps)
-  }
-
-  
-
+    const newSteps = [...steps];
+    newSteps.splice(index, 1);
+    setSteps(newSteps);
+  };
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -80,7 +79,7 @@ const PostForm: React.FC = () => {
         country: locationData.country,
         zipcode: locationData.zipcode,
         ingredients: ingredients,
-        steps: steps
+        steps: steps,
       };
 
       const endpoint = 'http://localhost:3001/api/v1/postings';
@@ -88,9 +87,13 @@ const PostForm: React.FC = () => {
       setTitle('');
       setBody('');
       setSelectedCategory('');
-      setIngredients([{ name: '', quantity: '' }, { name: '', quantity: '' }, { name: '', quantity: '' }])
-      setSteps([''])
-      
+      setIngredients([
+        { name: '', quantity: '' },
+        { name: '', quantity: '' },
+        { name: '', quantity: '' },
+      ]);
+      setSteps(['']);
+
       console.log(response);
     } catch (err) {
       console.log(err);
@@ -123,44 +126,56 @@ const PostForm: React.FC = () => {
         >
           {options}
         </select>
-         {/* ingredients */}
-         <div>
+        {/* ingredients */}
+        <div>
           <h3>Ingredients</h3>
           {ingredients.map((ingredient, index) => (
             <div key={index}>
               <input
-                type="text"
+                type='text'
                 value={ingredient.name}
-                onChange={(e) => handleIngredientChange(index, 'name', e.target.value)}
-                placeholder="Ingredient Name"
+                onChange={(e) =>
+                  handleIngredientChange(index, 'name', e.target.value)
+                }
+                placeholder='Ingredient Name'
               />
               <input
-                type="text"
+                type='text'
                 value={ingredient.quantity}
-                onChange={(e) => handleIngredientChange(index, 'quantity', e.target.value)}
-                placeholder="Quantity"
+                onChange={(e) =>
+                  handleIngredientChange(index, 'quantity', e.target.value)
+                }
+                placeholder='Quantity'
               />
-              <button type="button" onClick={() => removeIngredient(index)}>Remove</button>
+              <button type='button' onClick={() => removeIngredient(index)}>
+                Remove
+              </button>
             </div>
           ))}
-          <button type="button" onClick={addIngredient}>Add Ingredient</button>
+          <button type='button' onClick={addIngredient}>
+            Add Ingredient
+          </button>
         </div>
         {/* Steps */}
         <div>
           <h3>Steps</h3>
           {steps.map((step, index) => (
             <div key={index}>
-              <div className='flex'> 
+              <div className='flex'>
                 <h5>{index + 1}:</h5>
-                <input value={step} className='border 8 w-50' type='text' onChange={(e) => handleStepChange(index, e.target.value)} />
-                <button onClick ={()=>removeStep(index)}>-</button>
+                <input
+                  value={step}
+                  className='border 8 w-50'
+                  type='text'
+                  onChange={(e) => handleStepChange(index, e.target.value)}
+                />
+                <button onClick={() => removeStep(index)}>-</button>
               </div>
-              
             </div>
           ))}
-          <button onClick = {addStep}>Add Step</button>
+          <button onClick={addStep}>Add Step</button>
         </div>
-        
+
         <button
           className=' focus:ring bg-sky-500 hover:bg-sky-700'
           type='submit'

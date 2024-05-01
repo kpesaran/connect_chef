@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import './styles.css'
 const NavBar = () => {
   return (
     <nav>
-      <ul>
+      <ul className='links-container flex gap-20 '>
         <li>
           <Link to='/'>Home</Link>
               </li>

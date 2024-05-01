@@ -1,5 +1,7 @@
 // PostFullScreen.js
 import React from 'react';
+import imageUrls from '../../../public/image-urls';
+import './styles.css'
 
 const PostFullScreen = ({ post, onClose }) => {
   return (
@@ -7,30 +9,36 @@ const PostFullScreen = ({ post, onClose }) => {
       <div className='background-fade' onClick={onClose}></div>
       <div className='post-expanded'>
         <button onClick={onClose}>Close</button>
-        <img src={post.imageUrl} alt='Post Image' />
-        <h1>{post.title}</h1>
-        <p>{post.body}</p>
+        <div className='highlighted-card'>
+          
+          <div className='highlighted-name-title'>
+            <h1>{post.title}</h1>
+            <p className='highlighted-description'>{post.body}</p>
+          </div>
+          
+        </div>
+        <img className='highlighted-img' src={imageUrls[0]} alt='Post Image' />
         {/* Add more details like Ingredients and Steps here */}
         <div>
           <div className='border 8'>
-            <div>Ingredients</div>
-            <div>
+            <h4 className='highlighted-ingredient-title'>Ingredients</h4>
+            <ul>
               {post.ingredients.map((ingredient) => (
-                <p>
+                <li className='p-1 highlighted-ingredients '>
                   {ingredient.name}, {ingredient.quantity}
-                </p>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
           <div className='border 8'>
-            <div>Steps</div>
-            <div>
+            <h4 className='highlighted-ingredient-steps'>Steps</h4>
+            <ol>
               {post.steps.map((step, i) => (
-                <p>
+                <li className='p-2 highlighted-steps'>
                   {i + 1}: {step}
-                </p>
+                </li>
               ))}
-            </div>
+            </ol>
           </div>
         </div>
       </div>

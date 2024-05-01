@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import ZipCodeForm from '../components/ZipCodeForm';
-import PostForm from '../components/PostForm';
+import PostForm from '../components/post-form/PostForm';
 import PostContainer from '../components/posts/PostContainer';
 import ChooseLocation from '../components/ChooseLocation/ChooseLocation';
 import fetchLocationData from '../utilities/locationUtils';
 
 export default function Home() {
   const [location, setLocation] = useState({});
-  const [locationProvided, setLocationProvided] = useState(true);
+  const [posts,setPosts] = useState([])
+  // const [locationProvided, setLocationProvided] = useState(true);
   const [showForm, setShowForm] = useState(false);
+
+  
 
   useEffect(() => {
     async function getLocation() {
@@ -34,9 +37,7 @@ export default function Home() {
         </button>
       </div> */}
 
-      {!locationProvided ? (
-        <ChooseLocation />
-      ) : (
+      
         <div>
           {showForm && <PostForm />}
 
@@ -46,12 +47,12 @@ export default function Home() {
           >
             Make Post{' '}
           </button>
-                      <div>Location: {location.neighborhood}</div>
-                      <div></div>
-          <PostContainer  />
-          <ZipCodeForm />
+          <div>Location: {location.neighborhood}</div>
+          <div></div>
+          <PostContainer posts ={posts} />
+          {/* <ZipCodeForm /> */}
         </div>
-      )}
+      
     </>
   );
 }

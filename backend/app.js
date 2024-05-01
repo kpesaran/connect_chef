@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 
 
 // Update before depoloying
-app.use(cors({ origin: process.env.LOCAL_HOST_URL }))
+app.use(cors())
 //testing frontend and backend requests/responses
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/locations', locations )

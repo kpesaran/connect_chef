@@ -6,7 +6,7 @@ import axios from 'axios';
 import SearchFilterSortSidebar from '../searchFilterSort/SearchFilterSortSidebar';
 
 import Post from './Post'
-import PostCard from './PostCard';
+// import PostCard from './PostCard';
 import PostFullScreen from './PostFullScreen'
 
 
@@ -25,10 +25,20 @@ const PostContainer: React.FC = () => {
   function handleSearchChange(newTerm) {
     setSearchTerm(newTerm)
   }
+  function handleClose() {
+    setSelectedPost(null) 
+  }
+  function handleFocusPost(post_id) {
+    const curr_post = posts.find(post => post._id === post_id)
+    
+    setSelectedPost(curr_post)
+  }
+  // location, neighborhood, city, state, country
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        // use location data to make your api requests 
         const endpoint = `http://localhost:3001/api/v1/postings?`;
       
 
@@ -50,18 +60,20 @@ const PostContainer: React.FC = () => {
     };
     fetchData();
   }, [searchTerm]);
+  
   console.log(searchTerm)
-
+  console.log(selectedPost)
   return (
     
     <div className=''>
       <SearchFilterSortSidebar onSearch={handleSearchChange} onFilterChange={handleFilterChange} />
       <div className=' '>
-        {/* {selectedPost ? (
+        {selectedPost ? (
           <PostFullScreen post = {selectedPost} onClose = {handleClose}/>
-        )} */}
-        {posts.map((post, i) => (
-          <Post key={i} post={post} post_i ={i} />
+        ) :
+          
+        posts.map((post, i) => (
+          <Post key={post._id} post={post} post_i ={i} onOpen = {handleFocusPost} />
         ))}
       </div>
     </div>

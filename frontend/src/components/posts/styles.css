@@ -2,8 +2,6 @@
     font-weight: bold;
     font-size: 24px;
 }
-
-/* App.css */
 .post-expanded {
     position: fixed; /* Fixed position to cover the entire viewport */
     top: 0;
@@ -27,11 +25,64 @@
     z-index: 500; /* Lower than post but higher than page content */
   }
   
+  .highlighted-card {
+    display: flex;
+    justify-content: center;
+  }
+  .highlighted-name-title {
+    margin: 40px;
+    text-align: center;
+  }
 
   .highlighted-img {
-    height: 50%;
-    text-align: center;
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px
 
   }
 
+  .post-container {
+    display: flex;
+    width: 800px;
+    justify-content: center;
+  }
+  .post-content {
+    flex: 1
+  }
+  .post-title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:24px;
+  }
+
+  .post-details {
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+  }
+
+  .highlighted-description {
+    font-size: 30px;
+    padding-top: 6px;
+  }
+
+  .highlighted-ingredient-title {
+    font-size: 32px;
+    text-decoration: underline;
+  }
+
+  .highlighted-ingredient-steps {
+    font-size: 32px;
+    text-decoration: underline;
+  }
+  .highlighted-ingredients {
+    font-size: 24px;
+  }
+
+  .highlighted-steps {
+    font-size: 24px;
+  }
   
