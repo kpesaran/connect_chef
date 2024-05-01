@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import ZipCodeForm from '../components/ZipCodeForm';
 import PostForm from '../components/post-form/PostForm';
 import PostContainer from '../components/posts/PostContainer';
@@ -7,9 +8,37 @@ import fetchLocationData from '../utilities/locationUtils';
 
 export default function Home() {
   const [location, setLocation] = useState({});
-  const [posts,setPosts] = useState([])
+
   // const [locationProvided, setLocationProvided] = useState(true);
   const [showForm, setShowForm] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // use location data to make your api requests 
+        const endpoint = `http://localhost:3001/api/v1/postings?`;
+      
+
+        const response = await axios.get(endpoint);
+        console.log(response.data);
+      
+        if (searchTerm != "") {
+          const searchTermLowerCase = searchTerm.toLowerCase()
+          const postsToDisplay = response.data.filter(post => post.title && post.title.toLowerCase().includes(searchTermLowerCase));
+          setPosts([...postsToDisplay])
+          return
+
+        }
+
+        setPosts(response.data);
+      } catch (error) {
+        console.error('failed to get posts:', error);
+      }
+    };
+    fetchData();
+  }, [searchTerm]);
 
   
 
