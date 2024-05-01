@@ -14,7 +14,7 @@ const categoryOptions: CategoryOptions[] = [
   { label: 'Event', value: 'event' },
 ];
 
-const PostForm: React.FC = ({ location}) => {
+const PostForm: React.FC = ({ location, onCreatePost}) => {
   
   const [title, setTitle] = useState<string>('');
   const [body, setBody] = useState<string>('');
@@ -96,6 +96,7 @@ const PostForm: React.FC = ({ location}) => {
       setSteps(['']);
 
       console.log(response);
+      onCreatePost()
     } catch (err) {
       console.log(err);
     }

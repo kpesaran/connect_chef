@@ -13,30 +13,32 @@ export default function Home() {
   const [showForm, setShowForm] = useState(false);
   const [posts, setPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  
+  const fetchData = async () => {
+    try {
+      // use location data to make your api requests 
+      const endpoint = `http://localhost:3001/api/v1/postings?`;
+    
+
+      const response = await axios.get(endpoint);
+      console.log(response.data);
+    
+      if (searchTerm != "") {
+        const searchTermLowerCase = searchTerm.toLowerCase()
+        const postsToDisplay = response.data.filter(post => post.title && post.title.toLowerCase().includes(searchTermLowerCase));
+        setPosts([...postsToDisplay])
+        return
+
+      }
+
+      setPosts(response.data);
+    } catch (error) {
+      console.error('failed to get posts:', error);
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // use location data to make your api requests 
-        const endpoint = `http://localhost:3001/api/v1/postings?`;
-      
-
-        const response = await axios.get(endpoint);
-        console.log(response.data);
-      
-        if (searchTerm != "") {
-          const searchTermLowerCase = searchTerm.toLowerCase()
-          const postsToDisplay = response.data.filter(post => post.title && post.title.toLowerCase().includes(searchTermLowerCase));
-          setPosts([...postsToDisplay])
-          return
-
-        }
-
-        setPosts(response.data);
-      } catch (error) {
-        console.error('failed to get posts:', error);
-      }
-    };
+   
     fetchData();
   }, [searchTerm]);
 
@@ -68,7 +70,7 @@ export default function Home() {
 
       
         <div>
-          {showForm && <PostForm location ={location} />}
+          {showForm && <PostForm location ={location} onCreatePost = {fetchData} />}
 
           <button
             className='mb-4 hover:: 0'
