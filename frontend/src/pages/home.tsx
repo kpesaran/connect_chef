@@ -68,7 +68,7 @@ export default function Home() {
 
       
         <div>
-          {showForm && <PostForm />}
+          {showForm && <PostForm location ={location} />}
 
           <button
             className='mb-4 hover:: 0'
@@ -78,7 +78,7 @@ export default function Home() {
           </button>
           <div>Location: {location.neighborhood}</div>
           <div></div>
-          <PostContainer posts ={posts} />
+          <PostContainer posts ={posts} location = {location} />
           {/* <ZipCodeForm /> */}
         </div>
       

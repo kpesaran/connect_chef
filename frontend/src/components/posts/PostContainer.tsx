@@ -12,7 +12,7 @@ import PostFullScreen from './PostFullScreen'
 
 
 const PostContainer: React.FC = ({posts}) => {
-  ;
+  
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('');
   const [selectedPost, setSelectedPost] = useState('')

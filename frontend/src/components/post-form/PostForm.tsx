@@ -14,7 +14,8 @@ const categoryOptions: CategoryOptions[] = [
   { label: 'Event', value: 'event' },
 ];
 
-const PostForm: React.FC = () => {
+const PostForm: React.FC = ({ location}) => {
+  
   const [title, setTitle] = useState<string>('');
   const [body, setBody] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -66,18 +67,18 @@ const PostForm: React.FC = () => {
     e.preventDefault();
     try {
       console.log('attemping to send user post to backend');
-      const locationData = await fetchLocationData();
+      
 
       const userPost = {
         title: title,
         body: body,
         category: selectedCategory,
-        neighborhood: locationData.neighborhood,
-        city: locationData.city,
-        county: locationData.country,
-        state: locationData.state,
-        country: locationData.country,
-        zipcode: locationData.zipcode,
+        neighborhood: location.neighborhood,
+        city: location.city,
+        county: location.country,
+        state: location.state,
+        country: location.country,
+        zipcode: location.zipcode,
         ingredients: ingredients,
         steps: steps,
       };
