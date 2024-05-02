@@ -14,16 +14,19 @@ export default function Home() {
   const [showForm, setShowForm] = useState(false);
   const [posts, setPosts] = useState([]);
 
-  const fetchData = async () => {
+
+
+  const fetchData = async (localLocation) => {
     try {
       // use location data to make your api requests
-      const locationVal = location[filter]
+      const locationVal = localLocation[filter]
       
-      const locationQuery = `${filter}=${locationVal}`
-      console.log(locationQuery)
+      
       let endpoint = `http://localhost:3001/api/v1/postings?` 
       if (locationVal) {
-        endpoint = endpoint + locationQuery
+        const locationQuery = `${filter}=${locationVal}`
+        console.log(locationQuery)
+        endpoint += locationQuery
       }
       const response = await axios.get(endpoint);
       console.log(response.data);
@@ -62,28 +65,29 @@ export default function Home() {
         setLocation({ ...locationData });
         console.log(JSON.stringify(locationData))
         localStorage.setItem('location', JSON.stringify(locationData))
+        fetchData(locationData)
         
       } catch (err) {
         console.error('Error fetching location:', err);
       }
     }
     const storedLocation = localStorage.getItem('location')
-    console.log(JSON.parse(storedLocation))
 
     if (storedLocation) {
       const storedLocationObj = JSON.parse(storedLocation)
       setLocation({ ...storedLocationObj })
-      
+      fetchData(storedLocationObj)
     }
     else {
       getLocation();
     }
-  }, []);
+  }, [filter, searchTerm]);
 
 
-  useEffect(() => {
-    fetchData();
-  }, [searchTerm, filter]);
+  // useEffect(() => {
+
+  //   fetchData();
+  // }, [searchTerm, filter,location]);
 
 
   console.log(filter)

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import fetchLocationData from '../../utilities/locationUtils.ts';
 
 interface CategoryOptions {
   label: string;
@@ -96,7 +95,7 @@ const PostForm: React.FC = ({ location, onCreatePost}) => {
       setSteps(['']);
 
       console.log(response);
-      onCreatePost()
+      onCreatePost(location)
     } catch (err) {
       console.log(err);
     }

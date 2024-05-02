@@ -37,7 +37,6 @@ export default function MapDisplay() {
           <Marker position = {{ lat: post.lat, lng: post.lng }} />
         )
       )}
-        {/* <Marker position = {{lat: 61.2176, lng: -149.8997}} /> */}
           </Map >
 
       </APIProvider>
