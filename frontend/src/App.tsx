@@ -11,7 +11,7 @@ import PostContainer from './components/posts/PostContainer';
 import Home from './pages/home';
 import Login from './pages/login';
 //import Page1 from "./pages/page-1"
-import Map from './pages/Map';
+import MapDisplay from './pages/Map';
 import Layout from './Layout';
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
             <Route path='/' element={<Home />} />
 
             <Route path='/login' element={<Login />} />
-            <Route path='/map' element={<Map />} />
+            <Route path='/map' element={<MapDisplay />} />
 
             {/* <Route path = '/page1' element = {<Page1/>} /> */}
           </Route>

@@ -8,7 +8,7 @@ export default function Home() {
   const [location, setLocation] = useState({});
 
   const [searchTerm, setSearchTerm] = useState('');
-  const [filter, setFilter] = useState('');
+  const [filter, setFilter] = useState('neighborhood');
 
   // const [locationProvided, setLocationProvided] = useState(true);
   const [showForm, setShowForm] = useState(false);
@@ -17,10 +17,14 @@ export default function Home() {
   const fetchData = async () => {
     try {
       // use location data to make your api requests
-     
-      const endpoint = `http://localhost:3001/api/v1/postings?`; 
-
-
+      const locationVal = location[filter]
+      
+      const locationQuery = `${filter}=${locationVal}`
+      console.log(locationQuery)
+      let endpoint = `http://localhost:3001/api/v1/postings?` 
+      if (locationVal) {
+        endpoint = endpoint + locationQuery
+      }
       const response = await axios.get(endpoint);
       console.log(response.data);
 
@@ -42,10 +46,7 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {
-    fetchData();
-  }, [searchTerm]);
-
+ 
   function handleFilterChange(newFilter) {
     setFilter(newFilter);
   }
@@ -70,14 +71,19 @@ export default function Home() {
     console.log(JSON.parse(storedLocation))
 
     if (storedLocation) {
-      console.log('hello')
       const storedLocationObj = JSON.parse(storedLocation)
       setLocation({ ...storedLocationObj })
+      
     }
     else {
       getLocation();
-    }    
+    }
   }, []);
+
+
+  useEffect(() => {
+    fetchData();
+  }, [searchTerm, filter]);
 
 
   console.log(filter)
@@ -106,3 +112,5 @@ export default function Home() {
     </>
   );
 }
+
+

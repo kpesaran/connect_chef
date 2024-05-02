@@ -43,5 +43,3 @@ yarn-error.log*
 npm-debug.log
 yarn-error.log
 
-
-/frontend/src/pages/Map.tsx

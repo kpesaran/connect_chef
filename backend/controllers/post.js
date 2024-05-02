@@ -14,7 +14,7 @@ const getAllPosts = async (req, res) => {
         res.status(201).json(allPosts)
     }
     catch (err) {
-        console.err(err)
+        console.error(err)
         
     }
 }

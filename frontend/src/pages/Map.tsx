@@ -1,92 +1,46 @@
-import React, { useEffect,useState ,useCallback } from "react"
+import React, { useEffect, useState ,useCallback } from "react"
 import axios from "axios";
-import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
+
+import {APIProvider, Map, Marker} from '@vis.gl/react-google-maps'
 
 
-const containerStyle = {
-    width: '50vh',
-    height: '50vw'
-}
 
-const center = {
-    lat: 10.99835602,
-    lng: 77.01502627}
-
-
-function Map() {
-    const [posts, setPosts] = useState([])
-    const [visiblePosts,setVisiblePosts] = useState([])
-    const { isLoaded } = useJsApiLoader({
-        id: 'google-map-script',
-        googleMapsApiKey: 'k'
-    })
-    const [map, setMap] = useState(null)
-
-    const onLoad = useCallback(function callback(map) {
-      // This is just an example of getting and using the map instance!!! don't just blindly copy!
-      const bounds = new window.google.maps.LatLngBounds(center);
-      map.fitBounds(bounds);
-  
-      setMap(map)
-    }, [])
-    // clean up callback
-    const onUnmount = useCallback(function callback(map) {
-      setMap(null)
-    }, [])
-
+const apiKeyGoogle = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
+export default function MapDisplay() {
+  const [posts, setPosts] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const endpoint = `http://localhost:3001/api/v1/postings?`;
-      
-
         const response = await axios.get(endpoint);
         console.log(response.data);
-
         setPosts(response.data);
       } catch (error) {
         console.error('failed to get posts:', error);
       }
     };
     fetchData();
-  }, []);
-  
-    
-    console.log(posts)
+}, []);
 
-    
-    return isLoaded ? (
-       <div className="flex">
-        <GoogleMap
-          mapContainerStyle={containerStyle}
-          center={center}
-          zoom={2}
-          onLoad={onLoad}
-          onUnmount={onUnmount}
-        >
-            { /* Child components, such as markers, info windows, etc. */}
-            {posts.map(post => (
-                <Marker 
-                    key={post.id}
-                    position = {{lat:post.lat,lng:post.lng }}/>
-            ))}
-          <></>
-            </GoogleMap>
-            
-            <div className="text-center">
-                <h1 className="text-center">Posts</h1>
-                {posts.map(post => (
-                    <div>{post.title}</div>
-                ))}
-            </div>
-        </div>
-            )
-            
-            : <><h3>Map failed to load</h3></>
-        
-  }
-  
-  export default React.memo(Map)
-  
+
+  return (
+    <APIProvider apiKey={'fill_key'}>
+      <Map
+        style={{ width: '75vw', height: '75vh' }}
+        defaultCenter={{ lat: 22.54992, lng: 0 }}
+        defaultZoom={2}
+        gestureHandling={'greedy'}
+        disableDefaultUI={false}>
+         {posts.map((post) => 
+        (
+          <Marker position = {{ lat: post.lat, lng: post.lng }} />
+        )
+      )}
+        {/* <Marker position = {{lat: 61.2176, lng: -149.8997}} /> */}
+          </Map >
+
+      </APIProvider>
+  )
+}
 

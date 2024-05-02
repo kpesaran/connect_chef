@@ -9,7 +9,8 @@ export default function FilterComponent({ onFilterChange }) {
         <div>
         <input 
             type="radio" 
-            id="neighborhood" 
+                id="neighborhood" 
+                defaultChecked
             name="filter" 
             value="neighborhood" 
             onChange={(e) => onFilterChange(e.target.value)} 
