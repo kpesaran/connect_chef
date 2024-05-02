@@ -11,19 +11,13 @@ import PostFullScreen from './PostFullScreen'
 
 
 
-const PostContainer: React.FC = ({posts}) => {
+const PostContainer: React.FC = ({posts, onSearch, onFilterChange}) => {
   
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filter, setFilter] = useState('');
+
   const [selectedPost, setSelectedPost] = useState('')
+ 
   
   
-  function handleFilterChange(newFilter) {
-    setFilter(newFilter)
-  }
-  function handleSearchChange(newTerm) {
-    setSearchTerm(newTerm)
-  }
   function handleClose() {
     setSelectedPost(null) 
   }
@@ -33,15 +27,11 @@ const PostContainer: React.FC = ({posts}) => {
     setSelectedPost(curr_post)
   }
   // location, neighborhood, city, state, country
-
-  
-  
-  console.log(searchTerm)
   console.log(selectedPost)
   return (
     
     <div className=''>
-      <SearchFilterSortSidebar onSearch={handleSearchChange} onFilterChange={handleFilterChange} />
+      <SearchFilterSortSidebar onSearch={onSearch} onFilterChange={onFilterChange} />
       <div className=' '>
         {selectedPost ? (
           <PostFullScreen post = {selectedPost} onClose = {handleClose}/>
