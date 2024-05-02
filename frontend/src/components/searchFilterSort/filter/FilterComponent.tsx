@@ -3,7 +3,7 @@
 
 
 export default function FilterComponent({ onFilterChange }) {
-
+    
     return (
 
         <div>
