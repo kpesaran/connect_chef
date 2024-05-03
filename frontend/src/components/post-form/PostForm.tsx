@@ -128,10 +128,13 @@ const PostForm: React.FC = ({ location, onCreatePost}) => {
           {options}
         </select>
         {/* ingredients */}
-        <div>
-          <h3>Ingredients</h3>
+        <div className='flex flex-col' >
+          <h3>Add Ingredients</h3>
           {ingredients.map((ingredient, index) => (
-            <div key={index}>
+            <div className = 'flex gap-4' key={index}>
+              <button type='button' onClick={() => removeIngredient(index)}>
+                -
+              </button>
               <input
                 type='text'
                 value={ingredient.name}
@@ -148,33 +151,33 @@ const PostForm: React.FC = ({ location, onCreatePost}) => {
                 }
                 placeholder='Quantity'
               />
-              <button type='button' onClick={() => removeIngredient(index)}>
-                Remove
-              </button>
+              
             </div>
           ))}
-          <button type='button' onClick={addIngredient}>
-            Add Ingredient
+          <button className='w-5' type='button' onClick={addIngredient}>
+            +
           </button>
         </div>
         {/* Steps */}
-        <div>
-          <h3>Steps</h3>
+        <div className='flex flex-col gap-4'>
+          <h3 >Add Instructions</h3>
           {steps.map((step, index) => (
             <div key={index}>
+              
               <div className='flex'>
-                <h5>{index + 1}:</h5>
+              <button onClick={() => removeStep(index)}>-</button>
+                <h5 className='m-2'>{index + 1}:   </h5>
                 <input
                   value={step}
                   className='border 8 w-50'
                   type='text'
                   onChange={(e) => handleStepChange(index, e.target.value)}
                 />
-                <button onClick={() => removeStep(index)}>-</button>
+               
               </div>
             </div>
           ))}
-          <button onClick={addStep}>Add Step</button>
+          <button className = 'w-5' onClick={addStep}>+</button>
         </div>
 
         <button
