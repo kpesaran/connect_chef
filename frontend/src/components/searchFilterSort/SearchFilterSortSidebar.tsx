@@ -9,7 +9,7 @@ export default function SearchFilterSortSidebar({ onSearch, onFilterChange}) {
     return (
         <div className='p-10'>
             <h4>Filters</h4>
-            <div className=''>
+            <div className='flex gap-10'>
                 <SearchComponent onSearch={onSearch} />
                 <FilterComponent onFilterChange={onFilterChange} />
                 {/* <SortComponent onSortChange = {onSortChange}/> */}

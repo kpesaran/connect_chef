@@ -8,7 +8,7 @@ export default function SearchComponent({ onSearch }) {
         onSearch(searchTerm)
     }
     return (
-        <div>
+        <div className = 'flex gap-1'>
             <input
                 type="text"
                 placeholder="Search..."
