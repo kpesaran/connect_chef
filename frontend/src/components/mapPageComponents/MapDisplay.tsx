@@ -1,15 +1,16 @@
 import React, { useEffect, useState ,useCallback } from "react"
 import axios from "axios";
 
-import SelectedPost from "./SelectedPost";
+import PostInfoCard from "./SelectedPost";
 
 import {APIProvider, Map, Marker} from '@vis.gl/react-google-maps'
 
-
+import './styles.css'
 
 const apiKeyGoogle = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
 export default function MapDisplay() {
   const [posts, setPosts] = useState([])
+  const [infoCardVisible, setInfoCardVisible] = useState(false)
   const [selectedPost, setSelectedPost] = useState({})
   useEffect(() => {
     const fetchData = async () => {
@@ -25,37 +26,43 @@ export default function MapDisplay() {
     fetchData();
   }, []);
   
-  const handleSelectedPost = (postId: string) => {
-    const selected = posts.find(post => post._id === postId);
-    setSelectedPost(selected);
+  const handleMarkerClick = (post) => {
+    
+    setSelectedPost(post);
+    setInfoCardVisible(!infoCardVisible)
   }
 
   console.log(selectedPost)
   return (
   <>
-    {selectedPost ? <div className ="" onClick = {()=> setSelectedPost({})}>
     
-        <SelectedPost post = {selectedPost} />
+    <div className="map-container">
+      <APIProvider apiKey={'AIzaSyCZN2FATQaaHzroCA5b2zXFgP-QQh_tiyA'}>
+      
+        <Map
+          style={{ width: '50vw', height: '75vh' }}
+          defaultCenter={{ lat: 22.54992, lng: 0 }}
+          defaultZoom={2}
+          gestureHandling={'greedy'}
+          disableDefaultUI={true}>
+           {posts.map((post) =>
+          (
+            <Marker key = {post._id} onClick = {()=>handleMarkerClick(post)} position = {{ lat: post.lat, lng: post.lng }} />
+          )
+        )}
+            </Map >
+        </APIProvider>
+    </div>
+      <div>
+      {infoCardVisible ? <div className ="" onClick = {()=> handleMarkerClick({})}>
+    
+        <PostInfoCard post = {selectedPost} />
         
       </div>
         
-        : null}
-    <APIProvider apiKey={'fill-key'}>
+        : <h3>Click a Marker to display a post</h3>}
+      </div>
       
-      <Map
-        style={{ width: '75vw', height: '75vh' }}
-        defaultCenter={{ lat: 22.54992, lng: 0 }}
-        defaultZoom={2}
-        gestureHandling={'greedy'}
-        disableDefaultUI={true}>
-         {posts.map((post) => 
-        (
-          <Marker key = {post._id} onClick = {()=>handleSelectedPost(post._id)} position = {{ lat: post.lat, lng: post.lng }} />
-        )
-      )}
-          </Map >
-
-      </APIProvider>
       </>
   )
 }

@@ -23,9 +23,6 @@ app.get('/', (req, res) => {
 })
 
 
-
-
-// Update before depoloying
 app.use(cors())
 //testing frontend and backend requests/responses
 app.use('/api/v1/auth', authRouter)

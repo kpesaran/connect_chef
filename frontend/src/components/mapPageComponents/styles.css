@@ -1,0 +1,13 @@
+
+
+.info-card {
+    width: 16em;
+    min-height: 10em;
+    
+    z-index: 25;
+    background-color: cadetblue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
