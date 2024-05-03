@@ -7,11 +7,13 @@ import FilterComponent from './filter/FilterComponent'
 
 export default function SearchFilterSortSidebar({ onSearch, onFilterChange}) {
     return (
-        <div className='sidebar p-10'>
+        <div className='p-10'>
             <h4>Filters</h4>
-            <SearchComponent onSearch={onSearch} />
-            <FilterComponent onFilterChange={onFilterChange} />
-            {/* <SortComponent onSortChange = {onSortChange}/> */}
+            <div className=''>
+                <SearchComponent onSearch={onSearch} />
+                <FilterComponent onFilterChange={onFilterChange} />
+                {/* <SortComponent onSortChange = {onSortChange}/> */}
+            </div>
         </div>
     )
 }

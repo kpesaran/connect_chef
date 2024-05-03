@@ -8,7 +8,7 @@ import {APIProvider, Map, Marker} from '@vis.gl/react-google-maps'
 const apiKeyGoogle = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
 export default function MapDisplay() {
   const [posts, setPosts] = useState([])
-
+  const [selectedPost, setSelectedPost] = useState({})
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -21,25 +21,39 @@ export default function MapDisplay() {
       }
     };
     fetchData();
-}, []);
+  }, []);
+  
+  const handleSelectedPost = (postId: string) => {
+    const selected = posts.find(post => post._id === postId);
+    setSelectedPost(selected);
+  }
 
-
+  console.log(selectedPost)
   return (
-    <APIProvider apiKey={'fill_key'}>
+  <>
+    {selectedPost ? <div className ="" onClick = {()=> setSelectedPost({})}>
+        <h1>
+          {selectedPost.title}
+        </h1>
+      </div>
+        : null}
+    <APIProvider apiKey={'fill-key'}>
+      
       <Map
         style={{ width: '75vw', height: '75vh' }}
         defaultCenter={{ lat: 22.54992, lng: 0 }}
         defaultZoom={2}
         gestureHandling={'greedy'}
-        disableDefaultUI={false}>
+        disableDefaultUI={true}>
          {posts.map((post) => 
         (
-          <Marker position = {{ lat: post.lat, lng: post.lng }} />
+          <Marker onClick = {()=>handleSelectedPost(post._id)} position = {{ lat: post.lat, lng: post.lng }} />
         )
       )}
           </Map >
 
       </APIProvider>
+      </>
   )
 }
 

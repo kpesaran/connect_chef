@@ -6,7 +6,7 @@ export default function FilterComponent({ onFilterChange }) {
     
     return (
 
-        <div>
+        <div className="flex justify-center  gap-3">
         <input 
             type="radio" 
                 id="neighborhood" 
