@@ -37,7 +37,7 @@ export default function MapDisplay() {
   <>
     
     <div className="map-container">
-      <APIProvider apiKey={'AIzaSyCZN2FATQaaHzroCA5b2zXFgP-QQh_tiyA'}>
+      <APIProvider apiKey={''}>
       
         <Map
           style={{ width: '50vw', height: '75vh' }}

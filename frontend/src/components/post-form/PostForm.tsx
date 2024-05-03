@@ -128,7 +128,7 @@ const PostForm: React.FC = ({ location, onCreatePost}) => {
           {options}
         </select>
         {/* ingredients */}
-        <div className='flex flex-col' >
+        <div className='flex flex-col gap-4' >
           <h3>Add Ingredients</h3>
           {ingredients.map((ingredient, index) => (
             <div className = 'flex gap-4' key={index}>
@@ -136,6 +136,7 @@ const PostForm: React.FC = ({ location, onCreatePost}) => {
                 -
               </button>
               <input
+                className='w-4/12'
                 type='text'
                 value={ingredient.name}
                 onChange={(e) =>
@@ -169,7 +170,7 @@ const PostForm: React.FC = ({ location, onCreatePost}) => {
                 <h5 className='m-2'>{index + 1}:   </h5>
                 <input
                   value={step}
-                  className='border 8 w-50'
+                  className='border 8 w-10/12'
                   type='text'
                   onChange={(e) => handleStepChange(index, e.target.value)}
                 />
