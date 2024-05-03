@@ -2,10 +2,10 @@ import MapDisplay from "../components/mapPageComponents/MapDisplay"
 
 
 
-export default function Map() {
+export default function MapPage() {
 
-  (
-       <MapDisplay/>
+  return  (
+       <div><MapDisplay/></div>
   )
 }
 

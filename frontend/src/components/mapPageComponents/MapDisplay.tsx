@@ -1,6 +1,8 @@
 import React, { useEffect, useState ,useCallback } from "react"
 import axios from "axios";
 
+import SelectedPost from "./SelectedPost";
+
 import {APIProvider, Map, Marker} from '@vis.gl/react-google-maps'
 
 
@@ -32,10 +34,11 @@ export default function MapDisplay() {
   return (
   <>
     {selectedPost ? <div className ="" onClick = {()=> setSelectedPost({})}>
-        <h1>
-          {selectedPost.title}
-        </h1>
+    
+        <SelectedPost post = {selectedPost} />
+        
       </div>
+        
         : null}
     <APIProvider apiKey={'fill-key'}>
       
@@ -47,7 +50,7 @@ export default function MapDisplay() {
         disableDefaultUI={true}>
          {posts.map((post) => 
         (
-          <Marker onClick = {()=>handleSelectedPost(post._id)} position = {{ lat: post.lat, lng: post.lng }} />
+          <Marker key = {post._id} onClick = {()=>handleSelectedPost(post._id)} position = {{ lat: post.lat, lng: post.lng }} />
         )
       )}
           </Map >

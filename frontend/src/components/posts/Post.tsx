@@ -28,7 +28,6 @@ const Post: React.FC<PostProps> = ({ post, post_i, onOpen }) => {
   //   console.log(getCurrentID);
   //   setSelected(getCurrentID === selected ? null : getCurrentID);
   // }
-  console.log(post.category);
 
   return (
     <>
@@ -46,8 +45,8 @@ const Post: React.FC<PostProps> = ({ post, post_i, onOpen }) => {
             <div className='city-title'> {post.city}</div>
 
             <div className='flex flex-col p-8 gap-1'>
-              {post.category.map((category) => (
-                <p>{category}</p>
+              {post.category.map((category,i) => (
+                <p key = {i}>{category}</p>
               ))}
             </div>
           </div>
