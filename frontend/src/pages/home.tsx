@@ -75,7 +75,7 @@ export default function Home() {
 
     if (storedLocation) {
       const storedLocationObj = JSON.parse(storedLocation)
-      setLocation({ ...storedLocationObj })
+      setLocation(storedLocationObj )
       fetchData(storedLocationObj)
     }
     else {

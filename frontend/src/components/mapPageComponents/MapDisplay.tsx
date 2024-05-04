@@ -6,6 +6,7 @@ import PostInfoCard from "./SelectedPost";
 import {APIProvider, Map, Marker} from '@vis.gl/react-google-maps'
 
 import './styles.css'
+import { info } from "console";
 
 const apiKeyGoogle = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
 export default function MapDisplay() {
@@ -29,15 +30,20 @@ export default function MapDisplay() {
   const handleMarkerClick = (post) => {
     
     setSelectedPost(post);
-    setInfoCardVisible(!infoCardVisible)
+    if (Object.keys(post).length === 0) {
+      setInfoCardVisible(false)
+    }
+    else setInfoCardVisible(true)
+
   }
 
   console.log(selectedPost)
+  console.log(infoCardVisible)
   return (
   <>
     
     <div className="map-container">
-      <APIProvider apiKey={''}>
+      <APIProvider apiKey=''>
       
         <Map
           style={{ width: '50vw', height: '75vh' }}
