@@ -17,7 +17,7 @@ const PostFullScreen = ({ post, onClose }) => {
           </div>
           
         </div>
-        <img className='highlighted-img' src={imageUrls[0]} alt='Post Image' />
+        <img className='highlighted-img' src = {post.picUrl ?  post.picUrl  : imageUrls[0]} alt='Post Image' />
         {/* Add more details like Ingredients and Steps here */}
         <div>
           <div className='border 8'>

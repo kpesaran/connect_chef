@@ -1,9 +1,19 @@
+const images = require('./image-urls')
+
 require('dotenv').config()
+
 
 const connectDB = require('./db/connect')
 const Product = require('./models/postSchema')
 
 const posts = require('./posts.json')
+
+for (let i = 0; i < posts.length; i++) {
+  imageIndex = i % images.length
+  console.log(images[imageIndex])
+  posts[i].picUrl = images[imageIndex]
+}
+
 
 const start = async () => {
   try {

@@ -14,13 +14,14 @@ interface PostProps {
     lng: number;
     steps: string[];
     ingredients: { name: string; quantity: string }[];
+    picUrl: string;
   };
   post_i: number;
 }
 
 const Post: React.FC<PostProps> = ({ post, post_i, onOpen }) => {
-  const imageUrlIndex = post_i % imageUrls.length;
-  const imageUrl = imageUrls[imageUrlIndex];
+  // const imageUrlIndex = post_i % imageUrls.length;
+  // const imageUrl = imageUrls[imageUrlIndex];
 
   const [selected, setSelected] = useState(null);
 
@@ -56,7 +57,7 @@ const Post: React.FC<PostProps> = ({ post, post_i, onOpen }) => {
           <div>{post.body}</div>
           <div></div>
         </div>
-        <img src={imageUrl} alt='picture of food'></img>
+        <img src = {post.picUrl ?  post.picUrl  : imageUrls[0]} alt='picture of food'></img>
       </div>
     </>
   );
