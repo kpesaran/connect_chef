@@ -7,11 +7,15 @@
 .post-container-grid{
   width: 100%;
   margin: 1rem auto;
-  display: grid;
-  justify-items: center;
+  /* display: grid; */
+  /* justify-items: center;
   grid-gap: 10px;
   justify-content: center;
-  grid-template-columns: repeat(auto-fill, 440px);
+  grid-template-columns: repeat(auto-fill, 440px); */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
 }
 
 .post-card {
