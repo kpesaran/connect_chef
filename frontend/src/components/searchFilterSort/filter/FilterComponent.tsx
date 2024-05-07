@@ -43,9 +43,9 @@ export default function FilterComponent({ onFilterChange }) {
       <br />
       <input
         type='radio'
-        id='worldwide'
+        id='global'
         name='filter'
-        value='country'
+        value='global'
         onChange={(e) => onFilterChange(e.target.value)}
       />
       <label htmlFor='global'>Global</label>
