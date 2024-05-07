@@ -14,10 +14,10 @@ export default function Home() {
   const [showForm, setShowForm] = useState(false);
   const [posts, setPosts] = useState([]);
 
-  const [isLoading, setIsLoading] = useState(true)
+  // const [isLoading, setIsLoading] = useState(true)
 
   const fetchData = async (localLocation) => {
-    setIsLoading(true)
+    // setIsLoading(true)
     try {
       // use location data to make your api requests
       const locationVal = localLocation[filter]
@@ -77,7 +77,7 @@ export default function Home() {
       }
     }
     const storedLocation = localStorage.getItem('location')
-    setIsLoading(true)
+ 
     if (storedLocation) {
       const storedLocationObj = JSON.parse(storedLocation)
       setLocation(storedLocationObj )
@@ -100,7 +100,7 @@ export default function Home() {
   return (
     <>
       
-      {isLoading ? <h4>Data is loading...</h4> :
+      {/* {isLoading ? <h4>Data is loading...</h4> : */}
       <div>
         {showForm && <PostForm location={location} onCreatePost={fetchData} />}
 
@@ -119,7 +119,7 @@ export default function Home() {
           onFilterChange={handleFilterChange} />
         {/* <ZipCodeForm /> */}
         </div>
-      }
+      {/* } */}
     </>
   );
 }
