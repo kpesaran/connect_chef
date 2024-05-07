@@ -15,7 +15,8 @@
 }
 
 .post-card {
-  gap:5px
+  gap:5px;
+  cursor: pointer;
 
 }
 

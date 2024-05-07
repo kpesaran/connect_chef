@@ -30,7 +30,7 @@ const PostContainer: React.FC = ({posts, onSearch, onFilterChange}) => {
   console.log(selectedPost)
   return (
     
-    <div className=''>
+    <div className='flex flex-col justify-center '>
       <SearchFilterSortSidebar onSearch={onSearch} onFilterChange={onFilterChange} />
       
         {selectedPost ? (
