@@ -32,15 +32,16 @@ const PostContainer: React.FC = ({posts, onSearch, onFilterChange}) => {
     
     <div className=''>
       <SearchFilterSortSidebar onSearch={onSearch} onFilterChange={onFilterChange} />
-      <div className=' '>
+      
         {selectedPost ? (
           <PostFullScreen post = {selectedPost} onClose = {handleClose}/>
         ) :
-          
-        posts.map((post, i) => (
-          <Post key={post._id} post={post} post_i ={i} onOpen = {handleFocusPost} />
-        ))}
-      </div>
+         <div className = 'post-container-grid'>
+          {posts.map((post, i) => (
+            <Post key={post._id} post={post} post_i={i} onOpen={handleFocusPost} />
+          ))}
+        </div>}
+      
     </div>
   );
 };

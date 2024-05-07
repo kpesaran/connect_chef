@@ -9,6 +9,7 @@ import './styles.css'
 import { info } from "console";
 
 const apiKeyGoogle = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
+
 export default function MapDisplay() {
   const [posts, setPosts] = useState([])
   const [infoCardVisible, setInfoCardVisible] = useState(false)

@@ -38,7 +38,7 @@ const Post: React.FC<PostProps> = ({ post, post_i, onOpen }) => {
       <div
         // onClick={() => handleSingleSelection(post._id)}
         onClick={() => onOpen(post._id)}
-        className={`post-container px-6 py-4 border gap-12 hover:bg-zinc-100 h-80 `}
+        className={`post-card flex border`}
       >
         <div className=' post-details shadow-lg border'>
           <div className='py-10 '>
@@ -46,8 +46,8 @@ const Post: React.FC<PostProps> = ({ post, post_i, onOpen }) => {
             <div className='city-title'> {post.city}</div>
 
             <div className='flex flex-col p-8 gap-1'>
-              {post.category.map((category,i) => (
-                <p key = {i}>{category}</p>
+              {post.category.map((category, i) => (
+                <p key={i}>{category}</p>
               ))}
             </div>
           </div>
@@ -57,7 +57,11 @@ const Post: React.FC<PostProps> = ({ post, post_i, onOpen }) => {
           <div>{post.body}</div>
           <div></div>
         </div>
-        <img src = {post.picUrl ?  post.picUrl  : imageUrls[0]} alt='picture of food'></img>
+        <img
+          className='img-post-card'
+          src={post.picUrl ? post.picUrl : imageUrls[0]}
+          alt='picture of food'
+        ></img>
       </div>
     </>
   );
