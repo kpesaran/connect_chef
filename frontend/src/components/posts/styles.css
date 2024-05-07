@@ -21,6 +21,8 @@
 .post-card {
   gap:5px;
   cursor: pointer;
+  border-top: 3px black solid;
+  border-bottom: 3px black solid;
 
 }
 

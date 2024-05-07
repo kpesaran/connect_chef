@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import PostInfoCard from './SelectedPost';
 
-import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
+import { APIProvider, Map, Marker, InfoWindow} from '@vis.gl/react-google-maps';
 
 import './styles.css';
 import { info } from 'console';
@@ -38,7 +38,7 @@ export default function MapDisplay() {
   return (
     <>
       <div className='map-container'>
-        <APIProvider apiKey='hl'>
+        <APIProvider apiKey='AIzaSyCm9Mipa7yue_lBZGmm08BwcR_KNMK7b5E'>
           <Map
             style={{ width: '50vw', height: '75vh' }}
             defaultCenter={{ lat: 22.54992, lng: 0 }}
@@ -47,12 +47,25 @@ export default function MapDisplay() {
             disableDefaultUI={true}
           >
             {posts.map((post) => (
+              
+              <div key ={post._id}>
               <Marker
-                key={post._id}
                 onClick={() => handleMarkerClick(post)}
                 position={{ lat: post.lat, lng: post.lng }}
               />
+              {selectedPost && selectedPost._id === post._id && (
+                <InfoWindow position={{ lat: post.lat, lng: post.lng }}>
+                  {/* Content of InfoWindow goes here, e.g., details about the post */}
+                  <div className='flex flex-col'>
+                      <h3>{post.title}</h3>
+                      <img style ={{width: '100px'}} src={post.picUrl}></img>
+                    <p>{post.body}</p>
+                  </div>
+                </InfoWindow>
+              )}
+            </div>
             ))}
+            
           </Map>
         </APIProvider>
       </div>
