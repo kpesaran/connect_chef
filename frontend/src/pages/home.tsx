@@ -93,7 +93,7 @@ export default function Home() {
   console.log(filter)
   return (
     <>
-      <h1 className='text-4xl font-bold font-sans p-8'>App</h1>
+      
 
       <div>
         {showForm && <PostForm location={location} onCreatePost={fetchData} />}

@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import './styles.css'
 const NavBar = () => {
   return (
-    <nav>
-      <ul className='links-container flex gap-20 '>
+    <nav className='border'>
+      <h1 className='text-4xl font-bold font-sans p-8'>App</h1>
+      <ul className='links-container flex gap-20 p-5 '>
         <li>
           <Link to='/'>Home</Link>
               </li>

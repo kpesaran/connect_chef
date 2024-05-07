@@ -7,9 +7,9 @@ import FilterComponent from './filter/FilterComponent'
 
 export default function SearchFilterSortSidebar({ onSearch, onFilterChange}) {
     return (
-        <div className='justify-center flex gap-10 p-10'>
+        <div className=' flex flex-col justify-center gap-4 p-10'>
             <h4>Filters</h4>
-            <div className='flex gap-10 justify-center'>
+            <div className='flex flex-col items-center gap-2'>
                 <SearchComponent onSearch={onSearch} />
                 <FilterComponent onFilterChange={onFilterChange} />
                 {/* <SortComponent onSortChange = {onSortChange}/> */}
