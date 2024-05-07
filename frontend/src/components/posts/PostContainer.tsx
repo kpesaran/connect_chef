@@ -11,7 +11,8 @@ import PostFullScreen from './PostFullScreen'
 
 
 
-const PostContainer: React.FC = ({posts, onSearch, onFilterChange}) => {
+const PostContainer: React.FC = ({ posts, onSearch, onFilterChange }) => {
+ 
   
 
   const [selectedPost, setSelectedPost] = useState('')

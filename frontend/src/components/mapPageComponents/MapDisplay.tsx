@@ -38,7 +38,7 @@ export default function MapDisplay() {
   return (
     <>
       <div className='map-container'>
-        <APIProvider apiKey=''>
+        <APIProvider apiKey='hl'>
           <Map
             style={{ width: '50vw', height: '75vh' }}
             defaultCenter={{ lat: 22.54992, lng: 0 }}
