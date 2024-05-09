@@ -28,7 +28,7 @@
       "zipcode": "10013",
       "lat": 40.7193,
       "lng": -73.9977,
-      "picUrl": "https://example.com/spaghetti_carbonara.jpg"
+      "picUrl": ""
     },
     {
       "title": "Chicken Tikka Masala",
@@ -62,7 +62,7 @@
       "zipcode": "60608",
       "lat": 41.8445,
       "lng": -87.6463,
-      "picUrl": "https://example.com/chicken_tikka_masala.jpg"
+      "picUrl": ""
     },
     {
       "title": "Sushi Rolls",
@@ -95,7 +95,7 @@
       "zipcode": "94108",
       "lat": 37.7945,
       "lng": -122.4070,
-      "picUrl": "https://example.com/sushi_rolls.jpg"
+      "picUrl": ""
     },
     {
       "title": "Tacos al Pastor",
@@ -128,7 +128,7 @@
       "zipcode": "60616",
       "lat": 41.8595,
       "lng": -87.6563,
-      "picUrl": "https://example.com/tacos_al_pastor.jpg"
+      "picUrl": ""
     },
     {
       "title": "Pad Thai",
@@ -169,7 +169,7 @@
       "zipcode": "90012",
       "lat": 34.0599,
       "lng": -118.2453,
-      "picUrl": "https://example.com/pad_thai.jpg"
+      "picUrl": ""
     },
     {
       "title": "Margherita Pizza",
@@ -204,7 +204,7 @@
       "zipcode": "10013",
       "lat": 40.7216,
       "lng": -73.9957,
-      "picUrl": "https://example.com/margherita_pizza.jpg"
+      "picUrl": ""
     },
     {
       "title": "Beef Bulgogi",
@@ -236,7 +236,7 @@
       "zipcode": "90005",
       "lat": 34.0623,
       "lng": -118.3004,
-      "picUrl": "https://example.com/beef_bulgogi.jpg"
+      "picUrl": ""
     },
     {
       "title": "Chicken Parmesan",
@@ -270,7 +270,7 @@
       "zipcode": "02113",
       "lat": 42.3654,
       "lng": -71.0542,
-      "picUrl": "https://example.com/chicken_parmesan.jpg"
+      "picUrl": ""
     },
     {
       "title": "Miso Soup",
@@ -302,7 +302,7 @@
       "zipcode": "94115",
       "lat": 37.7857,
       "lng": -122.4293,
-      "picUrl": "https://example.com/miso_soup.jpg"
+      "picUrl": ""
     },
     {
       "title": "Pasta Primavera",
@@ -336,7 +336,7 @@
       "zipcode": "10013",
       "lat": 40.7244,
       "lng": -74.0021,
-      "picUrl": "https://example.com/pasta_primavera.jpg"
+      "picUrl": ""
     }
   ]
   

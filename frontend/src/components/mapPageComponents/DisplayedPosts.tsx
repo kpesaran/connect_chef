@@ -2,7 +2,7 @@
 import './styles.css'
 
 
-export default function DisplayedPosts({ posts, bounds }) {
+export default function DisplayedPosts({ posts }) {
 
     return (
     <div className="flex flex-col items-center posts-container">

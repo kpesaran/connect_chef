@@ -32,7 +32,7 @@ const MyComponent = ({posts}) => {
     return bounds.contains(postLatLng)
   })
 
-  return <><DisplayedPosts posts={displayedPosts} bounds = {bounds}  /></>;
+  return <><DisplayedPosts posts={displayedPosts}/></>;
 };
 
 
