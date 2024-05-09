@@ -6,7 +6,9 @@ export default function Layout() {
 
     return (
         <>
-            <NavBar />
+            <header>
+                <NavBar />
+            </header>
             <div>
                 {/* renders all the child routes, Outlet will become all are other routes  */}
                 <Outlet/>
