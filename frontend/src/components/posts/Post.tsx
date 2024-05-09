@@ -44,17 +44,21 @@ const Post: React.FC<PostProps> = ({ post, post_i, onOpen }) => {
           <div className='flex flex-col py-10 '>
             <span className='rounded-full'>{post.neighborhood} </span>
             <span className='city-title'> {post.city}</span>
-
+            
             <div className='flex flex-col p-8 gap-1'>
               {post.category.map((category, i) => (
                 <span key={i}>{category}</span>
               ))}
             </div>
+            <span>Views: {post.views}</span>
           </div>
         </div>
         <div className='post-title-container'>
           <span className='font-bold text-xl mb2'>{post.title}</span>
           <span>{post.body}</span>
+          
+                      <span>{post.steps.length} steps</span>
+                      <span>{post.ingredients.length} ingredients</span>
           <div></div>
         </div>
         <img
