@@ -41,20 +41,20 @@ const Post: React.FC<PostProps> = ({ post, post_i, onOpen }) => {
         className={`post-card flex border`}
       >
         <div className=' post-details shadow-lg border'>
-          <div className='py-10 '>
-            <div className='rounded-full'>{post.neighborhood} </div>
-            <div className='city-title'> {post.city}</div>
+          <div className='flex flex-col py-10 '>
+            <span className='rounded-full'>{post.neighborhood} </span>
+            <span className='city-title'> {post.city}</span>
 
             <div className='flex flex-col p-8 gap-1'>
               {post.category.map((category, i) => (
-                <p key={i}>{category}</p>
+                <span key={i}>{category}</span>
               ))}
             </div>
           </div>
         </div>
         <div className='post-title-container'>
-          <div className='font-bold text-xl mb2'>{post.title}</div>
-          <div>{post.body}</div>
+          <span className='font-bold text-xl mb2'>{post.title}</span>
+          <span>{post.body}</span>
           <div></div>
         </div>
         <img
