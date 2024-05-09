@@ -65,8 +65,7 @@ const postSchema = new mongoose.Schema({
     },
     picUrl: {
         type:String 
-    }
-
+    },
 
 })
 
