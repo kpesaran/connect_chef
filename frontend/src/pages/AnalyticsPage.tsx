@@ -9,7 +9,6 @@ const fetchPostsData = async () => {
         try {
             const endpoint = `http://localhost:3001/api/v1/postings?`
             const response = await axios.get(endpoint)
-            console.log(response.data)
             return response.data
         }
         catch (err) {
@@ -19,6 +18,17 @@ const fetchPostsData = async () => {
 
 export default function AnalyticsPage() {
     const [posts, setPosts] = useState([])
+    const [selectedCountry, setSelectedCountry] = useState('')
+
+    let uniqueCountries = []
+    if (posts.length > 0) {
+        posts.forEach(post => {
+            if (!uniqueCountries.includes(post.country))
+                uniqueCountries.push(post.country)
+        })
+    }
+    
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -32,10 +42,17 @@ export default function AnalyticsPage() {
         fetchData()
         
     },[])
-
+    console.log(selectedCountry)
     return (
         <div>
             <div>Analytics Page</div>
+            <select name='selectedCountry' defaultValue="United States"
+            onChange={(e)=>setSelectedCountry(e.target.value)}>
+                {uniqueCountries.map((country) => (
+                    <option value={country} >{country}</option>
+                ))}
+            </select>
+
             {posts.map((post) => (
                 <div key={post._id}>{post.title}</div>
             ))}
