@@ -2,6 +2,9 @@
 import axios from "axios"
 
 import { useEffect, useState } from "react"
+import PieChart from "../components/charts/PieChartCountry"
+import PieChartCountry from "../components/charts/PieChartCountry"
+
 
 
 const fetchPostsData = async () => {
@@ -42,7 +45,7 @@ export default function AnalyticsPage() {
         fetchData()
         
     },[])
-    console.log(selectedCountry)
+
     return (
         <div>
             <div>Analytics Page</div>
@@ -53,9 +56,7 @@ export default function AnalyticsPage() {
                 ))}
             </select>
 
-            {posts.map((post) => (
-                <div key={post._id}>{post.title}</div>
-            ))}
+            <PieChartCountry />
         </div>
         
     )
