@@ -1,30 +1,36 @@
 
 import axios from "axios"
-import { resolve } from "path"
+
 import { useEffect, useState } from "react"
 
 
-const  fetchPostsData = async () => {
+const fetchPostsData = async () => {
     
-    try {
-        const endpoint = `http://localhost:3001/api/v1/postings?`
-
-        const response = await axios.get(endpoint)
-        console.log(response.data)
-    }
-    catch (err) {
-
-        console.error(err)
-    }
-    
+        try {
+            const endpoint = `http://localhost:3001/api/v1/postings?`
+            const response = await axios.get(endpoint)
+            console.log(response.data)
+            return response.data
+        }
+        catch (err) {
+            throw new Error('failed to fetch posts')
+        }
 }
-
 
 export default function AnalyticsPage() {
     const [posts, setPosts] = useState([])
-
     useEffect(() => {
-
+        const fetchData = async () => {
+            try {
+                const fetchedPosts = await fetchPostsData()
+                setPosts(fetchedPosts)
+            }
+            catch (err) {
+                console.error(err)
+            }
+        }
+        fetchData()
+        
     },[])
 
     return (
