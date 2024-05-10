@@ -13,6 +13,7 @@ import Login from './pages/login';
 //import Page1 from "./pages/page-1"
 import MapPage from './pages/Map';
 import Layout from './Layout';
+import AnalyticsPage from './pages/AnalyticsPage';
 
 function App() {
   return (
@@ -22,9 +23,9 @@ function App() {
           <Route element={<Layout />}>
             <Route path='/' element={<Home />} />
 
-            <Route path='/login' element={<Login />} />
+            {/* <Route path='/login' element={<Login />} /> */}
             <Route path='/map' element={<MapPage />} />
-
+            <Route path = '/analytics' element = {<AnalyticsPage/>}/>
             {/* <Route path = '/page1' element = {<Page1/>} /> */}
           </Route>
         </Routes>
