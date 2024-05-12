@@ -96,6 +96,7 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
       setSteps(['']);
 
       console.log(response);
+      onCloseForm()
       onCreatePost(location)
     } catch (err) {
       console.log(err);
