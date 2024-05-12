@@ -9,7 +9,7 @@ export default function Layout() {
             <header>
                 <NavBar />
             </header>
-            <div>
+            <div className='mt-5'>
                 {/* renders all the child routes, Outlet will become all are other routes  */}
                 <Outlet/>
             </div>

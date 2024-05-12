@@ -22,7 +22,7 @@ const PostContainer: React.FC = ({ posts, onSearch, onFilterChange }) => {
   function handleClose() {
     setSelectedPost(null) 
   }
-  function handleFocusPost(post_id) {
+function  handleFocusPost(post_id) {
     const curr_post = posts.find(post => post._id === post_id)
     
     setSelectedPost(curr_post)

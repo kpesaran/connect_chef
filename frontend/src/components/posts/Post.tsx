@@ -19,7 +19,7 @@ interface PostProps {
   post_i: number;
 }
 
-const Post: React.FC<PostProps> = ({ post, post_i, onOpen }) => {
+const Post: React.FC<PostProps> = ({ post, onOpen }) => {
   // const imageUrlIndex = post_i % imageUrls.length;
   // const imageUrl = imageUrls[imageUrlIndex];
 
