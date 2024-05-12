@@ -38,10 +38,10 @@ const Post: React.FC<PostProps> = ({ post, onOpen }) => {
       <div
         // onClick={() => handleSingleSelection(post._id)}
         onClick={() => onOpen(post._id)}
-        className={`post-card flex border`}
+        className={`post-card flex border rounded-md`}
       >
-        <div className=' post-details shadow-lg border'>
-          <div className='flex flex-col py-10 '>
+        <div className=' post-details shadow-lg border rounded-md'>
+          <div className='flex flex-col py-10  '>
             <span className='rounded-full'>{post.neighborhood} </span>
             <span className='city-title'> {post.city}</span>
             
@@ -53,7 +53,7 @@ const Post: React.FC<PostProps> = ({ post, onOpen }) => {
             <span>Views: {post.views}</span>
           </div>
         </div>
-        <div className='post-title-container'>
+        <div className='post-title-container '>
           <span className='font-bold text-xl mb2'>{post.title}</span>
           <span>{post.body}</span>
           
@@ -62,7 +62,7 @@ const Post: React.FC<PostProps> = ({ post, onOpen }) => {
           <div></div>
         </div>
         <img
-          className='img-post-card'
+          className='img-post-card rounded-md'
           src={post.picUrl ? post.picUrl : imageUrls[0]}
           alt='picture of food'
         ></img>

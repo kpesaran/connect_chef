@@ -18,7 +18,7 @@
         {"name": "Black Pepper", "quantity": "to taste"}
       ],
       "dateStamp": "2024-04-25T12:00:00.000Z",
-      "category": ["Italian", "Pasta"],
+      "category": ["Italian"],
       "views": 780,
       "neighborhood": "Little Italy",
       "city": "New York",
@@ -52,7 +52,8 @@
         {"name": "Cream", "quantity": "100ml"}
       ],
       "dateStamp": "2024-04-24T12:00:00.000Z",
-      "category": ["Indian", "Curry"],
+      "category": ["Indian"],
+      
       "views": 452,
       "neighborhood": "Little India",
       "city": "Chicago",
@@ -85,7 +86,7 @@
         {"name": "Wasabi", "quantity": "for dipping"}
       ],
       "dateStamp": "2024-04-23T12:00:00.000Z",
-      "category": ["Japanese", "Sushi"],
+      "category": ["Japanese"],
       "views": 873,
       "neighborhood": "Chinatown",
       "city": "San Francisco",
@@ -118,7 +119,7 @@
         {"name": "Lime (cut into wedges)", "quantity": "for serving"}
       ],
       "dateStamp": "2024-04-22T12:00:00.000Z",
-      "category": ["Mexican", "Street Food"],
+      "category": ["Mexican"],
       "views": 217,
       "neighborhood": "Pilsen",
       "city": "Chicago",
@@ -159,7 +160,7 @@
         {"name": "Lime (cut into wedges)", "quantity": "for serving"}
       ],
       "dateStamp": "2024-04-21T12:00:00.000Z",
-      "category": ["Thai", "Stir-fry"],
+      "category": ["Thai"],
       "views": 632,
       "neighborhood": "Thai Town",
       "city": "Los Angeles",
@@ -194,7 +195,7 @@
         {"name": "Pepper", "quantity": "to taste"}
       ],
       "dateStamp": "2024-04-20T12:00:00.000Z",
-      "category": ["Italian", "Pizza"],
+      "category": ["Italian"],
       "views": 145,
       "neighborhood": "Little Italy",
       "city": "New York",
@@ -226,7 +227,7 @@
         {"name": "Kimchi", "quantity": "for serving"}
       ],
       "dateStamp": "2024-04-19T12:00:00.000Z",
-      "category": ["Korean", "BBQ"],
+      "category": ["Korean"],
       "views": 793,
       "neighborhood": "Koreatown",
       "city": "Los Angeles",
@@ -260,7 +261,7 @@
         {"name": "Pasta", "quantity": "for serving"}
       ],
       "dateStamp": "2024-04-18T12:00:00.000Z",
-      "category": ["Italian", "Chicken"],
+      "category": ["Italian"],
       "views": 612,
       "neighborhood": "Little Italy",
       "city": "Boston",
@@ -292,7 +293,7 @@
         {"name": "Rice", "quantity": "for serving"}
       ],
       "dateStamp": "2024-04-17T12:00:00.000Z",
-      "category": ["Japanese", "Soup"],
+      "category": ["Japanese"],
       "views": 895,
       "neighborhood": "Japantown",
       "city": "San Francisco",
@@ -326,7 +327,7 @@
         {"name": "Parmesan Cheese (grated)", "quantity": "1/4 cup"}
       ],
       "dateStamp": "2024-04-16T12:00:00.000Z",
-      "category": ["Italian", "Pasta"],
+      "category": ["Italian"],
       "views": 347,
       "neighborhood": "Little Italy",
       "city": "New York",
@@ -361,7 +362,7 @@
         {"name": "Nutmeg", "quantity": "a pinch"}
       ],
       "dateStamp": "2024-05-07T12:00:00.000Z",
-      "category": ["French", "Baked Goods"],
+      "category": ["French"],
       "views": 1230,
       "neighborhood": "Saint Germain",
       "city": "Paris",
@@ -396,7 +397,7 @@
         {"name": "Orange Slices", "quantity": "1 orange"}
       ],
       "dateStamp": "2024-05-07T12:00:00.000Z",
-      "category": ["Brazilian", "Stew"],
+      "category": ["Brazilian"],
       "views": 1575,
       "neighborhood": "Lapa",
       "city": "Rio de Janeiro",
@@ -434,7 +435,7 @@
         {"name": "Salt", "quantity": "to taste"}
       ],
       "dateStamp": "2024-05-08T12:00:00.000Z",
-      "category": ["Indian", "Rice Dish"],
+      "category": ["Indian"],
       "views": 2020,
       "neighborhood": "Chandni Chowk",
       "city": "Delhi",
@@ -464,7 +465,7 @@
         {"name": "Parmesan Cheese", "quantity": "1/2 cup"}
       ],
       "dateStamp": "2024-05-08T12:00:00.000Z",
-      "category": ["Italian", "Risotto"],
+      "category": ["Italian"],
       "views": 1580,
       "neighborhood": "Brera",
       "city": "Milan",
@@ -497,7 +498,7 @@
         {"name": "Tonkatsu Sauce", "quantity": "to taste"}
       ],
       "dateStamp": "2024-05-08T12:00:00.000Z",
-      "category": ["Japanese", "Fried Food"],
+      "category": ["Japanese"],
       "views": 1150,
       "neighborhood": "Shinjuku",
       "city": "Tokyo",
@@ -531,7 +532,7 @@
         {"name": "Salsa", "quantity": "to taste"}
       ],
       "dateStamp": "2024-05-08T12:00:00.000Z",
-      "category": ["Mexican", "Street Food"],
+      "category": ["Mexican"],
       "views": 1850,
       "neighborhood": "Condesa",
       "city": "Mexico City",
@@ -570,7 +571,7 @@
         {"name": "Chutney", "quantity": "to serve"}
       ],
       "dateStamp": "2024-05-08T12:00:00.000Z",
-      "category": ["South African", "Baked Dish"],
+      "category": ["South African"],
       "views": 960,
       "neighborhood": "Bo-Kaap",
       "city": "Cape Town",
@@ -604,7 +605,7 @@
     {"name": "Pepper", "quantity": "to taste"}
   ],
   "dateStamp": "2024-05-08T12:00:00.000Z",
-  "category": ["French", "Stew"],
+  "category": ["French"],
   "views": 1245,
   "neighborhood": "Montmartre",
   "city": "Paris",
@@ -640,7 +641,7 @@
     {"name": "Pepper", "quantity": "to taste"}
   ],
   "dateStamp": "2024-05-08T12:00:00.000Z",
-  "category": ["French", "Salad"],
+  "category": ["French"],
   "views": 920,
   "neighborhood": "Vieux Nice",
   "city": "Nice",
@@ -674,7 +675,7 @@
     {"name": "Pepper", "quantity": "to taste"}
   ],
   "dateStamp": "2024-05-08T12:00:00.000Z",
-  "category": ["French", "Stew"],
+  "category": ["French"],
   "views": 1360,
   "neighborhood": "Beaune",
   "city": "Burgundy",
@@ -706,7 +707,7 @@
     {"name": "Sugar", "quantity": "1/2 cup, plus extra for caramelizing"}
   ],
   "dateStamp": "2024-05-08T12:00:00.000Z",
-  "category": ["French", "Dessert"],
+  "category": ["French"],
   "views": 1825,
   "neighborhood": "Le Marais",
   "city": "Paris",
@@ -738,7 +739,7 @@
     {"name": "Grated Cheese (e.g., Emmental)", "quantity": "1/2 cup"}
   ],
   "dateStamp": "2024-05-08T12:00:00.000Z",
-  "category": ["French", "Sandwich"],
+  "category": ["French"],
   "views": 1450,
   "neighborhood": "Montparnasse",
   "city": "Paris",
@@ -771,7 +772,7 @@
     {"name": "Pepper", "quantity": "to taste"}
   ],
   "dateStamp": "2024-05-08T12:00:00.000Z",
-  "category": ["French", "Stew"],
+  "category": ["French"],
   "views": 1245,
   "neighborhood": "Montmartre",
   "city": "Paris",
@@ -807,7 +808,7 @@
     {"name": "Pepper", "quantity": "to taste"}
   ],
   "dateStamp": "2024-05-08T12:00:00.000Z",
-  "category": ["French", "Salad"],
+  "category": ["French"],
   "views": 920,
   "neighborhood": "Vieux Nice",
   "city": "Nice",
@@ -841,7 +842,7 @@
     {"name": "Pepper", "quantity": "to taste"}
   ],
   "dateStamp": "2024-05-08T12:00:00.000Z",
-  "category": ["French", "Stew"],
+  "category": ["French"],
   "views": 1360,
   "neighborhood": "Beaune",
   "city": "Burgundy",
@@ -873,7 +874,7 @@
     {"name": "Sugar", "quantity": "1/2 cup, plus extra for caramelizing"}
   ],
   "dateStamp": "2024-05-08T12:00:00.000Z",
-  "category": ["French", "Dessert"],
+  "category": ["French"],
   "views": 1825,
   "neighborhood": "Le Marais",
   "city": "Paris",
@@ -905,7 +906,7 @@
     {"name": "Grated Cheese (e.g., Emmental)", "quantity": "1/2 cup"}
   ],
   "dateStamp": "2024-05-08T12:00:00.000Z",
-  "category": ["French", "Sandwich"],
+  "category": ["French"],
   "views": 1450,
   "neighborhood": "Montparnasse",
   "city": "Paris",
@@ -942,7 +943,7 @@
     {"name": "Pepper", "quantity": "to taste"}
   ],
   "dateStamp": "2024-05-08T12:00:00.000Z",
-  "category": ["Brazilian", "Side Dish"],
+  "category": ["Brazilian"],
   "views": 920,
   "neighborhood": "Savassi",
   "city": "Belo Horizonte",
@@ -982,7 +983,7 @@
     {"name": "Lime Wedges", "quantity": "for serving"}
   ],
   "dateStamp": "2024-05-08T12:00:00.000Z",
-  "category": ["Brazilian", "Stew"],
+  "category": ["Brazilian"],
   "views": 1080,
   "neighborhood": "Pituba",
   "city": "Salvador",
@@ -1016,7 +1017,7 @@
     {"name": "Cheese (e.g., Parmesan, mozzarella)", "quantity": "1 cup, grated"}
   ],
   "dateStamp": "2024-05-08T12:00:00.000Z",
-  "category": ["Brazilian", "Bread"],
+  "category": ["Brazilian"],
   "views": 1350,
   "neighborhood": "Savassi",
   "city": "Belo Horizonte",
@@ -1026,37 +1027,6 @@
   "zipcode": "30130-170",
   "lat": -19.9327,
   "lng": -43.9375,
-  "picUrl": ""
-},
-{
-  "title": "Caipirinha",
-  "body": "A classic Brazilian cocktail made with cachaça, lime, sugar, and ice, often enjoyed during social gatherings and parties.",
-  "steps": [
-    "In a glass, muddle lime wedges with sugar until juices are released.",
-    "Fill the glass with crushed ice.",
-    "Pour cachaça over the ice.",
-    "Stir well to combine.",
-    "Garnish with a lime wheel or wedge.",
-    "Serve immediately and enjoy responsibly."
-  ],
-  "ingredients": [
-    {"name": "Lime Wedges", "quantity": "2"},
-    {"name": "Sugar", "quantity": "2 tbsp"},
-    {"name": "Cachaça", "quantity": "2 oz"},
-    {"name": "Ice", "quantity": "crushed"},
-    {"name": "Lime Wheel or Wedge", "quantity": "for garnish"}
-  ],
-  "dateStamp": "2024-05-08T12:00:00.000Z",
-  "category": ["Brazilian", "Cocktail"],
-  "views": 950,
-  "neighborhood": "Copacabana",
-  "city": "Rio de Janeiro",
-  "county": "Rio de Janeiro",
-  "state": "Rio de Janeiro",
-  "country": "Brazil",
-  "zipcode": "22050-002",
-  "lat": -22.9717,
-  "lng": -43.1825,
   "picUrl": ""
 },
 {
@@ -1078,7 +1048,7 @@
     {"name": "Chocolate Sprinkles", "quantity": "1 cup"}
   ],
   "dateStamp": "2024-05-08T12:00:00.000Z",
-  "category": ["Brazilian", "Dessert"],
+  "category": ["Brazilian"],
   "views": 1260,
   "neighborhood": "Lapa",
   "city": "Rio de Janeiro",

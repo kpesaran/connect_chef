@@ -4,7 +4,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import PieChart from "../components/charts/PieChartCountry"
 import PieChartCountry from "../components/charts/PieChartCountry"
-
+import './styles-dashboard.css'
 
 
 const fetchPostsData = async () => {
@@ -21,7 +21,7 @@ const fetchPostsData = async () => {
 
 export default function AnalyticsPage() {
     const [posts, setPosts] = useState([])
-    const [selectedCountry, setSelectedCountry] = useState('')
+    const [selectedCountry, setSelectedCountry] = useState('United States')
 
     let uniqueCountries = []
     if (posts.length > 0) {
@@ -56,7 +56,10 @@ export default function AnalyticsPage() {
                 ))}
             </select>
 
-            <PieChartCountry />
+            <div className="chart-container">
+                <PieChartCountry selectedCountry = {selectedCountry} posts = {posts} />
+               
+            </div>
         </div>
         
     )

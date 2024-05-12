@@ -6,13 +6,37 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 Chart.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
-export default function PieChartCountry() {
+export default function PieChartCountry({ selectedCountry, posts }) {
+    const categoriesFromCountry = posts.filter((post) => post.country === selectedCountry).map((post) => post.category).flat().filter((value) => value != "")
+
+    
+
+    function countOccurences(list) {
+        const occurenceMap = {}
+        list.forEach(item => {
+            occurenceMap[item] = (occurenceMap[item] || 0) + 1
+        })
+        return occurenceMap
+    } 
+
+    const categoryCount = countOccurences(categoriesFromCountry)
+    
+    
+    const chartLabels = Object.keys(categoryCount)
+
+    const chartData = Object.values(categoryCount)
+    
+
+    
+    console.log(categoriesFromCountry);
+    console.log(categoryCount)
+
   const data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: chartLabels,
     datasets: [
       {
         label: 'My First Dataset',
-        data: [12, 19, 3, 5, 2, 3],
+        data: chartData,
         backgroundColor: [
           'rgb(255, 99, 132)',
           'rgb(54, 162, 235)',
@@ -31,24 +55,22 @@ export default function PieChartCountry() {
     plugins: {
       legend: {
         position: 'top',
-        },
-        
+      },
+
       tooltip: {
         mode: 'index',
         intersect: false,
+      },
+      datalabels: {
+        color: 'white',
+        font: {
+          size: '24px',
         },
-        datalabels: {
-            color: 'white',
-            font: {
-                size: '24px'
-            },
-            
-            formatter: (value, context) => {
-                return context.chart.data.labels[context.dataIndex];
-              }
-          }
-      
-    
+
+        formatter: (value, context) => {
+          return context.chart.data.labels[context.dataIndex];
+        },
+      },
     },
   };
 
