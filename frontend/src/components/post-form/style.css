@@ -1,0 +1,8 @@
+.ingredient-section {
+    display: flex;
+    flex-direction: column;
+    margin: 4px;
+    gap: 8px;
+    justify-content: center;
+    margin-left: 40px ;
+}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import './style.css'
 interface CategoryOptions {
   label: string;
   value: 'event' | 'recipe' | 'podcast' | 'music';
@@ -104,7 +104,7 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
   };
   return (
     <>
-      <form onSubmit={handleFormSubmit} className='flex flex-col border 8'>
+      <form onSubmit={handleFormSubmit} className='flex flex-col border 8 m-24'>
         {/* title */}
         <input
           className='border 6'
@@ -116,21 +116,23 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
         ></input>
         {/* body */}
         <input
-          className='border 4 h-40'
+          className='border 4 h-20'
           type='string'
           value={body}
           onChange={(e) => setBody(e.target.value)}
           placeholder='Write A Description'
         ></input>
-        <h3>Add Cuisine Category</h3>
-        <select
-          value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
-        >
-          {options}
-        </select>
+        <div className='m-2'>
+          <h3>Add Cuisine Category</h3>
+          <select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+          >
+            {options}
+          </select>
+        </div>
         {/* ingredients */}
-        <div className='flex flex-col gap-4' >
+        <div className='ingredient-section' >
           <h3>Add Ingredients</h3>
           {ingredients.map((ingredient, index) => (
             <div className = 'flex gap-4' key={index}>
@@ -162,12 +164,12 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
           </button>
         </div>
         {/* Steps */}
-        <div className='flex flex-col gap-4'>
+        <div className='gap-4'>
           <h3 >Add Instructions</h3>
           {steps.map((step, index) => (
-            <div key={index}>
+            <div className='flex justify-center' key={index}>
               
-              <div className='flex'>
+              <div className='flex justify-center'>
               <button onClick={() => removeStep(index)}>-</button>
                 <h5 className='m-2'>{index + 1}:   </h5>
                 <input
@@ -180,17 +182,19 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
               </div>
             </div>
           ))}
-          <button className = 'w-5' onClick={addStep}>+</button>
+          <button className = 'w-5 ' onClick={addStep}>+</button>
         </div>
 
-        <button
-          className=' focus:ring bg-sky-500 hover:bg-sky-700'
-          type='submit'
-        >
-          {' '}
-          Submit Form
-        </button>
-        <button onClick={onCloseForm}>Close Form </button>
+        <div className='flex gap-4 m-4 justify-center'>
+          <button
+            className=' focus:ring bg-sky-500 hover:bg-sky-700'
+            type='submit'
+          >
+            {' '}
+            Submit Form
+          </button>
+          <button onClick={onCloseForm}>Close Form </button>
+        </div>
         {/* Add Picture */}
       </form>
     </>
