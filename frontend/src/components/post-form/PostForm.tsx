@@ -13,7 +13,7 @@ const categoryOptions: CategoryOptions[] = [
   { label: 'Event', value: 'event' },
 ];
 
-const PostForm: React.FC = ({ location, onCreatePost}) => {
+const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
   
   const [title, setTitle] = useState<string>('');
   const [body, setBody] = useState<string>('');
@@ -61,6 +61,7 @@ const PostForm: React.FC = ({ location, onCreatePost}) => {
     newSteps.splice(index, 1);
     setSteps(newSteps);
   };
+
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -110,7 +111,7 @@ const PostForm: React.FC = ({ location, onCreatePost}) => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder='Enter Title'
-          required
+          
         ></input>
         {/* body */}
         <input
@@ -188,6 +189,7 @@ const PostForm: React.FC = ({ location, onCreatePost}) => {
           {' '}
           Submit Form
         </button>
+        <button onClick={onCloseForm}>Close Form </button>
         {/* Add Picture */}
       </form>
     </>

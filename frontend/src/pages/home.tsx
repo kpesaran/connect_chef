@@ -60,6 +60,11 @@ export default function Home() {
     setSearchTerm(newTerm);
   }
 
+  function onCloseForm() {
+    setShowForm(false)
+    console.log(showForm)
+  }
+
   useEffect(() => {
     
     async function getLocation() {
@@ -102,26 +107,32 @@ export default function Home() {
       
       {/* {isLoading ? <h4>Data is loading...</h4> : */}
       <div>
-        {showForm && <PostForm location={location} onCreatePost={fetchData} />}
-
-        <button
-          className='mb-4 hover:: 0'
-          onClick={() => setShowForm(!showForm)}
-        >
-          Make Post{' '}
-        </button>
-        <div>Location: {location.neighborhood}</div>
-        <div></div>
-        <PostContainer
-          posts={posts}
-          location={location}
-          onSearch={handleSearchChange}
-          onFilterChange={handleFilterChange} />
+        
+        {showForm ? (<PostForm location={location} onCreatePost={fetchData}
+        onCloseForm={onCloseForm} />)
+          :
+          (<div>
+            
+            <button
+              className='mb-4 hover:: 0'
+              onClick={() => setShowForm(!showForm)}
+            >
+              Make Post{' '}
+            </button>
+            <div>Location: {location.neighborhood}</div>
+            <div></div>
+            <PostContainer
+              posts={posts}
+              location={location}
+              onSearch={handleSearchChange}
+              onFilterChange={handleFilterChange}
+              />
+          </div>)}
         {/* <ZipCodeForm /> */}
-        </div>
-      {/* } */}
+
+      </div>
     </>
-  );
+   ) ;
 }
 
 
