@@ -16,6 +16,7 @@
   flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
+  padding: 10px
 }
 
 .post-card {
@@ -23,12 +24,20 @@
   cursor: pointer;
   border-top: 3px black solid;
   border-bottom: 3px black solid;
-
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
-.post-content {
-  /* flex: 1 */
+.post-card:hover {
+  transform: translateY(3px); 
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.4);
+  
 }
+
+
+
 .post-title-container {
   display: flex;
   flex-direction: column;
