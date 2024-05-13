@@ -51,9 +51,20 @@ export default function AnalyticsPage() {
             <div>Analytics Page</div>
             <select name='selectedCountry' defaultValue="United States"
             onChange={(e)=>setSelectedCountry(e.target.value)}>
-                {uniqueCountries.map((country) => (
-                    <option value={country} >{country}</option>
-                ))}
+                {uniqueCountries.map((country) => {
+                    if (country === selectedCountry) {
+                        return <option selected value={country} >{country}</option>
+                    }
+                    else {
+                    
+                   
+                    return (
+
+                   
+                  <option value={country} >{country}</option>
+                ) }
+                    
+                })}
             </select>
 
             <div className="chart-container">

@@ -74,5 +74,7 @@ export default function PieChartCountry({ selectedCountry, posts }) {
     },
   };
 
-  return <Pie data={data} options={options} />;
+  return (<div className='pie-chart-container'>
+      <Pie data={data} options={options} />
+  </div>);
 }
