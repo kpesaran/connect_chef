@@ -3,7 +3,7 @@ import SearchComponent from './search/SearchComponent'
 import FilterComponent from './location-filter/FilterComponent'
 
 import SortComponent from './sort/SortComponent'
-import CuisineFilter from './cuisine_filter/CuisuneFIlter'
+import CuisineFilter from './cuisine_filter/CuisineFIlter'
 
 
 export default function SearchFilterSortSidebar({ onSearch, onFilterChange, onSortChange, onCuisineFilterChange}) {

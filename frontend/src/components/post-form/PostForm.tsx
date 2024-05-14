@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './style.css'
-interface CategoryOptions {
-  label: string;
-  value: 'event' | 'recipe' | 'podcast' | 'music';
-}
 
-const categoryOptions: CategoryOptions[] = [
-  { label: 'Recipe', value: 'recipe' },
-  { label: 'Podcast', value: 'podcast' },
-  { label: 'Music', value: 'music' },
-  { label: 'Event', value: 'event' },
+const cuisineOptions = [
+  'French', 'Indian', 'Japanese', 'Thai', 'Italian', 'American',
+  'Mexican', 'Chinese', 'Spanish', 'Lebanese', 'Turkish', 
+  'Greek', 'Vietnamese', 'Korean', 'Brazilian', 'Ethiopian',
+  'Peruvian', 'Portuguese', 'Moroccan', 'Russian', 
+  'Cuban', 'Malaysian', 'Irish', 'Indonesian', 'Polish'
 ];
 
 const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
@@ -25,8 +22,8 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
   ]);
   const [steps, setSteps] = useState(['']);
 
-  const options = categoryOptions.map((category) => {
-    return <option value={category.value}> {category.label} </option>;
+  const options = cuisineOptions.map((cuisine) => {
+    return <option value={cuisine}> {cuisine} </option>;
   });
 
   const handleIngredientChange = (index, key, value) => {
