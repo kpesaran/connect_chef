@@ -9,6 +9,7 @@ export default function Home() {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('neighborhood');
+  const [sortOn, setSortOn] = useState('')
 
   // const [locationProvided, setLocationProvided] = useState(true);
   const [showForm, setShowForm] = useState(false);
@@ -58,6 +59,9 @@ export default function Home() {
   }
   function handleSearchChange(newTerm) {
     setSearchTerm(newTerm);
+  }
+  function handleSortChange(newSort) {
+    setSort(newSort)
   }
 
   function onCloseForm() {
@@ -126,6 +130,7 @@ export default function Home() {
               location={location}
               onSearch={handleSearchChange}
               onFilterChange={handleFilterChange}
+              onSortChange = {handleSortChange}
               />
           </div>)}
         {/* <ZipCodeForm /> */}

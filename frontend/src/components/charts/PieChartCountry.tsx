@@ -7,29 +7,28 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 Chart.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
 export default function PieChartCountry({ selectedCountry, posts }) {
-    const categoriesFromCountry = posts.filter((post) => post.country === selectedCountry).map((post) => post.category).flat().filter((value) => value != "")
+  const categoriesFromCountry = posts
+    .filter((post) => post.country === selectedCountry)
+    .map((post) => post.category)
+    .flat()
+    .filter((value) => value != '');
 
-    
+  function countOccurences(list) {
+    const occurenceMap = {};
+    list.forEach((item) => {
+      occurenceMap[item] = (occurenceMap[item] || 0) + 1;
+    });
+    return occurenceMap;
+  }
 
-    function countOccurences(list) {
-        const occurenceMap = {}
-        list.forEach(item => {
-            occurenceMap[item] = (occurenceMap[item] || 0) + 1
-        })
-        return occurenceMap
-    } 
+  const categoryCount = countOccurences(categoriesFromCountry);
 
-    const categoryCount = countOccurences(categoriesFromCountry)
-    
-    
-    const chartLabels = Object.keys(categoryCount)
+  const chartLabels = Object.keys(categoryCount);
 
-    const chartData = Object.values(categoryCount)
-    
+  const chartData = Object.values(categoryCount);
 
-    
-    console.log(categoriesFromCountry);
-    console.log(categoryCount)
+  console.log(categoriesFromCountry);
+  console.log(categoryCount);
 
   const data = {
     labels: chartLabels,
@@ -74,7 +73,11 @@ export default function PieChartCountry({ selectedCountry, posts }) {
     },
   };
 
-  return (<div className='pie-chart-container'>
+  return (
+    <div className='pie-chart-container'>
       <Pie data={data} options={options} />
-  </div>);
+
+      {/* <Bar options={options} data={data} /> */}
+    </div>
+  );
 }
