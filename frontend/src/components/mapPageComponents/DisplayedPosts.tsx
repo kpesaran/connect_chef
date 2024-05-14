@@ -1,6 +1,7 @@
 import './styles.css';
 
 export default function DisplayedPosts({ posts }) {
+    console.log(posts)
   return (
     <div className='flex flex-col items-center posts-container'>
       {posts.map((post) => (

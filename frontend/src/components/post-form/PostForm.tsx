@@ -74,6 +74,8 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
         city: location.city,
         county: location.country,
         state: location.state,
+        lat: location.lat,
+        lng: location.lng,
         country: location.country,
         zipcode: location.zipcode,
         ingredients: ingredients,
