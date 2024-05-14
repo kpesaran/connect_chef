@@ -14,6 +14,7 @@ export default function Home() {
   // const [locationProvided, setLocationProvided] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [posts, setPosts] = useState([]);
+  const [cuisineFilter, setCuisineFilter] = useState('')
 
   // const [isLoading, setIsLoading] = useState(true)
 
@@ -30,6 +31,26 @@ export default function Home() {
         console.log(locationQuery)
         endpoint += locationQuery
       }
+      if (sortOn) {
+        let sortQuery
+        if (sortOn === 'views') {
+          sortQuery = `sort=views:desc`
+        }
+        else if (sortOn === 'recent') {
+          sortQuery = `sort=dateStamp:desc`
+        }
+        else if (sortOn === 'oldest') {
+          sortQuery = `sort=dateStamp:asc`
+        }
+        if (sortQuery) {
+          endpoint += `&${sortQuery}`
+        }
+      }
+      if (cuisineFilter) {
+        endpoint += `&category=${cuisineFilter}`
+      }
+      
+        
       const response = await axios.get(endpoint);
       console.log(response.data);
 
@@ -53,7 +74,9 @@ export default function Home() {
     setIsLoading(false)
   };
 
- 
+  function handleCuisineFilterChange(newCuisine) {
+   setCuisineFilter(newCuisine)
+ }
   function handleFilterChange(newFilter) {
     setFilter(newFilter);
   }
@@ -61,7 +84,7 @@ export default function Home() {
     setSearchTerm(newTerm);
   }
   function handleSortChange(newSort) {
-    setSort(newSort)
+    setSortOn(newSort)
   }
 
   function onCloseForm() {
@@ -96,9 +119,9 @@ export default function Home() {
       getLocation();
     }
     
-  }, [filter, searchTerm]);
-
-
+  }, [filter, searchTerm, sortOn, cuisineFilter]);
+  console.log(sortOn)
+  console.log(cuisineFilter)
   // useEffect(() => {
 
   //   fetchData();
@@ -130,7 +153,8 @@ export default function Home() {
               location={location}
               onSearch={handleSearchChange}
               onFilterChange={handleFilterChange}
-              onSortChange = {handleSortChange}
+              onSortChange={handleSortChange}
+              onCuisineFilterChange = {handleCuisineFilterChange}
               />
           </div>)}
         {/* <ZipCodeForm /> */}

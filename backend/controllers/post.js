@@ -4,13 +4,38 @@ const express = require('express')
 
 
 const getAllPosts = async (req, res) => {
+    console.log(req.query)
+    const {sort, category, neighborhood, city, state, country} = req.query
+    const queryObj = {}
+    const sortObj = {}
+    if (sort) {
+        const [field, order] = sort.split(':')
+        sortObj[field] = order === 'desc' ? -1 : 1
+    }
+    else {
+        sortObj.dateStamp = -1
+    }
+    if (category) {
+        queryObj.category = category
+    }
+    if (neighborhood) {
+        queryObj.neighborhood = neighborhood
+    }
+    if (city) {
+        queryObj.city = city
+    }
+    if (state) {
+        queryObj.state = state
+    }
+    if (country) {
+        queryObj.country = country
+    }
     
-    
-    const queryObj = {...req.query}
+
 
     try {
         const allPosts = await PostSchema.find(
-        queryObj).sort({_id:-1})
+        queryObj).sort(sortObj)
         res.status(201).json(allPosts)
     }
     catch (err) {

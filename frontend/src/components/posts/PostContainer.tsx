@@ -11,7 +11,7 @@ import PostFullScreen from './PostFullScreen'
 
 
 
-const PostContainer: React.FC = ({ posts, onSearch, onFilterChange, onSortChange }) => {
+const PostContainer: React.FC = ({ posts, onSearch, onFilterChange, onSortChange, onCuisineFilterChange }) => {
  
   
 
@@ -32,7 +32,7 @@ function  handleFocusPost(post_id) {
   return (
     
     <div className='flex flex-col justify-center '>
-      <SearchFilterSortSidebar onSearch={onSearch} onFilterChange={onFilterChange} onSortChange={onSortChange} />
+      <SearchFilterSortSidebar onSearch={onSearch} onFilterChange={onFilterChange} onSortChange={onSortChange} onCuisineFilterChange = {onCuisineFilterChange} />
       
         {selectedPost ? (
           <PostFullScreen post = {selectedPost} onClose = {handleClose}/>
