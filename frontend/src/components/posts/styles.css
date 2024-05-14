@@ -63,15 +63,15 @@
 
 
 .post-expanded {
-    position: fixed; /* Fixed position to cover the entire viewport */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: white; /* Change as needed */
-    z-index: 1000; /* High z-index to overlay on top of other content */
-    overflow-y: auto; /* Allows scrolling within the expanded post */
-    transition: transform 0.3s ease-in-out;
+    background-color: white; 
+    z-index: 1000; 
+    overflow-y: auto; 
+    transition: transform 0.7s ease-in-out;
     transform: scale(1);
   }
   
@@ -81,8 +81,9 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-    z-index: 500; /* Lower than post but higher than page content */
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 500; 
+    
   }
   
   .highlighted-card {

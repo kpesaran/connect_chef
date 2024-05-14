@@ -1059,6 +1059,140 @@
   "lat": -22.9111,
   "lng": -43.1750,
   "picUrl": ""
-}
-]
+},
+{
+  "title": "Vietnamese Pho",
+  "body": "A fragrant and soothing beef noodle soup, seasoned with herbs and spices.",
+  "steps": [
+    "Simmer beef bones with onions, ginger, and spices to make a rich broth.",
+    "Strain the broth and keep it hot over low heat.",
+    "Cook rice noodles according to package instructions.",
+    "Thinly slice raw beef and set aside.",
+    "Assemble the soup with noodles, beef, and hot broth (the broth will cook the beef).",
+    "Garnish with basil, lime, jalapeños, and bean sprouts before serving."
+  ],
+  "ingredients": [
+    {"name": "Beef Bones", "quantity": "1 kg"},
+    {"name": "Onions", "quantity": "2"},
+    {"name": "Ginger", "quantity": "100g"},
+    {"name": "Rice Noodles", "quantity": "200g"},
+    {"name": "Raw Beef (thinly sliced)", "quantity": "200g"},
+    {"name": "Basil, Lime, Jalapeños, Bean Sprouts", "quantity": "as needed"}
+  ],
+  "dateStamp": "2024-04-16T12:00:00.000Z",
+  "category": ["Vietnamese"],
+  "views": 215,
+  "neighborhood": "Latin Quarter",
+  "city": "Paris",
+  "county": "Paris",
+  "state": "Île-de-France",
+  "country": "France",
+  "zipcode": "75005",
+  "lat": 48.8468,
+  "lng": 2.3470,
+  "picUrl": ""
+},
+{
+  "title": "Falafel Sandwich",
+  "body": "Crispy chickpea fritters served with tahini sauce.",
+  "steps": [
+    "Soak dried chickpeas overnight.",
+    "Blend chickpeas with onions, garlic, parsley, and spices until smooth.",
+    "Form the mixture into small patties or balls.",
+    "Fry in deep hot oil until golden brown.",
+    "Serve with tahini sauce and fresh vegetables."
+  ],
+  "ingredients": [
+    {"name": "Dried Chickpeas", "quantity": "250g"},
+    {"name": "Onions", "quantity": "1"},
+    {"name": "Garlic", "quantity": "3 cloves"},
+    {"name": "Parsley", "quantity": "1 bunch"},
+    {"name": "Cumin", "quantity": "1 tsp"},
+    {"name": "Coriander", "quantity": "1 tsp"},
+    {"name": "Tahini", "quantity": "100g"}
+  ],
+  "dateStamp": "2024-04-16T12:00:00.000Z",
+  "category": ["Middle Eastern"],
+  "views": 289,
+  "neighborhood": "Marais",
+  "city": "Paris",
+  "county": "Paris",
+  "state": "Île-de-France",
+  "country": "France",
+  "zipcode": "75004",
+  "lat": 48.8575,
+  "lng": 2.3582,
+  "picUrl": ""
+},
+{
+  "title": "Salmon Roll",
+  "body": "Delicate and refined sushi rolls featuring fresh fish and vegetables.",
+  "steps": [
+    "Prepare sushi rice with vinegar, sugar, and salt.",
+    "Slice fresh fish and prepare various fillings like cucumber and avocado.",
+    "Lay a sheet of nori on a bamboo mat and spread rice evenly on top.",
+    "Arrange fillings on the rice and roll the sushi tightly using the mat.",
+    "Slice the rolls into pieces and serve with soy sauce, wasabi, and pickled ginger."
+  ],
+  "ingredients": [
+    {"name": "Sushi Rice", "quantity": "200g"},
+    {"name": "Vinegar", "quantity": "2 tbsp"},
+    {"name": "Sugar", "quantity": "1 tsp"},
+    {"name": "Salt", "quantity": "1/2 tsp"},
+    {"name": "Nori Sheets", "quantity": "2"},
+    {"name": "Fresh Fish (e.g., tuna, salmon)", "quantity": "200g"},
+    {"name": "Cucumber", "quantity": "1"},
+    {"name": "Avocado", "quantity": "1"}
+  ],
+  "dateStamp": "2024-04-16T12:00:00.000Z",
+  "category": ["Japanese"],
+  "views": 334,
+  "neighborhood": "Belleville",
+  "city": "Paris",
+  "county": "Paris",
+  "state": "Île-de-France",
+  "country": "France",
+  "zipcode": "75020",
+  "lat": 48.8721,
+  "lng": 2.3878,
+  "picUrl": ""
+},
+{
+  "title": "Indian Curry",
+  "body": "A rich and aromatic curry made with a blend of spices and tender meat.",
+  "steps": [
+    "Heat oil in a pot and add chopped onions, garlic, and ginger; sauté until golden.",
+    "Add ground spices (turmeric, cumin, coriander, garam masala) and cook for a minute.",
+    "Add chopped tomatoes and cook until oil separates from the mixture.",
+    "Add meat (chicken or lamb) and water, and simmer until the meat is tender.",
+    "Finish with cream or yogurt and fresh cilantro for garnish.",
+    "Serve hot with rice or naan bread."
+  ],
+  "ingredients": [
+    {"name": "Oil", "quantity": "2 tablespoons"},
+    {"name": "Onions", "quantity": "2"},
+    {"name": "Garlic", "quantity": "4 cloves"},
+    {"name": "Ginger", "quantity": "2 inches"},
+    {"name": "Ground Turmeric", "quantity": "1 tsp"},
+    {"name": "Ground Cumin", "quantity": "1 tsp"},
+    {"name": "Ground Coriander", "quantity": "1 tsp"},
+    {"name": "Garam Masala", "quantity": "1 tsp"},
+    {"name": "Tomatoes", "quantity": "3"},
+    {"name": "Chicken or Lamb", "quantity": "500g"},
+    {"name": "Cream or Yogurt", "quantity": "100ml"},
+    {"name": "Cilantro", "quantity": "to garnish"}
+  ],
+  "dateStamp": "2024-04-16T12:00:00.000Z",
+  "category": ["Indian"],
+  "views": 367,
+  "neighborhood": "Goutte d'Or",
+  "city": "Paris",
+  "county": "Paris",
+  "state": "Île-de-France",
+  "country": "France",
+  "zipcode": "75018",
+  "lat": 48.891525,
+  "lng": 2.348395,
+  "picUrl": ""
+}]
   
