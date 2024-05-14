@@ -10,11 +10,13 @@ export default function SearchFilterSortSidebar({ onSearch, onFilterChange, onSo
     return (
         <div className=' flex flex-col justify-center gap-4 p-10'>
             <h4>Filters</h4>
-            <div className='flex flex-col items-center gap-2'>
+            <div className='flex flex-wrap items-center gap-2 justify-center'>
                 <SearchComponent onSearch={onSearch} />
+                {/* filters on location */}
                 <FilterComponent onFilterChange={onFilterChange} />
-                <SortComponent onSortChange={onSortChange} />
                 <CuisineFilter onCuisineFilterChange = {onCuisineFilterChange} />
+                <SortComponent onSortChange={onSortChange} />
+                
             </div>
         </div>
     )
