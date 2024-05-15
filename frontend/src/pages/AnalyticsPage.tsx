@@ -2,10 +2,10 @@
 import axios from "axios"
 
 import { useEffect, useState } from "react"
-import PieChart from "../components/charts/PieChartCountry"
-import PieChartCountry from "../components/charts/PieChartCountry"
+import PieChart from "../components/analytics/country/charts/PieChartCountry"
+import PieChartCountry from "../components/analytics/country/charts/PieChartCountry"
 import './styles-dashboard.css'
-
+import CountryView from "../components/analytics/country/charts/CountryView"
 
 const fetchPostsData = async () => {
     
@@ -21,15 +21,7 @@ const fetchPostsData = async () => {
 
 export default function AnalyticsPage() {
     const [posts, setPosts] = useState([])
-    const [selectedCountry, setSelectedCountry] = useState('United States')
 
-    let uniqueCountries = []
-    if (posts.length > 0) {
-        posts.forEach(post => {
-            if (!uniqueCountries.includes(post.country))
-                uniqueCountries.push(post.country)
-        })
-    }
     
 
     useEffect(() => {
@@ -48,29 +40,13 @@ export default function AnalyticsPage() {
 
     return (
         <div>
-            <div>Analytics Page</div>
-            <select name='selectedCountry' defaultValue="United States"
-            onChange={(e)=>setSelectedCountry(e.target.value)}>
-                {uniqueCountries.map((country) => {
-                    if (country === selectedCountry) {
-                        return <option selected value={country} >{country}</option>
-                    }
-                    else {
-                    
-                   
-                    return (
-
-                   
-                  <option value={country} >{country}</option>
-                ) }
-                    
-                })}
-            </select>
-
-            <div className="chart-container">
-                <PieChartCountry selectedCountry = {selectedCountry} posts = {posts} />
-               
-            </div>
+            <div>Analytics Dashboard</div>
+            {/* <nav>
+                <Link to='country'>Country</Link>
+                <Link to = 'globe'>Globe</Link>
+            </nav>
+            <Outlet/> */}
+            <CountryView posts ={posts} />
         </div>
         
     )

@@ -13,14 +13,12 @@ import { info } from 'console';
 const MyComponent = ({posts}) => {
   const map = useMap();
   const [bounds, setBounds] = useState(null)
-
+  console.log(map)
   console.log(bounds)
   useEffect(() => {
     if (!map) return;
-
     map.addListener('bounds_changed', () => {
       setBounds(map.getBounds())
-
     })
   }, [map]);
 
