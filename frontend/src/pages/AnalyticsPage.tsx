@@ -2,10 +2,13 @@
 import axios from "axios"
 
 import { useEffect, useState } from "react"
+
+import {Link,Outlet} from 'react-router-dom'
 import PieChart from "../components/analytics/country/charts/PieChartCountry"
 import PieChartCountry from "../components/analytics/country/charts/PieChartCountry"
 import './styles-dashboard.css'
 import CountryView from "../components/analytics/country/charts/CountryView"
+
 
 const fetchPostsData = async () => {
     
@@ -41,12 +44,12 @@ export default function AnalyticsPage() {
     return (
         <div>
             <div>Analytics Dashboard</div>
-            {/* <nav>
-                <Link to='country'>Country</Link>
-                <Link to = 'globe'>Globe</Link>
+            <nav>
+                <Link to='./country'>Country</Link>
+                <Link to = './globe'>Globe</Link>
             </nav>
-            <Outlet/> */}
-            <CountryView posts ={posts} />
+            <Outlet/>
+            {/* <CountryView posts ={posts} /> */}
         </div>
         
     )

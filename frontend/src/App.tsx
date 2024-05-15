@@ -14,6 +14,9 @@ import Login from './pages/login';
 import MapPage from './pages/Map';
 import Layout from './Layout';
 import AnalyticsPage from './pages/AnalyticsPage';
+import GlobalAnalytics from './components/analytics/country/charts/test/GlobalAnalytics';
+import CountryAnalytics from './components/analytics/country/charts/test/CountryAnalytics';
+
 
 function App() {
   return (
@@ -25,8 +28,11 @@ function App() {
 
             {/* <Route path='/login' element={<Login />} /> */}
             <Route path='/map' element={<MapPage />} />
-            <Route path = '/analytics' element = {<AnalyticsPage/>}/>
-            {/* <Route path = '/page1' element = {<Page1/>} /> */}
+            <Route path="analytics" element={<AnalyticsPage />}>
+              <Route path="country" element={<CountryAnalytics />} />
+              <Route path="globe" element={<GlobalAnalytics />} />
+            </Route>
+            
           </Route>
         </Routes>
       </Router>
