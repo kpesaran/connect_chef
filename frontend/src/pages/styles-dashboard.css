@@ -1,4 +1,8 @@
 .chart-container {
-    width: 50vw
-   
+    width: 50vw;
+}
+
+.nav-links {
+    size: 36px;
+    
 }
