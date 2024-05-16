@@ -9,30 +9,32 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import PostForm from './components/post-form/PostForm';
 import PostContainer from './components/posts/PostContainer';
 import Home from './pages/home';
-import Login from './pages/login';
+
 //import Page1 from "./pages/page-1"
 import MapPage from './pages/Map';
 import Layout from './Layout';
 import AnalyticsPage from './pages/AnalyticsPage';
 import GlobalAnalytics from './components/analytics/country/charts/test/GlobalAnalytics';
 import CountryAnalytics from './components/analytics/country/charts/test/CountryAnalytics';
-
+import Register from './pages/register';
+import Login from './pages/login';
 
 function App() {
   return (
     <>
       <Router>
         <Routes>
+          <Route path='register' element={<Register />} />
+          <Route path='login' element={<Login />} />
           <Route element={<Layout />}>
             <Route path='/' element={<Home />} />
 
             {/* <Route path='/login' element={<Login />} /> */}
             <Route path='/map' element={<MapPage />} />
-            <Route path="analytics" element={<AnalyticsPage />}>
-              <Route path="country" element={<CountryAnalytics />} />
-              <Route path="globe" element={<GlobalAnalytics />} />
+            <Route path='analytics' element={<AnalyticsPage />}>
+              <Route path='country' element={<CountryAnalytics />} />
+              <Route path='globe' element={<GlobalAnalytics />} />
             </Route>
-            
           </Route>
         </Routes>
       </Router>
