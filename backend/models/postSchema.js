@@ -66,6 +66,11 @@ const postSchema = new mongoose.Schema({
     picUrl: {
         type:String 
     },
+    createdBy: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User',
+        required: false,
+      },
 
 })
 

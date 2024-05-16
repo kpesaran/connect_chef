@@ -83,7 +83,12 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
       };
 
       const endpoint = 'http://localhost:3001/api/v1/postings';
-      const response = await axios.post(endpoint, userPost);
+      const token = localStorage.getItem('token')
+      const response = await axios.post(endpoint, userPost, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
       setTitle('');
       setBody('');
       setSelectedCategory('');

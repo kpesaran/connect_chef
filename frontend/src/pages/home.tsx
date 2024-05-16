@@ -50,8 +50,13 @@ export default function Home() {
         endpoint += `&category=${cuisineFilter}`
       }
       
-        
-      const response = await axios.get(endpoint);
+      const token = localStorage.getItem('token')
+      
+      const response = await axios.get(endpoint, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
       console.log(response.data);
 
       if (searchTerm != '')  {

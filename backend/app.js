@@ -4,7 +4,8 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 
-
+const authenticateUser = require('./middleware/authentication')
+const routeNotFoundMW = require('./middleware/route-not-found')
 const connectDB = require('./db/connect')
 
 
@@ -12,7 +13,7 @@ const authRouter = require('./routes/auth')
 const locations = require('./routes/locations')
 const reverseGeoCode = require('./routes/reverse-geocode')
 const postings = require('./routes/post')
-const routeNotFoundMW = require('./middleware/route-not-found')
+
 
 app.use(express.json())
 
@@ -30,7 +31,7 @@ app.use('/api/v1/locations', locations )
 // testing reverse geocoding based on current location
 app.use('/api/v1/reverse-geocode', reverseGeoCode)
 //main post form
-app.use('/api/v1/postings', postings)
+app.use('/api/v1/postings', authenticateUser, postings)
 
 
 app.use
