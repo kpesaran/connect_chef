@@ -22,7 +22,7 @@ import Login from './pages/login';
 function App() {
   return (
     <>
-      
+      {/* Set up useContext here  */}
       <Router>
         <Routes>
           <Route path='register' element={<Register />} />
@@ -31,7 +31,7 @@ function App() {
             <Route path='/' element={<Home />} />
 
             {/* <Route path='/login' element={<Login />} /> */}
-            <Route path='/map' element={<MapPage />} />
+            <Route path='/map/' element={<MapPage />} />
             <Route path='analytics' element={<AnalyticsPage />}>
               <Route path='country' element={<CountryAnalytics />} />
               <Route path='globe' element={<GlobalAnalytics />} />

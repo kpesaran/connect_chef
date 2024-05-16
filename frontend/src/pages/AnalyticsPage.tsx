@@ -3,11 +3,8 @@ import axios from "axios"
 
 import { useEffect, useState } from "react"
 import './styles-dashboard.css'
-import {Link,Outlet} from 'react-router-dom'
-import PieChart from "../components/analytics/country/charts/PieChartCountry"
-import PieChartCountry from "../components/analytics/country/charts/PieChartCountry"
-import './styles-dashboard.css'
-import CountryView from "../components/analytics/country/charts/CountryView"
+import {Link,Outlet, useLocation, Navigate} from 'react-router-dom'
+
 
 
 const fetchPostsData = async () => {
@@ -24,6 +21,7 @@ const fetchPostsData = async () => {
 
 export default function AnalyticsPage() {
     const [posts, setPosts] = useState([])
+    const routeLocation = useLocation()
 
     useEffect(() => {
         const fetchData = async () => {
@@ -37,7 +35,11 @@ export default function AnalyticsPage() {
         }
         fetchData()
         
-    },[])
+    }, [])
+    
+    if (routeLocation.pathname === '/analytics' || routeLocation.pathname === '/analytics/') {
+        return <Navigate to="./country" replace />;
+    }
 
     return (
         <div className="flex flex-col justify-center gap-4">

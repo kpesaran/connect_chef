@@ -31,7 +31,7 @@ app.use('/api/v1/locations', locations )
 // testing reverse geocoding based on current location
 app.use('/api/v1/reverse-geocode', reverseGeoCode)
 //main post form
-app.use('/api/v1/postings', authenticateUser, postings)
+app.use('/api/v1/postings',postings)
 
 
 app.use
