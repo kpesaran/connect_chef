@@ -9,13 +9,18 @@ export default function RegisterForm() {
   async function handleRegisterSubmit(e) {
     e.preventDefault();
     try {
-      const endpoint = 'add end point once set up';
+      const endpoint = 'http://localhost:3001/api/v1/auth/register';
       const response = await axios.post(endpoint, {
         name: name,
         email: email,
         password: password,
       });
       console.log('Registration success', response.data);
+
+      const user = response.data.user;
+      const token = response.data.token;
+      localStorage.setItem('userName', user.name);
+      localStorage.setItem('token', token);
     } catch (err) {
       console.error('Registration Failed', err);
     }
@@ -35,7 +40,7 @@ export default function RegisterForm() {
       </div>
       <label>Email</label>
       <input
-        type='text'
+        type='email'
         value={email}
         onChange={(e) => {
           setEmail(e.target.value);
@@ -44,7 +49,7 @@ export default function RegisterForm() {
       <div>
         <label>Password</label>
         <input
-          type='text'
+          type='password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
