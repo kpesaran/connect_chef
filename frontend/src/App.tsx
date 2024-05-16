@@ -22,6 +22,7 @@ import Login from './pages/login';
 function App() {
   return (
     <>
+      
       <Router>
         <Routes>
           <Route path='register' element={<Register />} />

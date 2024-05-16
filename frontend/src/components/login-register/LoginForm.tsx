@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const navigate = useNavigate();
   async function handleSubmit(e) {
     e.preventDefault();
     try {
@@ -17,8 +18,9 @@ export default function LoginForm() {
       const user = response.data.user;
       const token = response.data.token;
       localStorage.setItem('userName', user.name);
-      localStorage.setItem('token', token);
-      // later add JWT Token from response here and set it to localStorage
+        localStorage.setItem('token', token);
+        navigate('/')
+      
     } catch (error) {
       console.error('Login failed', error);
     }

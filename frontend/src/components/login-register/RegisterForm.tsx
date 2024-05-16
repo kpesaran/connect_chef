@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function RegisterForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const navigate = useNavigate();
   async function handleRegisterSubmit(e) {
     e.preventDefault();
     try {
@@ -21,6 +22,7 @@ export default function RegisterForm() {
       const token = response.data.token;
       localStorage.setItem('userName', user.name);
       localStorage.setItem('token', token);
+      navigate('/')
     } catch (err) {
       console.error('Registration Failed', err);
     }
