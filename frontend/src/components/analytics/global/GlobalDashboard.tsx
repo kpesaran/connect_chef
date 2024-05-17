@@ -1,8 +1,26 @@
-
-
+import { fetchPostsData } from '../utils';
+import { useEffect, useState } from 'react';
+import GlobalChartsStats from './GlobalChartsStats';
 
 export default function GlobalDashboard() {
-    return <div><h3>Global Data Overview</h3></div>;
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const fetchedPosts = await fetchPostsData();
+        setPosts(fetchedPosts);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchData();
+  }, []);
+
+  return (
+    <div>
+      <h3>Global Data Overview</h3>
+      <GlobalChartsStats posts = {posts} />
+    </div>
+  );
 }
-
-

@@ -34,6 +34,27 @@ export default function BarChartCountry({ posts, selectedCountry }) {
         return Math.round(sum / sublist.length*100)/100
     })
 
+    const cuisineStepCount = {}
+    
+    filteredPostsByCountry.forEach(post => {
+        post.category.forEach(cuisine => {
+            if (!cuisineStepCount[cuisine]) {
+                cuisineStepCount[cuisine] = []
+            }
+            cuisineStepCount[cuisine].push(post.steps.length)
+        }) 
+    })
+
+    const averageCountSteps = Object.values(cuisineStepCount).map(sublist => {
+        let sum = 0;
+        for (let i = 0; i < sublist.length; i++) {
+            sum += sublist[i]
+        }
+        return Math.round(sum / sublist.length*100)/100
+    })
+
+    
+
     console.log(averageCountIngredients)
 
 
@@ -48,7 +69,7 @@ export default function BarChartCountry({ posts, selectedCountry }) {
     const data = {
         labels: labels,
         datasets: [{
-            label: 'Average Count of Ingredients By Cuisine'
+            label: 'Average Number of Ingredients'
             ,
           data: averageCountIngredients,
           backgroundColor: [
@@ -70,12 +91,23 @@ export default function BarChartCountry({ posts, selectedCountry }) {
             'rgb(201, 203, 207)'
           ],
           borderWidth: 1
-        }]
+        },
+        {
+            label: 'Average Number of Steps',
+            data: averageCountSteps,
+            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+            borderColor: 'rgb(54, 162, 235)',
+            borderWidth: 1
+        }
+        ]
       };
 
 
     return (
-        <Bar data={data} height={300}  ></Bar>
+        <div>
+            <h4>Average Ingredient Count By Cuisine</h4>
+            <Bar data={data} height={300}  ></Bar>
+        </div>
     )
 }
 

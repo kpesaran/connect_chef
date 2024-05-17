@@ -5,38 +5,9 @@ import { useEffect, useState } from "react"
 import './styles-dashboard.css'
 import {Link,Outlet, useLocation, Navigate} from 'react-router-dom'
 
-
-
-const fetchPostsData = async () => {
-    
-        try {
-            const endpoint = `http://localhost:3001/api/v1/postings?`
-            const response = await axios.get(endpoint)
-            return response.data
-        }
-        catch (err) {
-            throw new Error('failed to fetch posts')
-        }
-}
-
 export default function AnalyticsPage() {
-    const [posts, setPosts] = useState([])
     const routeLocation = useLocation()
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const fetchedPosts = await fetchPostsData()
-                setPosts(fetchedPosts)
-            }
-            catch (err) {
-                console.error(err)
-            }
-        }
-        fetchData()
-        
-    }, [])
-    
+   
     if (routeLocation.pathname === '/analytics' || routeLocation.pathname === '/analytics/') {
         return <Navigate to="./country" replace />;
     }

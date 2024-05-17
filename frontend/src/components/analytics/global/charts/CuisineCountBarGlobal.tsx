@@ -1,18 +1,17 @@
 import React from 'react';
-import { Pie } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import { Chart, ArcElement, Tooltip, Legend } from 'chart.js';
 
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 Chart.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
-export default function PieChartCountry({ selectedCountry, posts }) {
-  const categoriesFromCountry = posts
-    .filter((post) => post.country === selectedCountry)
+export default function CuisineCountBarGlobal({ posts }) {
+  const categories = posts
     .map((post) => post.category)
     .flat()
     .filter((value) => value != '');
-
+    
   function countOccurences(list) {
     const occurenceMap = {};
     list.forEach((item) => {
@@ -21,13 +20,13 @@ export default function PieChartCountry({ selectedCountry, posts }) {
     return occurenceMap;
   }
 
-  const categoryCount = countOccurences(categoriesFromCountry);
+  const categoryCount = countOccurences(categories);
 
   const chartLabels = Object.keys(categoryCount);
 
   const chartData = Object.values(categoryCount);
 
-  console.log(categoriesFromCountry);
+
   console.log(categoryCount);
 
   const data = {
@@ -65,18 +64,14 @@ export default function PieChartCountry({ selectedCountry, posts }) {
         font: {
           size: '24px',
         },
-
-        formatter: (value, context) => {
-          return context.chart.data.labels[context.dataIndex];
-        },
       },
     },
   };
 
   return (
     <div className='pie-chart-container'>
-      <h4>Cuisine Diversity by Country </h4>
-      <Pie data={data} options={options} />
+      <h4>Cuisine Diversity Around the World </h4>
+      <Bar data={data} options={options} />
 
       {/* <Bar options={options} data={data} /> */}
     </div>
