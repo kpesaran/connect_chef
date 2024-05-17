@@ -45,8 +45,8 @@ export default function AnalyticsPage() {
         <div className="flex flex-col justify-center gap-4">
             <h3>Analytics Dashboard</h3>
             <nav className="flex justify-center gap-8">
-                <Link className ='nav-links' to='./country'>Country</Link>
-                <Link className ='nav-links' to = './globe'>Globe</Link>
+                <Link className ='nav-links' to='./country'>Country Dashboard</Link>
+                <Link className ='nav-links' to = './globe'>Global Dashboard</Link>
             </nav>
             <Outlet/>
             {/* <CountryView posts ={posts} /> */}

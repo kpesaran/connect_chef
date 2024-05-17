@@ -14,10 +14,10 @@ import Home from './pages/home';
 import MapPage from './pages/Map';
 import Layout from './Layout';
 import AnalyticsPage from './pages/AnalyticsPage';
-import GlobalAnalytics from './components/analytics/country/charts/test/GlobalAnalytics';
-import CountryAnalytics from './components/analytics/country/charts/test/CountryAnalytics';
+import GlobalDashboard from './components/analytics/global/GlobalDashboard';
 import Register from './pages/register';
 import Login from './pages/login';
+import CountryDashboard from './components/analytics/country/CountryDashboard';
 
 function App() {
   return (
@@ -33,8 +33,8 @@ function App() {
             {/* <Route path='/login' element={<Login />} /> */}
             <Route path='/map/' element={<MapPage />} />
             <Route path='analytics' element={<AnalyticsPage />}>
-              <Route path='country' element={<CountryAnalytics />} />
-              <Route path='globe' element={<GlobalAnalytics />} />
+              <Route path='country' element={<CountryDashboard />} />
+              <Route path='globe' element={<GlobalDashboard />} />
             </Route>
           </Route>
         </Routes>

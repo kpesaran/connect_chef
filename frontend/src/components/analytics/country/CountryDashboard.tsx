@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import CountryView from '../CountryView';
+import CountryCharts from './CountryCharts';
 
 const fetchPostsData = async () => {
   try {
@@ -12,7 +12,7 @@ const fetchPostsData = async () => {
   }
 };
 
-export default function CountryAnalytics() {
+export default function CountryDashboard() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -29,8 +29,8 @@ export default function CountryAnalytics() {
 
   return (
     <div>
-          <h3>Country Data Overview</h3>
-          <CountryView posts={posts}/>
+      <h3>Country Data Overview</h3>
+      <CountryCharts posts={posts} />
     </div>
   );
 }

@@ -1,0 +1,12 @@
+.charts-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px
+}
+
+.chart-wrapper {
+    width: 45%;
+    max-width: 600px;
+    
+}
