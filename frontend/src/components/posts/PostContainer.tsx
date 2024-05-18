@@ -11,7 +11,8 @@ import PostFullScreen from './PostFullScreen'
 
 
 
-const PostContainer: React.FC = ({ posts, onSearch, onFilterChange, onSortChange, onCuisineFilterChange }) => {
+const PostContainer: React.FC = ({ posts, onSearch, onFilterChange, onSortChange, onCuisineFilterChange, fetchPosts, location }) => {
+  const userId = localStorage.getItem('userId')
  
   
 
@@ -39,7 +40,8 @@ function  handleFocusPost(post_id) {
         ) :
          <div className = 'post-container-grid'>
           {posts.map((post, i) => (
-            <Post key={post._id} post={post} post_i={i} onOpen={handleFocusPost} />
+            <Post key={post._id} post={post} post_i={i} onOpen={handleFocusPost} fetchPosts = {fetchPosts} location = {location}
+              userId={userId} />
           ))}
         </div>}
       

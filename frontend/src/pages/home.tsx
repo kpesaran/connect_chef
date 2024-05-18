@@ -159,7 +159,8 @@ export default function Home() {
               onSearch={handleSearchChange}
               onFilterChange={handleFilterChange}
               onSortChange={handleSortChange}
-              onCuisineFilterChange = {handleCuisineFilterChange}
+              onCuisineFilterChange={handleCuisineFilterChange}
+              fetchPosts ={fetchData}
               />
           </div>)}
         {/* <ZipCodeForm /> */}

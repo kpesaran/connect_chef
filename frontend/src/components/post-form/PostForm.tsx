@@ -21,11 +21,12 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
     { name: '', quantity: '' },
   ]);
   const [steps, setSteps] = useState(['']);
+  
 
   const options = cuisineOptions.map((cuisine) => {
     return <option value={cuisine}> {cuisine} </option>;
   });
-
+  
   const handleIngredientChange = (index, key, value) => {
     const newIngredients = [...ingredients];
     newIngredients[index] = {
@@ -81,6 +82,7 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
         ingredients: ingredients,
         steps: steps,
       };
+      
 
       const endpoint = 'http://localhost:3001/api/v1/postings';
       const token = localStorage.getItem('token')
@@ -188,7 +190,10 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
           ))}
           <button className = 'w-5 ' onClick={addStep}>+</button>
         </div>
-
+        {/* <div>
+          <h3>Add Image</h3>
+          <input type='file' onChange={handleImageChange} />
+        </div> */}
         <div className='flex gap-4 m-4 justify-center'>
           <button
             className=' focus:ring bg-sky-500 hover:bg-sky-700'
@@ -199,7 +204,8 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
           </button>
           <button onClick={onCloseForm}>Close Form </button>
         </div>
-        {/* Add Picture */}
+      
+
       </form>
     </>
   );

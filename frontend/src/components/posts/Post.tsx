@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import imageUrls from '../../../public/image-urls';
 import './styles.css';
+import axios from 'axios'
 
 interface PostProps {
   post: {
@@ -19,7 +20,7 @@ interface PostProps {
   post_i: number;
 }
 
-const Post: React.FC<PostProps> = ({ post, onOpen }) => {
+const Post: React.FC<PostProps> = ({ post, onOpen, userId,fetchPosts, location }) => {
 
   const [selected, setSelected] = useState(null);
 
@@ -27,6 +28,19 @@ const Post: React.FC<PostProps> = ({ post, onOpen }) => {
   //   console.log(getCurrentID);
   //   setSelected(getCurrentID === selected ? null : getCurrentID);
   // }
+  async function handleDeletePost(postId) {
+    const endpoint = `http://localhost:3001/api/v1/postings?`
+    const token = localStorage.getItem('token')
+    axios.delete(endpoint, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      },
+      data: {
+        postId: postId
+      }
+    });
+    fetchPosts(location)
+  }
 
   return (
     <>
@@ -35,10 +49,10 @@ const Post: React.FC<PostProps> = ({ post, onOpen }) => {
       )}   */}
       <div
         // onClick={() => handleSingleSelection(post._id)}
-        onClick={() => onOpen(post._id)}
+       
         className={`post-card flex border rounded-md`}
       >
-        <div className=' post-details shadow-lg border rounded-md'>
+        <div className=' post-details shadow-lg border rounded-md ' onClick={() => onOpen(post._id)}>
           <div className='flex flex-col py-10  '>
             <span className='rounded-full'>{post.neighborhood} </span>
             <span className='city-title'> {post.city}</span>
@@ -53,13 +67,14 @@ const Post: React.FC<PostProps> = ({ post, onOpen }) => {
             {/* <span>Created By : {post.createdBy}</span> */}
           </div>
         </div>
+        
         <div className='post-title-container '>
           <span className='font-bold text-xl mb2'>{post.title}</span>
           <span>{post.body}</span>
           
                       <span>{post.steps.length} steps</span>
                       <span>{post.ingredients.length} ingredients</span>
-          <div></div>
+                      {userId === post.createdBy ? <button onClick={()=>handleDeletePost(post._id)}>Delete</button>: null}
         </div>
         <img
           className='img-post-card rounded-md'

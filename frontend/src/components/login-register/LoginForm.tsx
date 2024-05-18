@@ -19,6 +19,7 @@ export default function LoginForm() {
       const token = response.data.token;
       localStorage.setItem('userName', user.name);
         localStorage.setItem('token', token);
+        localStorage.setItem('userId',user.userId)
         navigate('/')
       
     } catch (error) {

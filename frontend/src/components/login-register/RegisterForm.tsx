@@ -20,7 +20,8 @@ export default function RegisterForm() {
 
       const user = response.data.user;
       const token = response.data.token;
-      localStorage.setItem('userName', user.name);
+        localStorage.setItem('userName', user.name);
+        localStorage.setItem('userId',user.userId)
       localStorage.setItem('token', token);
       navigate('/')
     } catch (err) {

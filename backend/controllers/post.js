@@ -49,6 +49,7 @@ const getAllPosts = async (req, res) => {
 
 const createPost = async (req, res) => {
     try {
+
         req.body.createdBy = req.user.userId
         const newPost = await PostSchema.create(req.body)
         res.status(201).json(newPost)
@@ -59,7 +60,22 @@ const createPost = async (req, res) => {
     }
 }
 
-module.exports = {createPost, getAllPosts}
+const deletePost = async (req, res) => {
+    const {postId} = req.body
+    const task = await PostSchema.findOneAndDelete({ _id: postId })
+    try {
+        if (!task) {
+            return res.status(404).json({ msg: `no task with ${postId}` })
+        }
+        res.status(200).json({ msg: 'deleted post successfully' })
+    }
+    catch (err) {
+        console.error('Error deleting post:', err)
+        res.status(500).json({ error: 'An error occurred while deleting the post' });
+    }
+}
+
+module.exports = {createPost, getAllPosts, deletePost}
 
 
 
