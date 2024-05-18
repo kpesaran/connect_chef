@@ -35,5 +35,13 @@ function mostPopularIngredient(posts) {
     return mostPopularIngredient
 }
 
+function countOccurences(list) {
+    const occurenceMap = {};
+    list.forEach((item) => {
+        occurenceMap[item] = (occurenceMap[item] || 0) + 1;
+    });
+    return occurenceMap;
+}
 
-export {filteredPostsByCountry, mostPopularIngredient}
+
+export {filteredPostsByCountry, mostPopularIngredient, countOccurences}

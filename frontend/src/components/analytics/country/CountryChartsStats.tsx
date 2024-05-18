@@ -6,6 +6,7 @@ import MostPopularIngredient from './stats/MostPopularIngredient';
 
 import './styles.css'
 import StepsAvg from './stats/StepsAvg';
+import CityWithMostRecipes from './stats/CityWithMostRecipes';
 
 export default function CountryChartsStats({ posts }) {
   const [selectedCountry, setSelectedCountry] = useState('United States');
@@ -50,7 +51,9 @@ export default function CountryChartsStats({ posts }) {
         <RecipeCount posts={posts} selectedCountry={selectedCountry} />
         <MostPopularIngredient posts={posts} selectedCountry={selectedCountry} />
         <StepsAvg selectedCountry={selectedCountry} posts={posts} />
+        <CityWithMostRecipes posts={posts} selectedCountry={selectedCountry}/>
       </div>
+
     </>
   );
 }

@@ -1,8 +1,10 @@
 import React from 'react';
-import { Pie } from 'react-chartjs-2';
+import { Pie, Doughnut } from 'react-chartjs-2';
 import { Chart, ArcElement, Tooltip, Legend } from 'chart.js';
 
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+
+import { countOccurences } from '../utils';
 
 Chart.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
@@ -13,13 +15,7 @@ export default function PieChartCountry({ selectedCountry, posts }) {
     .flat()
     .filter((value) => value != '');
 
-  function countOccurences(list) {
-    const occurenceMap = {};
-    list.forEach((item) => {
-      occurenceMap[item] = (occurenceMap[item] || 0) + 1;
-    });
-    return occurenceMap;
-  }
+  
 
   const categoryCount = countOccurences(categoriesFromCountry);
 
@@ -75,8 +71,8 @@ export default function PieChartCountry({ selectedCountry, posts }) {
 
   return (
     <div className='pie-chart-container'>
-      <h4>Cuisine Diversity by Country </h4>
-      <Pie data={data} options={options} />
+      <h4 className='chart-title'>Cuisine Diversity by Country </h4>
+      <Doughnut data={data} options={options} />
 
       {/* <Bar options={options} data={data} /> */}
     </div>

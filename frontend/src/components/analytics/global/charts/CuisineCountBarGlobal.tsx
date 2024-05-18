@@ -71,7 +71,9 @@ export default function CuisineCountBarGlobal({ posts }) {
   return (
     <div className='pie-chart-container'>
       <h4>Cuisine Diversity Around the World </h4>
-      <Bar data={data} options={options} />
+      <div className='chart-wrapper'>
+        <Bar data={data} options={options} />
+      </div>
 
       {/* <Bar options={options} data={data} /> */}
     </div>

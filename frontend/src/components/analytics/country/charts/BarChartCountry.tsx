@@ -105,7 +105,7 @@ export default function BarChartCountry({ posts, selectedCountry }) {
 
     return (
         <div>
-            <h4>Average Ingredient Count By Cuisine</h4>
+            <h4 className='chart-title'>Average Ingredient Count By Cuisine</h4>
             <Bar data={data} height={300}  ></Bar>
         </div>
     )
