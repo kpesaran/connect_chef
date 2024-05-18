@@ -50,7 +50,7 @@ const Post: React.FC<PostProps> = ({ post, onOpen }) => {
               ))}
             </div>
             <span>Views: {post.views}</span>
-            <span>Created By : {post.createdBy}</span>
+            {/* <span>Created By : {post.createdBy}</span> */}
           </div>
         </div>
         <div className='post-title-container '>

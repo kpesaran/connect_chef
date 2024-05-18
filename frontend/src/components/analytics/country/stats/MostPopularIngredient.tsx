@@ -6,9 +6,10 @@ export default function MostPopularIngredient({ posts, selectedCountry }) {
   const ingredient = mostPopularIngredient(filterPosts);
 
   return (
-    <div>
-      <h4>Most Common Ingredient:</h4>
-      {ingredient}
+    <div className = 'stat-box'>
+          <h4>Most Common Ingredient:</h4>
+          <span className='stat'>{ingredient}</span>
+      
     </div>
   );
 }

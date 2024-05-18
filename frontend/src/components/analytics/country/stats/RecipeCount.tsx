@@ -4,9 +4,9 @@ export default function RecipeCount({ posts, selectedCountry }) {
     const displayedPosts = selectedCountry ? filteredPostsByCountry(posts, selectedCountry) : posts
 
   return (
-    <>
+    <div className='stat-box'>
       <h4>Total Recipes</h4>
-      <span>{displayedPosts.length}</span>
-    </>
+      <span className='stat'>{displayedPosts.length}</span>
+    </div>
   );
 }
