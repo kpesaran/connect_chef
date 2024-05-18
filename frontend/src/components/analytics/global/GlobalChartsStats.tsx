@@ -9,7 +9,7 @@ import CityWithMostRecipes from '../country/stats/CityWithMostRecipes';
 import '../styles.css';
 import RecipeCountByCountryBar from './charts/RecipeCountByCountryBar';
 
-export default function GlobalChartsStats({ posts }) {
+export default function GlobalChartsStats({ posts, isLoading }) {
   return (
     <>
       <div className=' flex flex-col'>

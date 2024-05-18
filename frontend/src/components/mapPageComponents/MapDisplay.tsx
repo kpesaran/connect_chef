@@ -33,10 +33,6 @@ const MyComponent = ({posts}) => {
   return <><DisplayedPosts posts={displayedPosts}/></>;
 };
 
-
-
-
-
 export default function MapDisplay()
 {
   const [posts, setPosts] = useState([]);
@@ -49,7 +45,11 @@ export default function MapDisplay()
     const fetchData = async () => {
       try {
         const endpoint = `http://localhost:3001/api/v1/postings?`;
-        const response = await axios.get(endpoint);
+        const token = localStorage.getItem('token')
+        const response = await axios.get(endpoint, {
+          headers: {
+          Authorization : `Bearer ${token}`
+        }});
         console.log(response.data);
         setPosts(response.data);
       } catch (error) {

@@ -75,7 +75,23 @@ const deletePost = async (req, res) => {
     }
 }
 
-module.exports = {createPost, getAllPosts, deletePost}
+const updateViewCountPost = async (req, res) => {
+    const { id } = req.params
+    try {
+        const post = await PostSchema.findOneAndUpdate({ _id: id }, { $inc: { views: 1 } },
+            { new: true })
+        console.log(post)
+   
+        res.status(200).json(post)
+    }
+    catch(err) {
+        console.error('Error updating view count')
+        res.status(500).json({msg: err})
+    }
+    
+}
+
+module.exports = {createPost, getAllPosts, deletePost,updateViewCountPost}
 
 
 

@@ -9,12 +9,12 @@ export default function Home() {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('neighborhood');
-  const [sortOn, setSortOn] = useState('')
+  const [sortOn, setSortOn] = useState('');
 
   // const [locationProvided, setLocationProvided] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [posts, setPosts] = useState([]);
-  const [cuisineFilter, setCuisineFilter] = useState('')
+  const [cuisineFilter, setCuisineFilter] = useState('');
 
   // const [isLoading, setIsLoading] = useState(true)
 
@@ -22,44 +22,41 @@ export default function Home() {
     // setIsLoading(true)
     try {
       // use location data to make your api requests
-      const locationVal = localLocation[filter]
-      
-      
-      let endpoint = `http://localhost:3001/api/v1/postings?` 
+      const locationVal = localLocation[filter];
+
+      let endpoint = `http://localhost:3001/api/v1/postings?`;
       if (locationVal) {
-        const locationQuery = `${filter}=${locationVal}`
-        console.log(locationQuery)
-        endpoint += locationQuery
+        const locationQuery = `${filter}=${locationVal}`;
+        console.log(locationQuery);
+        endpoint += locationQuery;
       }
       if (sortOn) {
-        let sortQuery
+        let sortQuery;
         if (sortOn === 'views') {
-          sortQuery = `sort=views:desc`
-        }
-        else if (sortOn === 'recent') {
-          sortQuery = `sort=dateStamp:desc`
-        }
-        else if (sortOn === 'oldest') {
-          sortQuery = `sort=dateStamp:asc`
+          sortQuery = `sort=views:desc`;
+        } else if (sortOn === 'recent') {
+          sortQuery = `sort=dateStamp:desc`;
+        } else if (sortOn === 'oldest') {
+          sortQuery = `sort=dateStamp:asc`;
         }
         if (sortQuery) {
-          endpoint += `&${sortQuery}`
+          endpoint += `&${sortQuery}`;
         }
       }
       if (cuisineFilter) {
-        endpoint += `&category=${cuisineFilter}`
+        endpoint += `&category=${cuisineFilter}`;
       }
-      
-      const token = localStorage.getItem('token')
-      
+
+      const token = localStorage.getItem('token');
+
       const response = await axios.get(endpoint, {
         headers: {
-          'Authorization': `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       });
       console.log(response.data);
 
-      if (searchTerm != '')  {
+      if (searchTerm != '') {
         const searchTermLowerCase = searchTerm.toLowerCase();
 
         const postsToDisplay = response.data.filter(
@@ -68,7 +65,7 @@ export default function Home() {
         );
 
         setPosts([...postsToDisplay]);
-        
+
         return;
       }
 
@@ -76,12 +73,12 @@ export default function Home() {
     } catch (error) {
       console.error('failed to get posts:', error);
     }
-    setIsLoading(false)
+    setIsLoading(false);
   };
 
   function handleCuisineFilterChange(newCuisine) {
-   setCuisineFilter(newCuisine)
- }
+    setCuisineFilter(newCuisine);
+  }
   function handleFilterChange(newFilter) {
     setFilter(newFilter);
   }
@@ -89,62 +86,64 @@ export default function Home() {
     setSearchTerm(newTerm);
   }
   function handleSortChange(newSort) {
-    setSortOn(newSort)
+    setSortOn(newSort);
+  }
+  function updatePostViewCount(updatedPost) {
+    setPosts((prevPosts) => (
+      prevPosts.map((post) => (
+        post._id === updatedPost._id ? updatedPost : post
+      ))
+    ));
   }
 
   function onCloseForm() {
-    setShowForm(false)
-    console.log(showForm)
+    setShowForm(false);
+    console.log(showForm);
   }
 
   useEffect(() => {
-    
     async function getLocation() {
       try {
         const locationData = await fetchLocationData();
         console.log(locationData);
         setLocation({ ...locationData });
-        console.log(JSON.stringify(locationData))
-        localStorage.setItem('location', JSON.stringify(locationData))
-        fetchData(locationData)
-        
-        
+        console.log(JSON.stringify(locationData));
+        localStorage.setItem('location', JSON.stringify(locationData));
+        fetchData(locationData);
       } catch (err) {
         console.error('Error fetching location:', err);
       }
     }
-    const storedLocation = localStorage.getItem('location')
- 
+    const storedLocation = localStorage.getItem('location');
+
     if (storedLocation) {
-      const storedLocationObj = JSON.parse(storedLocation)
-      setLocation(storedLocationObj )
-      fetchData(storedLocationObj)
-    }
-    else {
+      const storedLocationObj = JSON.parse(storedLocation);
+      setLocation(storedLocationObj);
+      fetchData(storedLocationObj);
+    } else {
       getLocation();
     }
-    
   }, [filter, searchTerm, sortOn, cuisineFilter]);
-  console.log(sortOn)
-  console.log(cuisineFilter)
+  console.log(sortOn);
+  console.log(cuisineFilter);
   // useEffect(() => {
 
   //   fetchData();
   // }, [searchTerm, filter,location]);
 
-
-  console.log(filter)
+  console.log(filter);
   return (
     <>
-      
       {/* {isLoading ? <h4>Data is loading...</h4> : */}
       <div>
-        
-        {showForm ? (<PostForm location={location} onCreatePost={fetchData}
-        onCloseForm={onCloseForm} />)
-          :
-          (<div>
-            
+        {showForm ? (
+          <PostForm
+            location={location}
+            onCreatePost={fetchData}
+            onCloseForm={onCloseForm}
+          />
+        ) : (
+          <div>
             <button
               className='mb-4 hover:: 0'
               onClick={() => setShowForm(!showForm)}
@@ -160,14 +159,13 @@ export default function Home() {
               onFilterChange={handleFilterChange}
               onSortChange={handleSortChange}
               onCuisineFilterChange={handleCuisineFilterChange}
-              fetchPosts ={fetchData}
-              />
-          </div>)}
+                fetchPosts={fetchData}
+              updatePostViewCount ={updatePostViewCount}
+            />
+          </div>
+        )}
         {/* <ZipCodeForm /> */}
-
       </div>
     </>
-   ) ;
+  );
 }
-
-

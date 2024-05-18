@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import GlobalChartsStats from './GlobalChartsStats';
 
 export default function GlobalDashboard() {
-  const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState([]);
+    const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,13 +15,15 @@ export default function GlobalDashboard() {
         console.error(err);
       }
     };
-    fetchData();
+      fetchData();
+      setLoading(false)
   }, []);
 
   return (
     <div>
-      <h3>Global Data Overview</h3>
-      <GlobalChartsStats posts = {posts} />
+          <h3>Global Data Overview</h3>
+          
+      <GlobalChartsStats posts = {posts} isLoading ={isLoading} />
     </div>
   );
 }

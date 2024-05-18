@@ -11,7 +11,7 @@ import PostFullScreen from './PostFullScreen'
 
 
 
-const PostContainer: React.FC = ({ posts, onSearch, onFilterChange, onSortChange, onCuisineFilterChange, fetchPosts, location }) => {
+const PostContainer: React.FC = ({ posts, onSearch, onFilterChange, onSortChange, onCuisineFilterChange, fetchPosts, location, updatePostViewCount }) => {
   const userId = localStorage.getItem('userId')
  
   
@@ -23,10 +23,27 @@ const PostContainer: React.FC = ({ posts, onSearch, onFilterChange, onSortChange
   function handleClose() {
     setSelectedPost(null) 
   }
-function  handleFocusPost(post_id) {
+  async function handleFocusPost(post_id) {
     const curr_post = posts.find(post => post._id === post_id)
-    
     setSelectedPost(curr_post)
+    const token = localStorage.getItem('token')
+ 
+    const endpoint = `http://localhost:3001/api/v1/postings/${post_id}`
+    try {
+      const response = await axios.patch(endpoint,{}, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      const updatedPost = response.data
+
+      updatePostViewCount(updatedPost)
+      
+      
+    }
+    catch (err) {
+      console.error(err)
+    }
   }
   // location, neighborhood, city, state, country
   console.log(selectedPost)
