@@ -1,10 +1,10 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
-import { Chart, ArcElement, Tooltip, Legend } from 'chart.js';
+
 
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
-Chart.register(ArcElement, Tooltip, Legend, ChartDataLabels);
+
 
 export default function CuisineCountBarGlobal({ posts }) {
   const categories = posts
@@ -33,7 +33,7 @@ export default function CuisineCountBarGlobal({ posts }) {
     labels: chartLabels,
     datasets: [
       {
-        label: 'My First Dataset',
+        
         data: chartData,
         backgroundColor: [
           'rgb(255, 99, 132,.8)',
@@ -52,7 +52,7 @@ export default function CuisineCountBarGlobal({ posts }) {
     responsive: true,
     plugins: {
       legend: {
-        position: 'top',
+        display: 'false',
       },
 
       tooltip: {
@@ -70,9 +70,10 @@ export default function CuisineCountBarGlobal({ posts }) {
 
   return (
     <div className='pie-chart-container'>
-      <h4>Cuisine Diversity Around the World </h4>
+      
       <div className='chart-wrapper'>
-        <Bar data={data} options={options} />
+      <h4>Cuisine Diversity Around the World </h4>
+        <Bar data={data} />
       </div>
 
       {/* <Bar options={options} data={data} /> */}
