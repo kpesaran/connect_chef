@@ -1,0 +1,13 @@
+
+.button-auth {
+    border: 1px blue  solid;
+}
+
+.label-title {
+    
+    font-size: 32px;
+}
+
+.input-container {
+    display: flex;
+}

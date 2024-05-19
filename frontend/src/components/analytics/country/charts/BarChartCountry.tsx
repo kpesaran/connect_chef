@@ -1,4 +1,4 @@
-import {Chart as ChartJS, CategoryScale, LinearScale, BarElement} from 'chart.js'
+import {Chart as ChartJS, CategoryScale, LinearScale, BarElement, scales} from 'chart.js'
 import { Bar } from 'react-chartjs-2'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement)
@@ -58,13 +58,6 @@ export default function BarChartCountry({ posts, selectedCountry }) {
     console.log(averageCountIngredients)
 
 
-
-
-
-
-
-
-
     ;
     const data = {
         labels: labels,
@@ -100,13 +93,33 @@ export default function BarChartCountry({ posts, selectedCountry }) {
             borderWidth: 1
         }
         ]
-      };
+    };
+    const options = {
+        scales: {
+            x: {
+                ticks: {
+                    font: {
+                        size: 18,
+                        weight: 'bold'
+                    },
+                    
+                }
+            },
+            y: {
+                ticks: {
+                    font: {
+                        size:24
+                    }
+                }
+            }
+        }
+    }
 
 
     return (
         <div>
             <h4 className='chart-title'>Average Ingredient Count By Cuisine</h4>
-            <Bar data={data} height={300}  ></Bar>
+            <Bar data={data} height={300} options={options}  ></Bar>
         </div>
     )
 }

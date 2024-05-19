@@ -1,13 +1,12 @@
 
-.links-container {
-    justify-content: center;
-    
-    
-}
 
 
 
 .titles-routes {
     color:black;
     font-size: 24px;
+}
+
+.navbar-container {
+    box-shadow: 10px 16px 24px;
 }

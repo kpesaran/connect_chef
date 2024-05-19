@@ -61,6 +61,7 @@ export default function PieChartCountry({ selectedCountry, posts }) {
         font: {
           size: '24px',
         },
+        
 
         formatter: (value, context) => {
           return context.chart.data.labels[context.dataIndex];

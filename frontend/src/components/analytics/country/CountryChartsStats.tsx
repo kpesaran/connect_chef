@@ -4,7 +4,7 @@ import BarChartCountry from './charts/BarChartCountry';
 import RecipeCount from './stats/RecipeCount';
 import MostPopularIngredient from './stats/MostPopularIngredient';
 
-import './styles.css'
+import '../styles.css'
 import StepsAvg from './stats/StepsAvg';
 import CityWithMostRecipes from './stats/CityWithMostRecipes';
 
@@ -20,6 +20,7 @@ export default function CountryChartsStats({ posts }) {
   }
   return (
     <>
+      <label className='font-2xl'>Select Country:</label>
       <select
         name='selectedCountry'
         defaultValue='United States'
@@ -47,7 +48,7 @@ export default function CountryChartsStats({ posts }) {
           <BarChartCountry selectedCountry={selectedCountry} posts={posts} />
         </div>
       </div>
-      <div className='stat-container flex justify-center gap-6' >
+      <div className='stats-container' >
         <RecipeCount posts={posts} selectedCountry={selectedCountry} />
         <MostPopularIngredient posts={posts} selectedCountry={selectedCountry} />
         <StepsAvg selectedCountry={selectedCountry} posts={posts} />

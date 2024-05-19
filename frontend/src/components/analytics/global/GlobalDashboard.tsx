@@ -4,7 +4,7 @@ import GlobalChartsStats from './GlobalChartsStats';
 
 export default function GlobalDashboard() {
     const [posts, setPosts] = useState([]);
-    const [isLoading, setLoading] = useState(true)
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,14 +16,14 @@ export default function GlobalDashboard() {
       }
     };
       fetchData();
-      setLoading(false)
+      
   }, []);
 
   return (
-    <div>
-          <h3>Global Data Overview</h3>
+    <div className='dashboard-container'>
+          <h3 className='text-2xl'>Global Data Overview</h3>
           
-      <GlobalChartsStats posts = {posts} isLoading ={isLoading} />
+      <GlobalChartsStats posts = {posts} />
     </div>
   );
 }

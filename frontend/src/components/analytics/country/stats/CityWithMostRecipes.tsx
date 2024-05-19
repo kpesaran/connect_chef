@@ -2,6 +2,7 @@
 import { filteredPostsByCountry } from "../utils"
 
 import { countOccurences } from "../utils"
+import '../../styles.css'
 
 export default function CityWithMostRecipes({ posts, selectedCountry }) {
     
@@ -29,7 +30,7 @@ export default function CityWithMostRecipes({ posts, selectedCountry }) {
 
     return (
         <div className="stat-box">
-            <h4>City With Most Posted Recipes</h4>
+            <h4 className="stat-title">City With Most Posted Recipes</h4>
             <span className="stat">{maxCities[0]}</span>
 
         </div>

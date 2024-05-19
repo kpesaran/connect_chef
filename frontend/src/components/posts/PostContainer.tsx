@@ -38,7 +38,7 @@ const PostContainer: React.FC = ({ posts, onSearch, onFilterChange, onSortChange
       const updatedPost = response.data
 
       updatePostViewCount(updatedPost)
-      
+
       
     }
     catch (err) {
@@ -55,7 +55,7 @@ const PostContainer: React.FC = ({ posts, onSearch, onFilterChange, onSortChange
         {selectedPost ? (
           <PostFullScreen post = {selectedPost} onClose = {handleClose}/>
         ) :
-         <div className = 'post-container-grid'>
+         <div className = 'post-container-grid  '>
           {posts.map((post, i) => (
             <Post key={post._id} post={post} post_i={i} onOpen={handleFocusPost} fetchPosts = {fetchPosts} location = {location}
               userId={userId} />

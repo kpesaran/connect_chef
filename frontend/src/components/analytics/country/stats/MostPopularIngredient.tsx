@@ -7,7 +7,7 @@ export default function MostPopularIngredient({ posts, selectedCountry }) {
 
   return (
     <div className = 'stat-box'>
-          <h4>Most Common Ingredient:</h4>
+          <h4 className="stat-title">Most Common Ingredient:</h4>
           <span className='stat'>{ingredient}</span>
       
     </div>

@@ -21,7 +21,7 @@ export default function StepsAvg({ posts, selectedCountry }) {
 
   return (
     <div className='stat-box'>
-      <h4>Average Steps</h4>
+      <h4 className="stat-title">Average Steps</h4>
       <span className='stat'>{averageSteps}</span>
     </div>
   );

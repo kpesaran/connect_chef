@@ -53,7 +53,7 @@ const Post: React.FC<PostProps> = ({ post, onOpen, userId,fetchPosts, location }
         className={`post-card flex border rounded-md`}
       >
         <div className=' post-details shadow-lg border rounded-md ' onClick={() => onOpen(post._id)}>
-          <div className='flex flex-col py-10  '>
+          <div className='sub-card-left flex flex-col py-10'>
             <span className='rounded-full'>{post.neighborhood} </span>
             <span className='city-title'> {post.city}</span>
             
@@ -63,12 +63,12 @@ const Post: React.FC<PostProps> = ({ post, onOpen, userId,fetchPosts, location }
                 <span key={i}>{category}</span>
               ))}
             </div>
-            <span>Views: {post.views}</span>
+            <span className='text-xl'>Views: {post.views}</span>
             {/* <span>Created By : {post.createdBy}</span> */}
           </div>
         </div>
         
-        <div className='post-title-container '>
+        <div className='post-title-container text-xl '>
           <span className='font-bold text-xl mb2'>{post.title}</span>
           <span>{post.body}</span>
           

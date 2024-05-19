@@ -66,17 +66,17 @@ export default function CuisineCountBarGlobal({ posts }) {
         },
       },
     },
+    
   };
 
   return (
     <div className='pie-chart-container'>
       
-      <div className='chart-wrapper'>
+    
       <h4>Cuisine Diversity Around the World </h4>
-        <Bar data={data} />
-      </div>
+        <Bar height={500} width={500} data={data} />
 
-      {/* <Bar options={options} data={data} /> */}
+    
     </div>
   );
 }

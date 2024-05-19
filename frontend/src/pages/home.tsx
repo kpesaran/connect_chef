@@ -144,12 +144,7 @@ export default function Home() {
           />
         ) : (
           <div>
-            <button
-              className='mb-4 hover:: 0'
-              onClick={() => setShowForm(!showForm)}
-            >
-              Make Post{' '}
-            </button>
+            
             <div>Location: {location.neighborhood}</div>
             <div></div>
             <PostContainer
@@ -162,8 +157,15 @@ export default function Home() {
                 fetchPosts={fetchData}
               updatePostViewCount ={updatePostViewCount}
             />
-          </div>
+            </div>
+            
         )}
+        <button
+              className='mb-4 hover:: 0' id ='make-post-button'
+              onClick={() => setShowForm(!showForm)}
+            >
+              Make Post{' '}
+            </button>
         {/* <ZipCodeForm /> */}
       </div>
     </>

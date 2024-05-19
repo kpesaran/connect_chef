@@ -110,32 +110,34 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
   };
   return (
     <>
-      <form onSubmit={handleFormSubmit} className='flex flex-col border 8 m-24'>
+      <form onSubmit={handleFormSubmit} className='flex border 8 m-24'>
         {/* title */}
-        <input
-          className='border 6'
-          type='string'
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder='Enter Title'
+        <div className='flex flex-col border-r-8'>
+          <input
+            className='border 6'
+            type='string'
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder='Enter Title'
           
-        ></input>
-        {/* body */}
-        <input
-          className='border 4 h-20'
-          type='string'
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
-          placeholder='Write A Description'
-        ></input>
-        <div className='m-2'>
-          <h3>Add Cuisine Category</h3>
-          <select
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-          >
-            {options}
-          </select>
+          ></input>
+          {/* body */}
+          <input
+            className='border 8 h-20 '
+            type='string'
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
+            placeholder='Write A Description'
+          ></input>
+          <div className='m-2'>
+            <h3>Add Cuisine Category</h3>
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+            >
+              {options}
+            </select>
+          </div>
         </div>
         {/* ingredients */}
         <div className='ingredient-section' >

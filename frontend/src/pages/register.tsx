@@ -1,13 +1,10 @@
-import RegisterForm from "../components/login-register/RegisterForm";
-
+import RegisterForm from '../components/auth/RegisterForm';
 
 export default function Register() {
-
-    return (
-        <div>
-            <h1>Register</h1>
-            <RegisterForm />
-            
-        </div>
-    )
+  return (
+    <div>
+      <h2 className='text-2xl' justify-content = '' >Register</h2>
+      <RegisterForm />
+    </div>
+  );
 }

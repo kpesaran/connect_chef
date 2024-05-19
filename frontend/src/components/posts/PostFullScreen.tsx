@@ -6,7 +6,7 @@ import './styles.css'
 const PostFullScreen = ({ post, onClose }) => {
   return (
     <>
-      <div className='background-fade' onClick={onClose}></div>
+      <div className='background-fade transition ease-in-out delay-150' onClick={onClose}></div>
       <div className='post-expanded'>
         <button onClick={onClose}>Close</button>
         <div className='highlighted-card'>

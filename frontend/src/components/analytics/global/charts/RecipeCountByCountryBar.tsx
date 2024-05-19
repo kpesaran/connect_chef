@@ -26,7 +26,7 @@ export default function RecipeCountByCountryBar({ posts }) {
         labels: labels,
         datasets: [
           {
-            label: 'Sales',
+            label: 'Recipe Count',
             data: dataCountryCount,
             backgroundColor: 'rgba(75,192,192,0.4)',
             borderColor: 'rgba(75,192,192,1)',
@@ -36,10 +36,31 @@ export default function RecipeCountByCountryBar({ posts }) {
       };
     
       const options = {
-        indexAxis: 'y', 
+          indexAxis: 'y', 
+          scales: {
+            x: {
+                ticks: {
+                    font: {
+                        size: 18,
+                        weight: 'bold'
+                    },
+                    
+                }
+            },
+            y: {
+                ticks: {
+                    font: {
+                        size:24
+                    }
+                }
+            }
+        }
       };
     
-      return <Bar data={data} options={options} />;
+    return <div>
+          <title>Recipe Count </title>
+          <Bar data={data} options={options} height={300} />
+      </div>;
 
 
 }
