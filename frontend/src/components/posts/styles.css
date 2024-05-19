@@ -43,7 +43,7 @@
   color: white;
   justify-content: space-between;
   padding: 10px;
-  
+  text-shadow: 2px 2px 4px #000000;
   
   
   background-color: rgba(82, 154, 176, 0.8);
@@ -61,7 +61,8 @@
   margin: 0 auto;
   color: black;
   padding: 4px;
-
+  text-shadow: 2px 2px 2px #bd7474;
+  font-weight: bold;
 }
 
 .post-card:hover {
