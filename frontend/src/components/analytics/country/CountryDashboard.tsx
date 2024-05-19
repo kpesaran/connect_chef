@@ -24,7 +24,7 @@ export default function CountryDashboard() {
 
   return (
     <div>
-      <h3>Country Data Overview</h3>
+
       <CountryChartsStats posts={posts} />
     </div>
   );

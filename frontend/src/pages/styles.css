@@ -24,3 +24,24 @@
     background-color: white;
 
 }
+
+.auth-box {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 750px;
+    margin: 0 auto;
+    background-color: rgba(241, 241, 241, 0.608)
+}
+
+.background-auth {
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.5), 
+        rgba(255, 255, 255, 0.5)
+    ), 
+    url('../../public/auth-background-2.webp') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}

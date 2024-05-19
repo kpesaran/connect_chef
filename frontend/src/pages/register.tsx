@@ -1,10 +1,15 @@
 import RegisterForm from '../components/auth/RegisterForm';
+import './styles.css';
 
 export default function Register() {
   return (
-    <div>
-      <h2 className='text-2xl' justify-content = '' >Register</h2>
-      <RegisterForm />
+    <div className='background-auth'>
+        <div className='auth-box flex justify-center flex-col'>
+          <h2>Register</h2>
+          <div>
+            <RegisterForm />
+          </div>
+        </div>
     </div>
   );
 }

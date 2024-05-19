@@ -44,7 +44,8 @@ export default function Home() {
           endpoint += `&${sortQuery}`;
         }
       }
-      if (cuisineFilter) {
+      if (cuisineFilter && cuisineFilter !== "All") {
+        console.log(cuisineFilter)
         endpoint += `&category=${cuisineFilter}`;
       }
 
@@ -74,7 +75,7 @@ export default function Home() {
     } catch (error) {
       console.error('failed to get posts:', error);
     }
-    setIsLoading(false);
+ 
   };
 
   function handleCuisineFilterChange(newCuisine) {
@@ -127,10 +128,6 @@ export default function Home() {
   }, [filter, searchTerm, sortOn, cuisineFilter]);
   console.log(sortOn);
   console.log(cuisineFilter);
-  // useEffect(() => {
-
-  //   fetchData();
-  // }, [searchTerm, filter,location]);
 
   console.log(filter);
   return (

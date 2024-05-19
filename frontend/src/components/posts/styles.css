@@ -14,10 +14,24 @@
   grid-template-columns: repeat(auto-fill, 440px); */
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 36px;
   justify-content: center;
   padding: 10px;
   margin-right: 34px;
+  /* background: linear-gradient(
+        rgba(255, 255, 255, 0.92), 
+        rgba(255, 255, 255, 0.3)
+    ), 
+    url('../../public/auth-background-2.webp') no-repeat center center fixed;
+    background-size: cover; */
+    /* background: 
+    linear-gradient(
+        rgba(255, 255, 255, 0.6), 
+        #ffffff4d
+    ), 
+    url('../../public/auth-background-3.webp') no-repeat center center fixed;
+    background-size: cover; */
+
 }
 
 .post-card {
@@ -26,25 +40,36 @@
   border-top: 3px black solid;
   border-bottom: 3px black solid;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  
+  color: white;
   justify-content: space-between;
   padding: 10px;
- 
   
-  background-color: rgb(255, 253, 222);
+  
+  
+  background-color: rgba(105, 192, 160, 0.8);
+  /* background-color: white; */
   transition: transform 0.s ease-in-out, box-shadow 1s ease-in-out ;
   display: flex;
   flex-direction: column;
   box-shadow: 0 0px 6px rgba(0, 0, 0, 0.4);
 }
 
+.category-background {
+  background-color: #88ffaa;
+  border-radius: 10px;
+  width: min-content;
+  margin: 0 auto;
+  color: black;
+  padding: 4px;
+
+}
 
 .post-card:hover {
   transform: translateY(3px); 
   
   transition: transform 1s ease-in-out, box-shadow 1s ease-in-out ;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
-  
+  /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8); */
+  box-shadow: 0 10px 20px rgba(246, 242, 242, 0.8);
   
 }
 
@@ -56,13 +81,19 @@
   width: 200px;
   justify-content: center;
   gap:12px;
+  
+  /* color: black; */
 }
 
 .post-details {
   display: flex;
   flex-direction: column;
   width: 180px;
-  background-color: rgba(111, 211, 248, 0.249);
+  background-color: rgba(153, 102, 255, 0.5);
+  border: 4px solid rgba(153, 102, 255, 1) ;
+  
+  /* color: black; */
+  
   box-shadow: 12px;
 }
 .img-post-card {
@@ -72,9 +103,7 @@
 
 
 
-
-/* Expanded post */
-
+/* expanded post */
 
 .post-expanded {
     position: fixed; 

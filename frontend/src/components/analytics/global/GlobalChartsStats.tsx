@@ -8,18 +8,23 @@ import CityWithMostRecipes from '../country/stats/CityWithMostRecipes';
 
 import '../styles.css';
 import RecipeCountByCountryBar from './charts/RecipeCountByCountryBar';
+import BarChartCountry from '../country/charts/BarChartCountry';
 
 export default function GlobalChartsStats({ posts }) {
   return (
     <div className='flex flex-col'>
      
       <div className='charts-container'>
-        <div className='chart-wrapper'>
+        <div className='chart-wrapper-globe'>
           <CuisineCountBarGlobal posts={posts} />
         </div>
-        <div className='chart-wrapper'>
-          <RecipeCountByCountryBar posts={posts} />
-        </div>
+        <div className='chart-wrapper-globe'>
+                  <RecipeCountByCountryBar posts={posts} />
+                  
+              </div>
+              <div className='chart-wrapper-globe'>
+                  <BarChartCountry posts={posts} selectedCountry={null}/>
+              </div>
           </div>
           <div className='stats-container'>
         <RecipeCount posts={posts} selectedCountry={null} />

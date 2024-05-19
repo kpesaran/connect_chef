@@ -2,11 +2,11 @@ import { useState } from "react";
 
 
 const cuisineOptions = [
-    'French', 'Indian', 'Japanese', 'Thai', 'Italian', 'American',
+    'All','French', 'Indian', 'Japanese', 'Thai', 'Italian', 'American',
     'Mexican', 'Chinese', 'Spanish', 'Lebanese', 'Turkish', 
     'Greek', 'Vietnamese', 'Korean', 'Brazilian', 'Ethiopian',
     'Peruvian', 'Portuguese', 'Moroccan', 'Russian', 
-    'Cuban', 'Malaysian', 'Irish', 'Indonesian', 'Polish'
+    'Cuban', 'Malaysian', 'Irish', 'Indonesian', 'Polish',
 ];
 
   
@@ -15,6 +15,7 @@ export default function CuisineFilter({onCuisineFilterChange}) {
     const [cuisineVal, setCuisineVal ] = useState('')
    
     function handleCuisineFilterChange(val) {
+        
         setCuisineVal(val)
         onCuisineFilterChange(val)
     }

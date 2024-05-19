@@ -20,7 +20,8 @@ export default function CountryChartsStats({ posts }) {
   }
   return (
     <>
-      <label className='font-2xl'>Select Country:</label>
+      
+      <label className='text-2xl'>Select A Different Country:</label>
       <select
         name='selectedCountry'
         defaultValue='United States'
@@ -38,7 +39,7 @@ export default function CountryChartsStats({ posts }) {
           }
         })}
       </select>
-
+      
       <div className='charts-container'>
         <div className = "chart-wrapper" >
           <PieChartCountry
@@ -48,6 +49,7 @@ export default function CountryChartsStats({ posts }) {
           <BarChartCountry selectedCountry={selectedCountry} posts={posts} />
         </div>
       </div>
+      <h5 className='text-2xl mt-6'>Country: { selectedCountry}</h5>
       <div className='stats-container' >
         <RecipeCount posts={posts} selectedCountry={selectedCountry} />
         <MostPopularIngredient posts={posts} selectedCountry={selectedCountry} />

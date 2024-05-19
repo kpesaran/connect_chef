@@ -74,9 +74,9 @@ export default function MapDisplay()
         <APIProvider apiKey='AIzaSyCm9Mipa7yue_lBZGmm08BwcR_KNMK7b5E'>
           <div className='flex justify-around'>
             <Map
-              style={{ width: '60vw', height: '75vh' }}
+              style={{ width: '60vw', height: '90vh' }}
               defaultCenter={{ lat: 22.54992, lng: 0 }}
-              defaultZoom={2}
+              defaultZoom={3}
               gestureHandling={'greedy'}
               disableDefaultUI={true}
             >
@@ -109,7 +109,7 @@ export default function MapDisplay()
           
         </APIProvider>
       </div>
-      {/* <div>
+      <div>
         {infoCardVisible ? (
           <div className='' onClick={() => handleMarkerClick({})}>
             <PostInfoCard post={selectedPost} />
@@ -117,7 +117,7 @@ export default function MapDisplay()
         ) : (
           <h3>Click a Marker to display a post</h3>
         )}
-      </div> */}
+      </div>
     </>
   );
 }

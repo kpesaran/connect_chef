@@ -24,10 +24,6 @@ const Post: React.FC<PostProps> = ({ post, onOpen, userId,fetchPosts, location }
 
   const [selected, setSelected] = useState(null);
 
-  // function handleSingleSelection(getCurrentID) {
-  //   console.log(getCurrentID);
-  //   setSelected(getCurrentID === selected ? null : getCurrentID);
-  // }
   async function handleDeletePost(postId) {
     const endpoint = `http://localhost:3001/api/v1/postings?`
     const token = localStorage.getItem('token')
@@ -56,10 +52,10 @@ const Post: React.FC<PostProps> = ({ post, onOpen, userId,fetchPosts, location }
             
             <div className='flex flex-col p-8 gap-1'>
               {post.category.map((category, i) => (
-                <span key={i}>{category}</span>
+                <span className='category-background' key={i}>{category}</span>
               ))}
             </div>
-            <span className='text-xl'>Views: {post.views}</span>
+            <span className='text-2xl font-semibold '>Views: {post.views}</span>
             {/* <span>Created By : {post.createdBy}</span> */}
           </div>
         </div>

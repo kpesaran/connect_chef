@@ -7,7 +7,7 @@ const NavBar = () => {
     <nav className=' navbar-container flex border  justify-between'>
       <div className='flex gap-4'>
         <img src={logo} className='self-center' style={{width:'100px'}} alt='logo'></img>
-        <h1 className='text-4xl font-bold self-start  font-sans pt-4 mt-4 '>CHEF CONNECT</h1>
+        <h1 className='text-4xl font-bold self-start  font-sans pt-4 mt-4 main-title '>CHEF CONNECT</h1>
         
       </div>
       <ul className='links-container flex justify-end  content-end gap-20 mt-16 mr-24'>

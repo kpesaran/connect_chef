@@ -1,13 +1,20 @@
 
 .button-auth {
     border: 1px blue  solid;
+    align-self: center;
+    display: flex;
 }
 
 .label-title {
     
-    font-size: 32px;
+    font-size: 24px;
 }
 
 .input-container {
     display: flex;
+    gap: 12px;
+    justify-content: space-between;
+}
+.input-box-auth {
+    border: black 1px solid;
 }

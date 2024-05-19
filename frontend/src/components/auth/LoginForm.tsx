@@ -29,11 +29,12 @@ export default function LoginForm() {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className='flex flex-col justify-center '>
+      <form onSubmit={handleSubmit} className='flex flex-col justify-center'>
         <div className='input-container'>
           <label className = 'label-title  '>Email:</label>
           <input
             type='email'
+            className='input-box-auth'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -42,6 +43,7 @@ export default function LoginForm() {
         <div className='input-container'>
           <label className = 'label-title'>Password:</label>
           <input
+            className='input-box-auth'
             type='password'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
