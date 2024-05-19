@@ -18,7 +18,6 @@ const PostFullScreen = ({ post, onClose }) => {
           
         </div>
         <img className='highlighted-img' src = {post.picUrl ?  post.picUrl  : imageUrls[0]} alt='Post Image' />
-        {/* Add more details like Ingredients and Steps here */}
         <div>
           <div className='border 8'>
             <h4 className='highlighted-ingredient-title'>Ingredients</h4>

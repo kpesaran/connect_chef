@@ -32,15 +32,13 @@ export default function RegisterForm() {
   }
 
   return (
-    <form className='flex flex-col' onSubmit={handleRegisterSubmit}>
-      <div className='flex flex-col'>
-        <title></title>
-
+    <form className='flex flex-col ' onSubmit={handleRegisterSubmit}>
+      <div className='flex flex-col '>
         <div className='input-container'>
           <label className='label-title'>Name</label>
           <input
             type='text'
-            className='label-title input-box-auth'
+            className=' input-box-auth'
             value={name}
             onChange={(e) => {
               setName(e.target.value);
@@ -60,7 +58,7 @@ export default function RegisterForm() {
           />
         </div>
         <div className='input-container'>
-          <label className='label-title'>Password</label>
+          <label className='label-title '>Password</label>
           <input
             className='input-box-auth'
             type='password'
@@ -69,8 +67,7 @@ export default function RegisterForm() {
             required
           />
         </div>
-      </div>
-      <div>
+
         <button className='button-auth' type='submit'>
           Register
         </button>

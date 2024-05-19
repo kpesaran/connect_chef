@@ -3,7 +3,7 @@ import axios from 'axios';
 import PostForm from '../components/post-form/PostForm';
 import PostContainer from '../components/posts/PostContainer';
 import fetchLocationData from '../utilities/locationUtils';
-import './styles.css'
+import './styles.css';
 
 export default function Home() {
   const [location, setLocation] = useState({});
@@ -44,8 +44,8 @@ export default function Home() {
           endpoint += `&${sortQuery}`;
         }
       }
-      if (cuisineFilter && cuisineFilter !== "All") {
-        console.log(cuisineFilter)
+      if (cuisineFilter && cuisineFilter !== 'All') {
+        console.log(cuisineFilter);
         endpoint += `&category=${cuisineFilter}`;
       }
 
@@ -75,7 +75,6 @@ export default function Home() {
     } catch (error) {
       console.error('failed to get posts:', error);
     }
- 
   };
 
   function handleCuisineFilterChange(newCuisine) {
@@ -91,16 +90,19 @@ export default function Home() {
     setSortOn(newSort);
   }
   function updatePostViewCount(updatedPost) {
-    setPosts((prevPosts) => (
-      prevPosts.map((post) => (
+    setPosts((prevPosts) =>
+      prevPosts.map((post) =>
         post._id === updatedPost._id ? updatedPost : post
-      ))
-    ));
+      )
+    );
   }
 
   function onCloseForm() {
     setShowForm(false);
     console.log(showForm);
+  }
+  function handleSetShowForm() {
+    setShowForm(true)
   }
 
   useEffect(() => {
@@ -142,32 +144,21 @@ export default function Home() {
           />
         ) : (
           <div>
-            
-           
             <div></div>
-            <button 
-              className='mt-8 hover:: 0 ' id ='make-post-button'
-              onClick={() => setShowForm(!showForm)}
-            >
-              MAKE NEW POST <span id='plus-new-post'>+</span>
-            </button>
+            
             <PostContainer
               posts={posts}
               location={location}
               onSearch={handleSearchChange}
-              onFilterChange={handleFilterChange}
+                onFilterChange={handleFilterChange}
+                setShowForm ={handleSetShowForm}
               onSortChange={handleSortChange}
               onCuisineFilterChange={handleCuisineFilterChange}
-                fetchPosts={fetchData}
-              updatePostViewCount ={updatePostViewCount}
-              />
-          
-      
-            </div>
-            
+              fetchPosts={fetchData}
+              updatePostViewCount={updatePostViewCount}
+            />
+          </div>
         )}
-        
-        {/* <ZipCodeForm /> */}
       </div>
     </>
   );

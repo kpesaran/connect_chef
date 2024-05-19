@@ -18,12 +18,12 @@
   justify-content: center;
   padding: 10px;
   margin-right: 34px;
-  /* background: linear-gradient(
+  background: linear-gradient(
         rgba(255, 255, 255, 0.92), 
         rgba(255, 255, 255, 0.3)
     ), 
     url('../../public/auth-background-2.webp') no-repeat center center fixed;
-    background-size: cover; */
+    background-size: cover;
     /* background: 
     linear-gradient(
         rgba(255, 255, 255, 0.6), 

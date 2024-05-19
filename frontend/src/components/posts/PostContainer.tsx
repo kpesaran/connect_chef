@@ -11,15 +11,9 @@ import PostFullScreen from './PostFullScreen'
 
 
 
-const PostContainer: React.FC = ({ posts, onSearch, onFilterChange, onSortChange, onCuisineFilterChange, fetchPosts, location, updatePostViewCount }) => {
+const PostContainer: React.FC = ({ posts, onSearch, onFilterChange, onSortChange, onCuisineFilterChange, fetchPosts, location, updatePostViewCount,setShowForm }) => {
   const userId = localStorage.getItem('userId')
- 
-  
-
   const [selectedPost, setSelectedPost] = useState('')
- 
-  
-  
   function handleClose() {
     setSelectedPost(null) 
   }
@@ -45,13 +39,22 @@ const PostContainer: React.FC = ({ posts, onSearch, onFilterChange, onSortChange
       console.error(err)
     }
   }
-  // location, neighborhood, city, state, country
-  console.log(selectedPost)
   return (
     
     <div className='flex flex-col justify-center '>
-      <SearchFilterSortSidebar onSearch={onSearch} onFilterChange={onFilterChange} onSortChange={onSortChange} onCuisineFilterChange = {onCuisineFilterChange} />
-      
+      <div className='flex justify-center align-center gap-24'>
+        <div></div>
+        <div className='ml-16'>
+          <SearchFilterSortSidebar onSearch={onSearch} onFilterChange={onFilterChange} onSortChange={onSortChange} onCuisineFilterChange={onCuisineFilterChange} />
+        </div>
+        <button
+                className='mt-1 self-center justify-self-end hover:: 0 '
+                id='make-post-button'
+                onClick={setShowForm}
+              >
+                ADD POST <span id='plus-new-post'>+</span>
+              </button>
+      </div>     
         {selectedPost ? (
           <PostFullScreen post = {selectedPost} onClose = {handleClose}/>
         ) :

@@ -1,15 +1,11 @@
 #make-post-button {
     font-size: 24px;
     border: 4px double grey;
-    position: fixed;
-    height: 300px;
-    width: 100px;
-    bottom: 10px; /* Adjust the distance from the bottom */
-    right: 10px;  /* Adjust the distance from the right */
     background-color: #f0f0f0;
     color: #333;
-    padding: 10px 20px;
+    padding: 20px;
     border-radius: 15px;
+    height: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
@@ -17,7 +13,7 @@
 }
 
 #plus-new-post {
-    font-size: 48px;
+    font-size: 26px;
 }
 
 #plus-new-post:hover{
@@ -30,9 +26,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 750px;
+    border-radius: 20px;
     margin: 0 auto;
-    background-color: rgba(241, 241, 241, 0.608)
+    background-color: rgba(241, 241, 241, 0.608);
+    position: fixed;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
 }
 
 .background-auth {
@@ -40,7 +40,7 @@
         rgba(255, 255, 255, 0.5), 
         rgba(255, 255, 255, 0.5)
     ), 
-    url('../../public/auth-background-2.webp') no-repeat center center fixed;
+    url('../../public/auth-background-4.webp') no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
     width: 100vw;

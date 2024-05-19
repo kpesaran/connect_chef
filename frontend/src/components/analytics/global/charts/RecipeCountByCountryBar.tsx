@@ -59,7 +59,7 @@ export default function RecipeCountByCountryBar({ posts }) {
       };
     
     return <div>
-          <h4 className='text-2xl'>Recipe Count </h4>
+          <h4 className='chart-title'>Recipe Count By Country </h4>
           <Bar data={data} options={options} height={300} />
       </div>;
 

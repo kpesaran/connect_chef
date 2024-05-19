@@ -18,10 +18,9 @@ export default function LoginForm() {
       const user = response.data.user;
       const token = response.data.token;
       localStorage.setItem('userName', user.name);
-        localStorage.setItem('token', token);
-        localStorage.setItem('userId',user.userId)
-        navigate('/')
-      
+      localStorage.setItem('token', token);
+      localStorage.setItem('userId', user.userId);
+      navigate('/');
     } catch (error) {
       console.error('Login failed', error);
     }
@@ -31,7 +30,7 @@ export default function LoginForm() {
     <>
       <form onSubmit={handleSubmit} className='flex flex-col justify-center'>
         <div className='input-container'>
-          <label className = 'label-title  '>Email:</label>
+          <label className='label-title  '>Email:</label>
           <input
             type='email'
             className='input-box-auth'
@@ -41,7 +40,7 @@ export default function LoginForm() {
           />
         </div>
         <div className='input-container'>
-          <label className = 'label-title'>Password:</label>
+          <label className='label-title'>Password:</label>
           <input
             className='input-box-auth'
             type='password'
@@ -49,9 +48,10 @@ export default function LoginForm() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div className='input-container'>
-          <button className ='button-auth ' type='submit'>Login</button>
-        </div>
+
+        <button className='button-auth' type='submit'>
+          Login
+        </button>
       </form>
     </>
   );

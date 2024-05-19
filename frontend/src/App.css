@@ -10,6 +10,12 @@
 html {
 
 }
+input {
+  cursor: pointer;
+}
+
+
+
 
 .logo {
   height: 6em;
