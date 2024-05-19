@@ -1,0 +1,26 @@
+#make-post-button {
+    font-size: 24px;
+    border: 4px double grey;
+    position: fixed;
+    height: 300px;
+    width: 100px;
+    bottom: 10px; /* Adjust the distance from the bottom */
+    right: 10px;  /* Adjust the distance from the right */
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 1000;
+}
+
+#plus-new-post {
+    font-size: 48px;
+}
+
+#plus-new-post:hover{
+    background-color: white;
+
+}

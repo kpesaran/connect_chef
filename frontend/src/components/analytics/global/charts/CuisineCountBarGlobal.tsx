@@ -36,12 +36,12 @@ export default function CuisineCountBarGlobal({ posts }) {
         
         data: chartData,
         backgroundColor: [
-          'rgb(255, 99, 132,.8)',
-          'rgb(54, 162, 235,.8)',
-          'rgb(255, 205, 86,.8)',
-          'rgb(75, 192, 192,.8)',
-          'rgb(153, 102, 255,.8)',
-          'rgb(255, 159, 64,.8)',
+          'rgb(255, 99, 132,.7)',
+          'rgb(54, 162, 235,.7)',
+          'rgb(255, 205, 86,.7)',
+          'rgb(75, 192, 192,.7)',
+          'rgb(153, 102, 255,.7)',
+          'rgb(255, 159, 64,.7)',
         ],
         hoverOffset: 4,
       },
@@ -52,7 +52,7 @@ export default function CuisineCountBarGlobal({ posts }) {
     responsive: true,
     plugins: {
       legend: {
-        display: 'false',
+        display:false,
       },
 
       tooltip: {
@@ -63,9 +63,32 @@ export default function CuisineCountBarGlobal({ posts }) {
         color: 'white',
         font: {
           size: '24px',
+          weight: 'bold'
         },
+        
       },
+      
+      
     },
+    scales: {
+      x: {
+        ticks: {
+          font: {
+            size: 18,
+            weight: 'bold'
+          },
+              
+        }
+      },
+      y: {
+        ticks: {
+          font: {
+            size: 24
+          }
+        }
+      }
+    }
+    
     
   };
 
@@ -73,8 +96,8 @@ export default function CuisineCountBarGlobal({ posts }) {
     <div className='pie-chart-container'>
       
     
-      <h4>Cuisine Diversity Around the World </h4>
-        <Bar height={500} width={500} data={data} />
+      <h4 className='text-2xl'>Cuisine Diversity Around the World </h4>
+        <Bar height={500} width={500} data={data} options={options} />
 
     
     </div>

@@ -44,12 +44,8 @@ const Post: React.FC<PostProps> = ({ post, onOpen, userId,fetchPosts, location }
 
   return (
     <>
-      {/* {selected === post_i && (
-        <div className="background-fade" onClick={() => setSelected(null)}></div>
-      )}   */}
       <div
-        // onClick={() => handleSingleSelection(post._id)}
-       
+        
         className={`post-card flex border rounded-md`}
       >
         <div className=' post-details shadow-lg border rounded-md ' onClick={() => onOpen(post._id)}>

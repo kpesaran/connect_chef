@@ -50,7 +50,8 @@ export default function RecipeCountByCountryBar({ posts }) {
             y: {
                 ticks: {
                     font: {
-                        size:24
+                        size: 24,
+                        weight: 'bold'
                     }
                 }
             }
@@ -58,7 +59,7 @@ export default function RecipeCountByCountryBar({ posts }) {
       };
     
     return <div>
-          <title>Recipe Count </title>
+          <h4 className='text-2xl'>Recipe Count </h4>
           <Bar data={data} options={options} height={300} />
       </div>;
 

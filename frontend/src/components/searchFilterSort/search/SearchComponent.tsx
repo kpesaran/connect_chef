@@ -1,19 +1,17 @@
 import { useState } from "react"
-
+import '../styles.css'
 
 export default function SearchComponent({ onSearch }) {
     const [searchTerm, setSearchTerm] = useState("")
 
-    function handleSubmit() {
-        onSearch(searchTerm)
-    }
+    
     return (
         <div className = 'flex gap-1'>
-            <input
+            <input className="search-bar"
                 type="text"
                 placeholder="Search..."
-            onChange={(e)=>setSearchTerm(e.target.value)}/>
-            <button onClick={handleSubmit}>Go</button>
+            onChange={(e)=>onSearch(e.target.value)}/>
+            
         </div>
     )
 }

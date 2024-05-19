@@ -3,6 +3,7 @@ import axios from 'axios';
 import PostForm from '../components/post-form/PostForm';
 import PostContainer from '../components/posts/PostContainer';
 import fetchLocationData from '../utilities/locationUtils';
+import './styles.css'
 
 export default function Home() {
   const [location, setLocation] = useState({});
@@ -145,8 +146,14 @@ export default function Home() {
         ) : (
           <div>
             
-            <div>Location: {location.neighborhood}</div>
+           
             <div></div>
+            <button 
+              className='mt-8 hover:: 0 ' id ='make-post-button'
+              onClick={() => setShowForm(!showForm)}
+            >
+              MAKE NEW POST <span id='plus-new-post'>+</span>
+            </button>
             <PostContainer
               posts={posts}
               location={location}
@@ -156,16 +163,13 @@ export default function Home() {
               onCuisineFilterChange={handleCuisineFilterChange}
                 fetchPosts={fetchData}
               updatePostViewCount ={updatePostViewCount}
-            />
+              />
+          
+      
             </div>
             
         )}
-        <button
-              className='mb-4 hover:: 0' id ='make-post-button'
-              onClick={() => setShowForm(!showForm)}
-            >
-              Make Post{' '}
-            </button>
+        
         {/* <ZipCodeForm /> */}
       </div>
     </>
