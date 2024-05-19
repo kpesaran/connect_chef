@@ -109,12 +109,13 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
     }
   };
   return (
-    <>
-      <form onSubmit={handleFormSubmit} className='flex border 8 m-24'>
-        {/* title */}
+    <div className='flex justify-center'>
+      <form onSubmit={handleFormSubmit} id='post-form'>
+        <p className='text-2xl font-bold'>Add New Recipe</p>
         <div className='flex flex-col border-r-8'>
           <input
-            className='border 6'
+            
+            className='post-form-input'
             type='string'
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -123,14 +124,14 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
           ></input>
           {/* body */}
           <input
-            className='border 8 h-20 '
+            className='border 8 h-20  mt-2 post-form-input '
             type='string'
             value={body}
             onChange={(e) => setBody(e.target.value)}
             placeholder='Write A Description'
           ></input>
           <div className='m-2'>
-            <h3>Add Cuisine Category</h3>
+            <h3 className='text-xl font-medium underline'>Add Cuisine Category</h3>
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
@@ -141,14 +142,14 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
         </div>
         {/* ingredients */}
         <div className='ingredient-section' >
-          <h3>Add Ingredients</h3>
+          <h3 className='text-xl font-medium underline'>Add Ingredients</h3>
           {ingredients.map((ingredient, index) => (
             <div className = 'flex gap-4' key={index}>
-              <button type='button' onClick={() => removeIngredient(index)}>
+              <button className = 'change-input-button' type='button' onClick={() => removeIngredient(index)}>
                 -
               </button>
               <input
-                className='w-4/12'
+                className='w-4/12 post-form-input'
                 type='text'
                 value={ingredient.name}
                 onChange={(e) =>
@@ -157,6 +158,7 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
                 placeholder='Ingredient Name'
               />
               <input
+                className='post-form-input'
                 type='text'
                 value={ingredient.quantity}
                 onChange={(e) =>
@@ -167,22 +169,23 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
               
             </div>
           ))}
-          <button className='w-5' type='button' onClick={addIngredient}>
-            +
-          </button>
+          <button className='w-6 change-input-button ' onClick={addIngredient}>
+            + 
+           </button>
         </div>
         {/* Steps */}
-        <div className='gap-4'>
-          <h3 >Add Instructions</h3>
+        <div className='flex  flex-col gap-4'>
+          <h3 className='text-xl font-medium underline'>Add Instructions</h3>
           {steps.map((step, index) => (
-            <div className='flex justify-center' key={index}>
+            <div className='flex' key={index}>
               
               <div className='flex justify-center'>
-              <button onClick={() => removeStep(index)}>-</button>
+              <button className=' change-input-button cursor-pointer text-2xl' onClick={() => removeStep(index)}>-</button>
                 <h5 className='m-2'>{index + 1}:   </h5>
                 <input
                   value={step}
-                  className='border 8 w-10/12'
+                  placeholder='Add Step...'
+                  className='post-form-input step-input'
                   type='text'
                   onChange={(e) => handleStepChange(index, e.target.value)}
                 />
@@ -190,7 +193,7 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
               </div>
             </div>
           ))}
-          <button className = 'w-5 ' onClick={addStep}>+</button>
+          <button className = 'w-6 change-input-button cursor-pointer ' onClick={addStep}>+</button>
         </div>
         {/* <div>
           <h3>Add Image</h3>
@@ -209,7 +212,7 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
       
 
       </form>
-    </>
+    </div>
   );
 };
 

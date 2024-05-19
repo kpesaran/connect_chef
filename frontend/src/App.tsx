@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './App.css';
+
 
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -20,9 +21,12 @@ import Login from './pages/login';
 import CountryDashboard from './components/analytics/country/CountryDashboard';
 
 function App() {
+
+
   return (
     <>
       {/* Set up useContext here  */}
+      
       <Router>
         <Routes>
           <Route path='register' element={<Register />} />

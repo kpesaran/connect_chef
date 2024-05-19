@@ -12,6 +12,11 @@ html {
 }
 input {
   cursor: pointer;
+
+}
+
+input:focus {
+  border: blue;
 }
 
 
