@@ -70,11 +70,11 @@ export default function MapDisplay()
   // console.log(infoCardVisible);
   return (
     <>
-      <div className='map-container'>
+      <div className='map-container mt-12'>
         <APIProvider apiKey='AIzaSyCm9Mipa7yue_lBZGmm08BwcR_KNMK7b5E'>
           <div className='flex justify-around'>
             <Map
-              style={{ width: '60vw', height: '90vh' }}
+              style={{ width: '60vw', height: '85vh' }}
               defaultCenter={{ lat: 22.54992, lng: 0 }}
               defaultZoom={3}
               gestureHandling={'greedy'}

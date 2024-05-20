@@ -179,13 +179,14 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
           {steps.map((step, index) => (
             <div className='flex' key={index}>
               
-              <div className='flex justify-center'>
+              <div className='w-full flex justify-center'>
               <button className=' change-input-button cursor-pointer text-2xl' onClick={() => removeStep(index)}>-</button>
                 <h5 className='m-2'>{index + 1}:   </h5>
                 <input
+                  
                   value={step}
                   placeholder='Add Step...'
-                  className='post-form-input step-input'
+                  className=' w-full post-form-input step-input'
                   type='text'
                   onChange={(e) => handleStepChange(index, e.target.value)}
                 />

@@ -8,14 +8,16 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    
 }
 
 
 .posts-container {
+    
     display: flex;
     justify-self: center;
     flex-direction: column;
-    height: 100vh;
+    height: 85vh;
     width: 25%;
     align-items: center; 
     overflow-x: hidden;
@@ -37,5 +39,7 @@
     flex-direction: column;
     width: 100%;
     border-top: black solid 2px;
+    font-weight: medium;
+    
     
 }

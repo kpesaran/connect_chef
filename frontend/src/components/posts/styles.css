@@ -61,17 +61,17 @@
   margin: 0 auto;
   color: black;
   padding: 4px;
-  text-shadow: 2px 2px 2px #bd7474;
+  text-shadow: 2px 1px 1px #eda9a9;
   font-weight: bold;
 }
 
 .post-card:hover {
-  transform: translateY(3px); 
+  transform: translateY(6px); 
   
-  transition: transform 1s ease-in-out, box-shadow 1s ease-in-out ;
-  /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8); */
-  box-shadow: 0 10px 20px rgba(246, 242, 242, 0.8);
-  
+  transition: transform .7s ease-in-out, box-shadow .7s ease-in-out ;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9);
+  /* box-shadow: 0 10px 20px rgba(246, 242, 242, 0.8);
+   */
 }
 
 
