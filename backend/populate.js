@@ -1,4 +1,4 @@
-const images = require('./image-urls')
+const { images, tacos, pizza } = require('./image-urls')
 
 require('dotenv').config()
 
@@ -9,8 +9,29 @@ const Product = require('./models/postSchema')
 const posts = require('./posts.json')
 
 for (let i = 0; i < posts.length; i++) {
+  imageIndex = i % tacos.length
+  if (posts[i].picUrl === '' && posts[i].title.includes('Tacos')){
+    posts[i].picUrl = tacos[imageIndex]
+  }
+  
+}
+
+for (let i = 0; i < posts.length; i++) {
+  imageIndex = i % pizza.length
+  if (posts[i].picUrl === '' && posts[i].title.includes('Pizza')){
+    posts[i].picUrl = pizza[imageIndex]
+  }
+  
+}
+
+
+
+for (let i = 0; i < posts.length; i++) {
   imageIndex = i % images.length
-  posts[i].picUrl = images[imageIndex]
+  if (posts[i].picUrl === '') {
+    posts[i].picUrl = images[imageIndex]
+  }
+  
 }
 
 
