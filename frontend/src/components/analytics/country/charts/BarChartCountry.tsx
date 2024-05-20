@@ -37,7 +37,7 @@ export default function BarChartCountry({ posts, selectedCountry }) {
         for (let i = 0; i < sublist.length; i++) {
             sum += sublist[i]
         }
-        return Math.round(sum / sublist.length*100)/100
+        return Math.round(sum / sublist.length*10)/10
     })
 
     const cuisineStepCount = {}
@@ -56,7 +56,7 @@ export default function BarChartCountry({ posts, selectedCountry }) {
         for (let i = 0; i < sublist.length; i++) {
             sum += sublist[i]
         }
-        return Math.round(sum / sublist.length*100)/100
+        return Math.round(sum / sublist.length*10)/10
     })
 
     
@@ -115,7 +115,7 @@ export default function BarChartCountry({ posts, selectedCountry }) {
 
     return (
         <div>
-            <h4 className='chart-title'>Average Ingredient Count By Cuisine</h4>
+            <h4 className='chart-title'>Average Amount of Ingredients & Steps By Cuisine</h4>
             <Bar data={data} height={300} options={options}  ></Bar>
         </div>
     )

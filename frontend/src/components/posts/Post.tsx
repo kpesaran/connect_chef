@@ -66,7 +66,7 @@ const Post: React.FC<PostProps> = ({ post, onOpen, userId,fetchPosts, location }
           
                       <span>{post.steps.length} steps</span>
                       <span>{post.ingredients.length} ingredients</span>
-                      {userId === post.createdBy ? <button onClick={()=>handleDeletePost(post._id)}>Delete</button>: null}
+                      {userId === post.createdBy ? <button id = 'delete-id-button' onClick={()=>handleDeletePost(post._id)}>Delete</button>: null}
         </div>
         <img
           className='img-post-card rounded-md'

@@ -54,6 +54,10 @@
   box-shadow: 0 0px 6px rgba(0, 0, 0, 0.4);
 }
 
+#delete-id-button {
+  color: #000000;
+}
+
 .category-background {
   background-color: #f7f7f7;
   border-radius: 10px;

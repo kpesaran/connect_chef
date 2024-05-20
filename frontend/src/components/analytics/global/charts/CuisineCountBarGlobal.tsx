@@ -36,12 +36,12 @@ export default function CuisineCountBarGlobal({ posts }) {
         
         data: chartData,
         backgroundColor: [
-          'rgb(255, 99, 132,.7)',
-          'rgb(54, 162, 235,.7)',
-          'rgb(255, 205, 86,.7)',
-          'rgb(75, 192, 192,.7)',
-          'rgb(153, 102, 255,.7)',
-          'rgb(255, 159, 64,.7)',
+          'rgb(255, 99, 132,.6)',
+          'rgb(54, 162, 235,.6)',
+          'rgb(255, 205, 86,.6)',
+          'rgb(75, 192, 192,.6)',
+          'rgb(153, 102, 255,.6)',
+          'rgb(255, 159, 64,.6)',
         ],
         hoverOffset: 4,
       },

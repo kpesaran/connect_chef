@@ -14,7 +14,7 @@
         rgba(255, 255, 255, .1), 
         rgba(255, 255, 255, .8),rgba(255, 255, 255, .8)
     ), 
-    url('../../public/auth-background-1.webp') repeat center left fixed;
+    url('../../public/auth-background-1.webp') repeat center right fixed;
     background-size: cover;
     
 }
