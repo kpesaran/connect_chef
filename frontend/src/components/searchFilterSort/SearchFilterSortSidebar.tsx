@@ -9,7 +9,7 @@ import './styles.css'
 export default function SearchFilterSortSidebar({ onSearch, onFilterChange, onSortChange, onCuisineFilterChange}) {
     return (
         <div className=' flex flex-col justify-center mt-10 border'>
-            <h4>Filters</h4>
+            <h4 className='font-bold'>Filters  / Sort</h4>
             <div className='flex flex-wrap items-center gap-4 justify-center'>
                 <div className=' filter-bar-components '>
                     <SearchComponent onSearch={onSearch} />

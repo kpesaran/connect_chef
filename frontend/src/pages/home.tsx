@@ -9,7 +9,7 @@ export default function Home() {
   const [location, setLocation] = useState({});
 
   const [searchTerm, setSearchTerm] = useState('');
-  const [filter, setFilter] = useState('neighborhood');
+  const [filter, setFilter] = useState('city');
   const [sortOn, setSortOn] = useState('');
 
   // const [locationProvided, setLocationProvided] = useState(true);

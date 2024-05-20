@@ -9,6 +9,7 @@
     height: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+    background-color: #829da7dc;
     transition: background-color 0.3s, transform 0.3s;
     z-index: 1000;
 }

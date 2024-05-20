@@ -1,7 +1,7 @@
 export default function FilterComponent({ onFilterChange }) {
   return (
     <div className='gap-3'>
-      <input
+      {/* <input
         type='radio'
         id='neighborhood'
         defaultChecked
@@ -10,11 +10,12 @@ export default function FilterComponent({ onFilterChange }) {
         onChange={(e) => onFilterChange(e.target.value)}
       />
       <label htmlFor='neighborhood'>Neighborhood</label>
-      <br />
+      <br /> */}
 
       <input
         type='radio'
         id='city'
+        defaultChecked
         name='filter'
         value='city'
         onChange={(e) => onFilterChange(e.target.value)}
@@ -22,7 +23,7 @@ export default function FilterComponent({ onFilterChange }) {
       <label htmlFor='city'>City</label>
       <br />
 
-      <input
+      {/* <input
         type='radio'
         id='state'
         name='filter'
@@ -30,7 +31,7 @@ export default function FilterComponent({ onFilterChange }) {
         onChange={(e) => onFilterChange(e.target.value)}
       />
       <label htmlFor='state'>State</label>
-      <br />
+      <br /> */}
 
       <input
         type='radio'

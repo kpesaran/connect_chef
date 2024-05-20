@@ -91,7 +91,7 @@ export default function MapDisplay()
                 {selectedPost && selectedPost._id === post._id && (
                   <InfoWindow position={{ lat: post.lat, lng: post.lng }}>
                     {/* Content of InfoWindow goes here, e.g., details about the post */}
-                      <div className='flex flex-col'>
+                      <div className='flex flex-col justify-center'>
                         <h3>{post.title}</h3>
                         <img style ={{width: '100px'}} src={post.picUrl}></img>
                       <p>{post.body}</p>
@@ -109,7 +109,7 @@ export default function MapDisplay()
           
         </APIProvider>
       </div>
-      <div>
+      {/* <div>
         {infoCardVisible ? (
           <div className='' onClick={() => handleMarkerClick({})}>
             <PostInfoCard post={selectedPost} />
@@ -117,7 +117,7 @@ export default function MapDisplay()
         ) : (
           <h3>Click a Marker to display a post</h3>
         )}
-      </div>
+      </div> */}
     </>
   );
 }
