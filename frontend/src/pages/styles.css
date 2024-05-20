@@ -1,0 +1,50 @@
+#make-post-button {
+    font-size: 24px;
+    border: 4px double grey;
+    /* background-color: #f0f0f0; */
+    background-color: rgba(10, 87, 135, 0.739);
+    color: #faf9f9;
+    padding: 20px;
+    border-radius: 15px;
+    height: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 1000;
+}
+
+#plus-new-post {
+    font-size: 26px;
+}
+
+#plus-new-post:hover{
+    background-color: white;
+
+}
+
+.auth-box {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin: 0 auto;
+    background-color: rgba(241, 241, 241);
+    position: fixed;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+}
+
+.background-auth {
+    background: 
+    
+    linear-gradient(
+        rgba(255, 255, 255, 0.5), 
+        rgba(255, 255, 255, 0.5)
+    ), 
+    url('../../public/auth-background-2.webp') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}

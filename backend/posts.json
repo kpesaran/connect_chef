@@ -1882,6 +1882,71 @@
   "picUrl": ""
 }
 ,
+{
+  "title": "Doro Wat",
+  "body": "Traditional Ethiopian spicy chicken stew served with injera.",
+  "steps": [
+    "Marinate chicken pieces in lemon juice and salt.",
+    "Sauté onions in a large pot until golden brown.",
+    "Add minced garlic, ginger, and berbere spice blend to the onions.",
+    "Add the marinated chicken and cook until browned.",
+    "Pour in chicken broth and simmer until the chicken is tender and the sauce thickens.",
+    "Serve hot with injera."
+  ],
+  "ingredients": [
+    {"name": "Chicken", "quantity": "1.5 kg"},
+    {"name": "Lemon Juice", "quantity": "1/4 cup"},
+    {"name": "Salt", "quantity": "to taste"},
+    {"name": "Onions", "quantity": "3"},
+    {"name": "Garlic", "quantity": "4 cloves"},
+    {"name": "Ginger", "quantity": "1 tbsp"},
+    {"name": "Berbere Spice Blend", "quantity": "2 tbsp"},
+    {"name": "Chicken Broth", "quantity": "2 cups"},
+    {"name": "Injera", "quantity": "to serve"}
+  ],
+  "dateStamp": "2024-02-10T12:45:00.000Z",
+  "category": ["Ethiopian"],
+  "views": 465,
+  "neighborhood": "Piazza",
+  "city": "Addis Ababa",
+  "county": "Addis Ababa",
+  "state": "Addis Ababa",
+  "country": "Ethiopia",
+  "zipcode": "1000",
+  "lat": 9.03,
+  "lng": 38.74,
+  "picUrl": ""
+},
+{
+  "title": "Kitfo",
+  "body": "Ethiopian seasoned raw beef, often served with injera or bread.",
+  "steps": [
+    "Finely chop the beef or grind it to a mince.",
+    "Mix the minced beef with niter kibbeh (spiced clarified butter) and mitmita (spicy chili powder).",
+    "Season with salt to taste.",
+    "Serve with injera or bread."
+  ],
+  "ingredients": [
+    {"name": "Beef", "quantity": "500g"},
+    {"name": "Niter Kibbeh", "quantity": "1/4 cup"},
+    {"name": "Mitmita", "quantity": "1 tbsp"},
+    {"name": "Salt", "quantity": "to taste"},
+    {"name": "Injera", "quantity": "to serve"}
+  ],
+  "dateStamp": "2024-03-20T18:30:00.000Z",
+  "category": ["Ethiopian"],
+  "views": 389,
+  "neighborhood": "Bole",
+  "city": "Addis Ababa",
+  "county": "Addis Ababa",
+  "state": "Addis Ababa",
+  "country": "Ethiopia",
+  "zipcode": "1000",
+  "lat": 8.99,
+  "lng": 38.78,
+  "picUrl": ""
+}
+,
     {
       "title": "Tom Yum Soup",
       "body": "Spicy and sour Thai soup with shrimp, mushrooms, and lemongrass.",
@@ -1984,40 +2049,6 @@
       "zipcode": "700000",
       "lat": 10.7758,
       "lng": 106.7009,
-      "picUrl": ""
-    },
-    {
-      "title": "Falafel",
-      "body": "Crispy Middle Eastern falafel served with tahini sauce and fresh vegetables.",
-      "steps": [
-        "Blend chickpeas, garlic, herbs, and spices until smooth.",
-        "Form into balls and fry until golden and crispy.",
-        "Prepare tahini sauce with tahini, lemon juice, and water.",
-        "Serve falafel with tahini sauce, pita bread, and fresh vegetables."
-      ],
-      "ingredients": [
-        {"name": "Chickpeas", "quantity": "1 can"},
-        {"name": "Garlic", "quantity": "2 cloves"},
-        {"name": "Herbs (parsley, cilantro)", "quantity": "1/2 cup"},
-        {"name": "Spices (cumin, coriander)", "quantity": "to taste"},
-        {"name": "Tahini", "quantity": "1/4 cup"},
-        {"name": "Lemon Juice", "quantity": "2 tbsp"},
-        {"name": "Water", "quantity": "2 tbsp"},
-        {"name": "Salt", "quantity": "to taste"},
-        {"name": "Pita Bread", "quantity": "4 pieces"},
-        {"name": "Fresh Vegetables (tomatoes, cucumbers)", "quantity": "1 cup"}
-      ],
-      "dateStamp": "2024-04-20T14:10:00.000Z",
-      "category": ["Middle Eastern"],
-      "views": 759,
-      "neighborhood": "Old City",
-      "city": "Jerusalem",
-      "county": "Jerusalem",
-      "state": "Jerusalem",
-      "country": "Israel",
-      "zipcode": "97500",
-      "lat": 31.7767,
-      "lng": 35.2345,
       "picUrl": ""
     },
     {

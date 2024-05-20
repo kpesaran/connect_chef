@@ -1,0 +1,25 @@
+
+.button-auth {
+    border: 1px black  solid;
+    align-self: center;
+    display: flex;
+    cursor: pointer;
+}
+
+.label-title {
+    font-size: 24px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: space-between;
+    padding: 10px;
+    
+}
+.input-box-auth {
+    border: black 1px solid;
+    
+}
+

@@ -1,0 +1,9 @@
+.filter-bar-components {
+    border-right: 2px solid black;
+    padding-right: 4px;
+}
+
+.search-bar {
+    margin-right: 4px;
+    border: 1px solid;
+}
