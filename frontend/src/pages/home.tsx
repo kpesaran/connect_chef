@@ -4,22 +4,25 @@ import PostForm from '../components/post-form/PostForm';
 import PostContainer from '../components/posts/PostContainer';
 import fetchLocationData from '../utilities/locationUtils';
 import './styles.css';
+import { Location } from '../interfaces';
+
+
 
 export default function Home() {
-  const [location, setLocation] = useState({});
+  const [location, setLocation] = useState<Partial<Location>>({});
 
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filter, setFilter] = useState('city');
-  const [sortOn, setSortOn] = useState('');
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [filter, setFilter] = useState<keyof Location>('city');
+  const [sortOn, setSortOn] = useState<string>('');
 
   // const [locationProvided, setLocationProvided] = useState(true);
-  const [showForm, setShowForm] = useState(false);
+  const [showForm, setShowForm] = useState<boolean>(false);
   const [posts, setPosts] = useState([]);
   const [cuisineFilter, setCuisineFilter] = useState('');
 
   // const [isLoading, setIsLoading] = useState(true)
 
-  const fetchData = async (localLocation) => {
+  const fetchData = async(localLocation:Location) => {
     // setIsLoading(true)
     try {
       // use location data to make your api requests
@@ -102,7 +105,7 @@ export default function Home() {
     console.log(showForm);
   }
   function handleSetShowForm() {
-    setShowForm(true)
+    setShowForm(true);
   }
 
   useEffect(() => {
@@ -145,13 +148,13 @@ export default function Home() {
         ) : (
           <div>
             <div></div>
-            
+
             <PostContainer
               posts={posts}
               location={location}
               onSearch={handleSearchChange}
-                onFilterChange={handleFilterChange}
-                setShowForm ={handleSetShowForm}
+              onFilterChange={handleFilterChange}
+              setShowForm={handleSetShowForm}
               onSortChange={handleSortChange}
               onCuisineFilterChange={handleCuisineFilterChange}
               fetchPosts={fetchData}

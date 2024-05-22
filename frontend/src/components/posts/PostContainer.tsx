@@ -60,7 +60,7 @@ const PostContainer: React.FC = ({ posts, onSearch, onFilterChange, onSortChange
         ) :
          <div className = 'post-container-grid  '>
           {posts.map((post, i) => (
-            <Post key={post._id} post={post} post_i={i} onOpen={handleFocusPost} fetchPosts = {fetchPosts} location = {location}
+            <Post key={post._id} post={post}  onOpen={handleFocusPost} fetchPosts = {fetchPosts} location = {location}
               userId={userId} />
           ))}
         </div>}

@@ -2,29 +2,20 @@ import React, { useEffect, useState } from 'react';
 import imageUrls from '../../../public/image-urls';
 import './styles.css';
 import axios from 'axios'
-
+import type { Post, Location } from '../../interfaces';
 interface PostProps {
-  post: {
-    _id: number;
-    title: string;
-    body: string;
-    category: string;
-    neighborhood: string;
-    city: string;
-    lat: number;
-    lng: number;
-    steps: string[];
-    ingredients: { name: string; quantity: string }[];
-    picUrl: string;
-  };
-  post_i: number;
+  post: Post;
+  onOpen: () => void;
+  userId: string;
+  fetchPosts: () => void;
+  location: Location
 }
 
 const Post: React.FC<PostProps> = ({ post, onOpen, userId,fetchPosts, location }) => {
 
   const [selected, setSelected] = useState(null);
 
-  async function handleDeletePost(postId) {
+  async function handleDeletePost(postId:string) {
     const endpoint = `http://localhost:3001/api/v1/postings?`
     const token = localStorage.getItem('token')
     axios.delete(endpoint, {
