@@ -24,6 +24,10 @@ interface Location {
     neighborhood: string;
     state: string;
     zipcode: string;
-  }
+}
+  
+interface Posts {
+    posts: 
+}
   
 export type {Post, Location}

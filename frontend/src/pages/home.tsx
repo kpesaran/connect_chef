@@ -4,7 +4,8 @@ import PostForm from '../components/post-form/PostForm';
 import PostContainer from '../components/posts/PostContainer';
 import fetchLocationData from '../utilities/locationUtils';
 import './styles.css';
-import { Location } from '../interfaces';
+import type { Location } from '../interfaces';
+import type { Post } from '../interfaces';
 
 
 
@@ -17,8 +18,8 @@ export default function Home() {
 
   // const [locationProvided, setLocationProvided] = useState(true);
   const [showForm, setShowForm] = useState<boolean>(false);
-  const [posts, setPosts] = useState([]);
-  const [cuisineFilter, setCuisineFilter] = useState('');
+  const [posts, setPosts] = useState<Post[] | []>([]);
+  const [cuisineFilter, setCuisineFilter] = useState<string>('');
 
   // const [isLoading, setIsLoading] = useState(true)
 
@@ -65,7 +66,7 @@ export default function Home() {
         const searchTermLowerCase = searchTerm.toLowerCase();
 
         const postsToDisplay = response.data.filter(
-          (post) =>
+          (post: Post) =>
             post.title && post.title.toLowerCase().includes(searchTermLowerCase)
         );
 
@@ -80,19 +81,19 @@ export default function Home() {
     }
   };
 
-  function handleCuisineFilterChange(newCuisine) {
+  function handleCuisineFilterChange(newCuisine:string) {
     setCuisineFilter(newCuisine);
   }
-  function handleFilterChange(newFilter) {
+  function handleFilterChange(newFilter:keyof Location) {
     setFilter(newFilter);
   }
-  function handleSearchChange(newTerm) {
+  function handleSearchChange(newTerm:string) {
     setSearchTerm(newTerm);
   }
-  function handleSortChange(newSort) {
+  function handleSortChange(newSort:string) {
     setSortOn(newSort);
   }
-  function updatePostViewCount(updatedPost) {
+  function updatePostViewCount(updatedPost: Post) {
     setPosts((prevPosts) =>
       prevPosts.map((post) =>
         post._id === updatedPost._id ? updatedPost : post
@@ -131,10 +132,7 @@ export default function Home() {
       getLocation();
     }
   }, [filter, searchTerm, sortOn, cuisineFilter]);
-  console.log(sortOn);
-  console.log(cuisineFilter);
 
-  console.log(filter);
   return (
     <>
       {/* {isLoading ? <h4>Data is loading...</h4> : */}

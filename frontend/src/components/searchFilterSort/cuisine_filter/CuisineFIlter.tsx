@@ -26,8 +26,10 @@ export default function CuisineFilter({onCuisineFilterChange}) {
           value={cuisineVal}
           onChange={(e) => handleCuisineFilterChange(e.target.value)}
         >
-                {cuisineOptions.map((cuisine) => (
-                    <option value = {cuisine}>{cuisine}</option>
+                {cuisineOptions.map((cuisine, i) => (
+                    <option
+                        key = {i}
+                        value={cuisine}>{cuisine}</option>
                 ))}
         </select></div>
     )

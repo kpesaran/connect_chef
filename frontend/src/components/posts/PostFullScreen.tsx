@@ -22,8 +22,10 @@ const PostFullScreen = ({ post, onClose }) => {
           <div className='border 8'>
             <h4 className='highlighted-ingredient-title'>Ingredients</h4>
             <ul>
-              {post.ingredients.map((ingredient) => (
-                <li className='p-1 highlighted-ingredients '>
+              {post.ingredients.map((ingredient, i) => (
+                <li
+                  key = {i}
+                  className='p-1 highlighted-ingredients '>
                   {ingredient.name}, {ingredient.quantity}
                 </li>
               ))}
@@ -33,7 +35,7 @@ const PostFullScreen = ({ post, onClose }) => {
             <h4 className='highlighted-ingredient-steps'>Steps</h4>
             <ol>
               {post.steps.map((step, i) => (
-                <li className='p-2 highlighted-steps'>
+                <li className='p-2 highlighted-steps' key = {i}>
                   {i + 1}: {step}
                 </li>
               ))}

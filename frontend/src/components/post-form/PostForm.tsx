@@ -23,8 +23,8 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
   const [steps, setSteps] = useState(['']);
   
 
-  const options = cuisineOptions.map((cuisine) => {
-    return <option value={cuisine}> {cuisine} </option>;
+  const options = cuisineOptions.map((cuisine, i) => {
+    return <option key={i}  value={cuisine}> {cuisine} </option>;
   });
   
   const handleIngredientChange = (index, key, value) => {
@@ -169,7 +169,7 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
               
             </div>
           ))}
-          <button className='w-6 change-input-button ' onClick={addIngredient}>
+          <button type ='button' className='w-6 change-input-button ' onClick={addIngredient}>
             + 
            </button>
         </div>
@@ -180,7 +180,7 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
             <div className='flex' key={index}>
               
               <div className='w-full flex justify-center'>
-              <button className=' change-input-button cursor-pointer text-2xl' onClick={() => removeStep(index)}>-</button>
+              <button type ='button'  className=' change-input-button cursor-pointer text-2xl' onClick={() => removeStep(index)}>-</button>
                 <h5 className='m-2'>{index + 1}:   </h5>
                 <input
                   
@@ -194,7 +194,7 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
               </div>
             </div>
           ))}
-          <button className = 'w-6 change-input-button cursor-pointer ' onClick={addStep}>+</button>
+          <button type ='button' className = 'w-6 change-input-button cursor-pointer ' onClick={addStep}>+</button>
         </div>
         {/* <div>
           <h3>Add Image</h3>
