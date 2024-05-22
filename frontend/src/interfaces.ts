@@ -25,9 +25,10 @@ interface Location {
     state: string;
     zipcode: string;
 }
-  
-interface Posts {
-    posts: 
+interface Ingredient {
+    name: string;
+    quantity: string
 }
+
   
-export type {Post, Location}
+export type {Post, Location, Ingredient}

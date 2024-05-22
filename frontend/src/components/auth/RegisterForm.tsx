@@ -4,12 +4,12 @@ import { useNavigate } from 'react-router-dom';
 
 import './styles-auth.css';
 
-export default function RegisterForm() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+export default function RegisterForm(): JSX.Element {
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   const navigate = useNavigate();
-  async function handleRegisterSubmit(e) {
+  async function handleRegisterSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     try {
       const endpoint = 'http://localhost:3001/api/v1/auth/register';

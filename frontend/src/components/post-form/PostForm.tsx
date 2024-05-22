@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './style.css'
+import type { Location, Ingredient } from '../../interfaces';
 
 const cuisineOptions = [
   'French', 'Indian', 'Japanese', 'Thai', 'Italian', 'American',
@@ -10,24 +11,30 @@ const cuisineOptions = [
   'Cuban', 'Malaysian', 'Irish', 'Indonesian', 'Polish'
 ];
 
-const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
+interface PostFormProps {
+  location: Location;
+  onCreatePost: (location: Location) => void;
+  onCloseForm: () => void;
+}
+
+const PostForm: React.FC<PostFormProps> = ({ location, onCreatePost, onCloseForm}) => {
   
   const [title, setTitle] = useState<string>('');
   const [body, setBody] = useState<string>('');
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [ingredients, setIngredients] = useState([
+  const [selectedCategory, setSelectedCategory] = useState<string>('');
+  const [ingredients, setIngredients] = useState<Ingredient[]>([
     { name: '', quantity: '' },
     { name: '', quantity: '' },
     { name: '', quantity: '' },
   ]);
-  const [steps, setSteps] = useState(['']);
+  const [steps, setSteps] = useState<string[]>(['']);
   
 
   const options = cuisineOptions.map((cuisine, i) => {
     return <option key={i}  value={cuisine}> {cuisine} </option>;
   });
-  
-  const handleIngredientChange = (index, key, value) => {
+  console.log(location)
+  const handleIngredientChange = (index:number, key: keyof Ingredient, value:string) => {
     const newIngredients = [...ingredients];
     newIngredients[index] = {
       ...newIngredients[index],
@@ -40,12 +47,12 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
   const addIngredient = () => {
     setIngredients([...ingredients, { name: '', quantity: '' }]);
   };
-  const removeIngredient = (index) => {
+  const removeIngredient = (index:number) => {
     const newIngredients = [...ingredients];
     newIngredients.splice(index, 1);
     setIngredients(newIngredients);
   };
-  const handleStepChange = (index, value) => {
+  const handleStepChange = (index:number, value:string) => {
     const newSteps = [...steps];
     newSteps[index] = value;
     setSteps(newSteps);
@@ -54,7 +61,7 @@ const PostForm: React.FC = ({ location, onCreatePost, onCloseForm}) => {
     setSteps([...steps, '']);
   };
 
-  const removeStep = (index) => {
+  const removeStep = (index:number) => {
     const newSteps = [...steps];
     newSteps.splice(index, 1);
     setSteps(newSteps);

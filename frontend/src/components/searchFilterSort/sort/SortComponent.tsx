@@ -1,4 +1,9 @@
-export default function SortComponent({ onSortChange }) {
+interface SortComponentProps {
+    onSortChange: (value: string) => void
+}
+
+
+export default function SortComponent({ onSortChange }: SortComponentProps): JSX.Element {
     return (
         <div>
             <span>Sort By</span>

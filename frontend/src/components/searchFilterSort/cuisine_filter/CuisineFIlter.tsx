@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+interface CuisineFilterProps {
+    onCuisineFilterChange: (val: string) => void
+}
 
 const cuisineOptions = [
     'All','French', 'Indian', 'Japanese', 'Thai', 'Italian', 'American',
@@ -11,10 +14,10 @@ const cuisineOptions = [
 
   
 
-export default function CuisineFilter({onCuisineFilterChange}) {
+export default function CuisineFilter({onCuisineFilterChange}: CuisineFilterProps): JSX.Element {
     const [cuisineVal, setCuisineVal ] = useState('')
    
-    function handleCuisineFilterChange(val) {
+    function handleCuisineFilterChange(val:string) {
         
         setCuisineVal(val)
         onCuisineFilterChange(val)

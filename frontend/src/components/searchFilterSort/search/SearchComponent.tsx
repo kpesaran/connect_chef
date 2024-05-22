@@ -1,9 +1,10 @@
-import { useState } from "react"
 import '../styles.css'
 
-export default function SearchComponent({ onSearch }) {
-    const [searchTerm, setSearchTerm] = useState("")
+interface onSearchProp {
+    onSearch: (value:string) => void
+}
 
+export default function SearchComponent({ onSearch }:onSearchProp): JSX.Element {
     
     return (
         <div className = 'flex gap-1'>

@@ -1,4 +1,9 @@
-export default function FilterComponent({ onFilterChange }) {
+
+interface FilterComponentProps {
+  onFilterChange: (value: string) => void
+}
+
+export default function FilterComponent({ onFilterChange }: FilterComponentProps): JSX.Element {
   return (
     <div className='gap-3'>
       {/* <input
