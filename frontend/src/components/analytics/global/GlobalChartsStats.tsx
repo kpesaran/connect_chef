@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import PieChartGlobal from './charts/CuisineCountBarGlobal';
 import CuisineCountBarGlobal from './charts/CuisineCountBarGlobal';
 import RecipeCount from '../country/stats/RecipeCount';
 import MostPopularIngredient from '../country/stats/MostPopularIngredient';
@@ -9,8 +7,13 @@ import CityWithMostRecipes from '../country/stats/CityWithMostRecipes';
 import '../styles.css';
 import RecipeCountByCountryBar from './charts/RecipeCountByCountryBar';
 import BarChartCountry from '../country/charts/BarChartCountry';
+import type { Post } from '../../../interfaces'
 
-export default function GlobalChartsStats({ posts }) {
+interface GlobalChartsStatsProp {
+  posts: Post[]
+}
+
+export default function GlobalChartsStats({ posts }: GlobalChartsStatsProp): JSX.Element {
   return (
     <div className='flex flex-col'>
      

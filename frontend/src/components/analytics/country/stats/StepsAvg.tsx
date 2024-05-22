@@ -1,27 +1,27 @@
-import { filteredPostsByCountry } from '../utils';
+import { filteredPostsByCountry } from '../../utils';
 
 export default function StepsAvg({ posts, selectedCountry }) {
-    const displayedPosts = selectedCountry ? filteredPostsByCountry(posts, selectedCountry) : posts
+  const displayedPosts = selectedCountry
+    ? filteredPostsByCountry(posts, selectedCountry)
+    : posts;
 
-    const steps = []
-    
-    displayedPosts.map(post => {
-        steps.push(post.steps.length)
-    })
+  const steps = [];
 
-    let totalSteps = 0
+  displayedPosts.map((post) => {
+    steps.push(post.steps.length);
+  });
 
-    steps.forEach(step => {
-        totalSteps += step
-    })
+  let totalSteps = 0;
 
-    const averageSteps = Math.round((totalSteps / steps.length)*100) / 100
+  steps.forEach((step) => {
+    totalSteps += step;
+  });
 
-
+  const averageSteps = Math.round((totalSteps / steps.length) * 100) / 100;
 
   return (
     <div className='stat-box'>
-      <h4 className="stat-title">Average Steps</h4>
+      <h4 className='stat-title'>Average Steps</h4>
       <span className='stat'>{averageSteps}</span>
     </div>
   );

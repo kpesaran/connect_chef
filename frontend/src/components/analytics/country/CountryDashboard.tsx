@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+
 import CountryChartsStats from './CountryChartsStats';
 import { fetchPostsData } from '../utils';
+import type {Post} from '../../../interfaces'
 
 
-
-export default function CountryDashboard() {
-  const [posts, setPosts] = useState([]);
+export default function CountryDashboard():JSX.Element {
+  const [posts, setPosts] = useState<Post[]|[]>([]);
 
 
   

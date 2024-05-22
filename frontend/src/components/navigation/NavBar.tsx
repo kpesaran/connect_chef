@@ -2,7 +2,10 @@
 import { Link } from 'react-router-dom';
 import logo from '../../../public/logo_1_chef.png'
 import './styles.css'
-const NavBar = () => {
+
+
+
+const NavBar: React.FC = () => {
   return (
     <nav className=' navbar-container flex border  justify-between'>
       <div className='flex gap-4'>

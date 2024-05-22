@@ -3,10 +3,18 @@ import SearchComponent from './search/SearchComponent'
 import FilterComponent from './location-filter/FilterComponent'
 
 import SortComponent from './sort/SortComponent'
-import CuisineFilter from './cuisine_filter/CuisineFilter'
-import './styles.css'
+import CuisineFilter from './cuisine_filter/CuisineFilter';
 
-export default function SearchFilterSortSidebar({ onSearch, onFilterChange, onSortChange, onCuisineFilterChange}) {
+
+interface SearchFilterSortSidebarProps {
+    onSearch: (val: string) => void;
+    onFilterChange: (val: string) => void;
+    onSortChange: (val: string) => void;
+    onCuisineFilterChange: (val: string) => void;
+}
+
+
+export default function SearchFilterSortSidebar({ onSearch, onFilterChange, onSortChange, onCuisineFilterChange}: SearchFilterSortSidebarProps): JSX.Element {
     return (
         <div className=' flex flex-col justify-center mt-10 border'>
             <h4 className='font-bold'>Filters  / Sort</h4>

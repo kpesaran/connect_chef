@@ -1,24 +1,18 @@
-import React from 'react';
 import { Bar } from 'react-chartjs-2';
+import { ChartOptions } from 'chart.js';
+import type { Post } from '../../../../interfaces';
+import { countOccurences } from '../../utils';
+interface CuisineCountBarGlobalProp {
+  posts: Post[];
+}
 
-
-import ChartDataLabels from 'chartjs-plugin-datalabels';
-
-
-
-export default function CuisineCountBarGlobal({ posts }) {
+export default function CuisineCountBarGlobal({
+  posts,
+}: CuisineCountBarGlobalProp): JSX.Element {
   const categories = posts
     .map((post) => post.category)
     .flat()
     .filter((value) => value != '');
-    
-  function countOccurences(list) {
-    const occurenceMap = {};
-    list.forEach((item) => {
-      occurenceMap[item] = (occurenceMap[item] || 0) + 1;
-    });
-    return occurenceMap;
-  }
 
   const categoryCount = countOccurences(categories);
 
@@ -26,14 +20,12 @@ export default function CuisineCountBarGlobal({ posts }) {
 
   const chartData = Object.values(categoryCount);
 
-
   console.log(categoryCount);
 
   const data = {
     labels: chartLabels,
     datasets: [
       {
-        
         data: chartData,
         backgroundColor: [
           'rgb(255, 99, 132,.6)',
@@ -48,60 +40,49 @@ export default function CuisineCountBarGlobal({ posts }) {
     ],
   };
 
-  const options = {
+  const options: ChartOptions<'bar'> = {
     responsive: true,
     plugins: {
       legend: {
-        display:false,
+        display: false,
       },
 
       tooltip: {
         mode: 'index',
         intersect: false,
       },
-      datalabels: {
-        color: 'white',
-        font: {
-          size: '24px',
-          weight: 'bold'
-        },
-        
-      },
-      
-      
+      // datalabels: {
+      //   color: 'white',
+      //   font: {
+      //     size: '24px',
+      //     weight: 'bold'
+      //   },
+
+      // },
     },
     scales: {
       x: {
         ticks: {
           font: {
             size: 18,
-            weight: 'bold'
+            weight: 'bold',
           },
-              
-        }
+        },
       },
       y: {
         ticks: {
           font: {
-            size: 24
-          }
-        }
-      }
-    }
-    
-    
+            size: 24,
+          },
+        },
+      },
+    },
   };
-
-
 
   return (
     <div className='pie-chart-container'>
-      
-    
       <h4 className='chart-title'>Posted Recipe Count By Cuisine </h4>
-        <Bar height={500} width={500} data={data} options={options} />
-
-    
+      <Bar height={500} width={500} data={data} options={options} />
     </div>
   );
 }

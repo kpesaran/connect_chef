@@ -2,7 +2,7 @@ import { fetchPostsData } from '../utils';
 import { useEffect, useState } from 'react';
 import GlobalChartsStats from './GlobalChartsStats';
 
-export default function GlobalDashboard() {
+export default function GlobalDashboard(): JSX.Element {
     const [posts, setPosts] = useState([]);
   
 

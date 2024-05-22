@@ -7,11 +7,17 @@ import MostPopularIngredient from './stats/MostPopularIngredient';
 import '../styles.css'
 import StepsAvg from './stats/StepsAvg';
 import CityWithMostRecipes from './stats/CityWithMostRecipes';
+import type {Post} from '../../../interfaces'
 
-export default function CountryChartsStats({ posts }) {
-  const [selectedCountry, setSelectedCountry] = useState('United States');
+interface CountryChartsStatsProp {
+  posts: Post[]
+}
 
-  let uniqueCountries = [];
+
+export default function CountryChartsStats({ posts }:CountryChartsStatsProp):JSX.Element {
+  const [selectedCountry, setSelectedCountry] = useState<string>('United States');
+
+  const uniqueCountries:string[] = [];
   if (posts.length > 0) {
     posts.forEach((post) => {
       if (!uniqueCountries.includes(post.country))
@@ -30,12 +36,12 @@ export default function CountryChartsStats({ posts }) {
         {uniqueCountries.map((country) => {
           if (country === selectedCountry) {
             return (
-              <option selected value={country}>
+              <option key = {country} selected value={country}>
                 {country}
               </option>
             );
           } else {
-            return <option value={country}>{country}</option>;
+            return <option key = {country} value={country}>{country}</option>;
           }
         })}
       </select>

@@ -4,7 +4,7 @@ import { Chart, ArcElement, Tooltip, Legend } from 'chart.js';
 
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
-import { countOccurences } from '../utils';
+import { countOccurences } from '../../utils';
 
 Chart.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
@@ -14,8 +14,6 @@ export default function PieChartCountry({ selectedCountry, posts }) {
     .map((post) => post.category)
     .flat()
     .filter((value) => value != '');
-
-  
 
   const categoryCount = countOccurences(categoriesFromCountry);
 
@@ -39,17 +37,16 @@ export default function PieChartCountry({ selectedCountry, posts }) {
           'rgb(75, 192, 192,.6)',
           'rgb(153, 102, 255,.6)',
           'rgb(255, 159, 64,.6)',
-          'rgb(105,192,192,0.4)'
-
+          'rgb(105,192,192,0.4)',
         ],
-        borderColor : [
+        borderColor: [
           'rgb(255, 99, 132)',
           'rgb(54, 162, 235)',
           'rgb(255, 205, 86)',
           'rgb(75, 192, 192)',
           'rgb(153, 102, 255)',
           'rgb(255, 159, 64)',
-          'rgb(105,192,192)'
+          'rgb(105,192,192)',
         ],
         hoverOffset: 4,
       },
@@ -72,7 +69,6 @@ export default function PieChartCountry({ selectedCountry, posts }) {
         font: {
           size: '24px',
         },
-        
 
         formatter: (value, context) => {
           return context.chart.data.labels[context.dataIndex];

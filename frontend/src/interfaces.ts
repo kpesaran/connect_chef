@@ -5,7 +5,8 @@ interface Post {
       body: string;
       category: string;
       neighborhood: string;
-      city: string;
+  city: string;
+  country: string;
       lat: number;
       lng: number;
       steps: string[];
