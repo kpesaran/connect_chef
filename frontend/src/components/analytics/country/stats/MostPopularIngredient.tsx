@@ -1,6 +1,12 @@
+import { Post } from '../../../../interfaces';
 import { filteredPostsByCountry, mostPopularIngredient } from '../../utils';
 
-export default function MostPopularIngredient({ posts, selectedCountry }) {
+interface MostPopularIngredientProps {
+  posts: Post[];
+  selectedCountry: string | null;
+}
+
+export default function MostPopularIngredient({ posts, selectedCountry }:MostPopularIngredientProps) : JSX.Element {
   const filterPosts = selectedCountry
     ? filteredPostsByCountry(posts, selectedCountry)
     : posts;

@@ -9,6 +9,10 @@ interface BarChartCountryProps {
     selectedCountry: string | null
 }
 
+type CuisineCount = {
+    [cuisine:string] : number[]
+}
+
 export default function BarChartCountry({ posts, selectedCountry }:BarChartCountryProps):JSX.Element {
     let filteredPostsByCountry = []
     if (selectedCountry)
@@ -22,7 +26,7 @@ export default function BarChartCountry({ posts, selectedCountry }:BarChartCount
     console.log(posts)
     console.log(filteredPostsByCountry)
 
-    const cuisineIngredientCount = {}
+    const cuisineIngredientCount:CuisineCount = {}
     filteredPostsByCountry.forEach(post => {
         post.category.forEach(cuisine => {
             if (!cuisineIngredientCount[cuisine]) {
@@ -44,7 +48,7 @@ export default function BarChartCountry({ posts, selectedCountry }:BarChartCount
         return Math.round(sum / sublist.length*10)/10
     })
 
-    const cuisineStepCount = {}
+    const cuisineStepCount:CuisineCount = {}
     
     filteredPostsByCountry.forEach(post => {
         post.category.forEach(cuisine => {

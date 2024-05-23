@@ -18,7 +18,7 @@ const fetchPostsData = async () => {
   };
 
 
-function filteredPostsByCountry(posts:Post[], selectedCountry:'string') {
+function filteredPostsByCountry(posts:Post[], selectedCountry:string) {
     return posts.filter(post => post.country === selectedCountry)
 }
 

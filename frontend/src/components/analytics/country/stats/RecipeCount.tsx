@@ -1,6 +1,12 @@
+import { Post } from '../../../../interfaces';
 import { filteredPostsByCountry } from '../../utils';
 
-export default function RecipeCount({ posts, selectedCountry }) {
+interface RecipeCountProps {
+  posts: Post[];
+  selectedCountry: string | null;
+}
+
+export default function RecipeCount({ posts, selectedCountry }:RecipeCountProps): JSX.Element {
   const displayedPosts = selectedCountry
     ? filteredPostsByCountry(posts, selectedCountry)
     : posts;

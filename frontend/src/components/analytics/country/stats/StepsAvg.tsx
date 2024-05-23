@@ -1,11 +1,17 @@
+import { Post } from '../../../../interfaces';
 import { filteredPostsByCountry } from '../../utils';
 
-export default function StepsAvg({ posts, selectedCountry }) {
+interface StepsAvgProps {
+  posts: Post[];
+  selectedCountry: string | null;
+}
+
+export default function StepsAvg({ posts, selectedCountry }:StepsAvgProps):JSX.Element {
   const displayedPosts = selectedCountry
     ? filteredPostsByCountry(posts, selectedCountry)
     : posts;
 
-  const steps = [];
+  const steps:number[] = [];
 
   displayedPosts.map((post) => {
     steps.push(post.steps.length);

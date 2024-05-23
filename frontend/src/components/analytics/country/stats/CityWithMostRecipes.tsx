@@ -2,8 +2,14 @@ import { filteredPostsByCountry } from '../../utils';
 
 import { countOccurences } from '../../utils';
 import '../../styles.css';
+import { Post } from '../../../../interfaces';
 
-export default function CityWithMostRecipes({ posts, selectedCountry }) {
+interface CityWithMostRecipesProps {
+  posts: Post[];
+  selectedCountry: string | null;
+}
+
+export default function CityWithMostRecipes({ posts, selectedCountry }: CityWithMostRecipesProps): JSX.Element {
   const includedPosts = selectedCountry
     ? filteredPostsByCountry(posts, selectedCountry)
     : posts;
@@ -21,7 +27,7 @@ export default function CityWithMostRecipes({ posts, selectedCountry }) {
     -Infinity
   );
 
-  const maxCities = Object.keys(recipeCountByCity).reduce((cities, city) => {
+  const maxCities = Object.keys(recipeCountByCity).reduce((cities:string[], city:string) => {
     if (recipeCountByCity[city] === maxValue) {
       cities.push(city);
     }
