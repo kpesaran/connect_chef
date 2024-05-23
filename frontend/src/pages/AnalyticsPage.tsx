@@ -1,10 +1,7 @@
-import axios from 'axios';
-
-import { useEffect, useState } from 'react';
 import './styles-dashboard.css';
 import { Link, Outlet, useLocation, Navigate } from 'react-router-dom';
 
-export default function AnalyticsPage() {
+export default function AnalyticsPage():JSX.Element {
   const routeLocation = useLocation();
 
   if (
@@ -25,7 +22,6 @@ export default function AnalyticsPage() {
         </Link>
       </nav>
       <Outlet />
-      {/* <CountryView posts ={posts} /> */}
     </div>
   );
 }

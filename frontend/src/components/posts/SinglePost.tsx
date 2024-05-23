@@ -1,19 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import imageUrls from '../../../public/image-urls';
 import './styles.css';
 import axios from 'axios'
 import type { Post, Location } from '../../interfaces';
 interface PostProps {
   post: Post;
-  onOpen: () => void;
-  userId: string;
-  fetchPosts: () => void;
+  onOpen: (val: string) => void;
+  userId: string | null;
+  fetchPosts: (val: Location) => void;
   location: Location
 }
 
-const Post: React.FC<PostProps> = ({ post, onOpen, userId,fetchPosts, location }) => {
-
-  const [selected, setSelected] = useState(null);
+const SinglePost: React.FC<PostProps> = ({ post, onOpen, userId,fetchPosts, location }) => {
 
   async function handleDeletePost(postId:string) {
     const endpoint = `http://localhost:3001/api/v1/postings?`
@@ -69,4 +65,4 @@ const Post: React.FC<PostProps> = ({ post, onOpen, userId,fetchPosts, location }
   );
 };
 
-export default Post;
+export default SinglePost;

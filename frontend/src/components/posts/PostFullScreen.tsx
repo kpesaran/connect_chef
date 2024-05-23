@@ -2,8 +2,14 @@
 import React from 'react';
 import imageUrls from '../../../public/image-urls';
 import './styles.css'
+import { Post } from '../../interfaces';
 
-const PostFullScreen = ({ post, onClose }) => {
+interface PostFullScreenProps {
+  post: Post;
+  onClose: () => void
+}
+
+const PostFullScreen: React.FC<PostFullScreenProps> = ({ post, onClose }) => {
   return (
     <>
       <div className='background-fade transition ease-in-out delay-150' onClick={onClose}></div>
