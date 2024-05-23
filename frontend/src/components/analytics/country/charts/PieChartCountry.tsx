@@ -1,14 +1,20 @@
-import React from 'react';
-import { Pie, Doughnut } from 'react-chartjs-2';
-import { Chart, ArcElement, Tooltip, Legend } from 'chart.js';
+
+import { Doughnut } from 'react-chartjs-2';
+import { Chart, ArcElement, Tooltip, Legend, ChartOptions } from 'chart.js';
+import type { Post } from '../../../../interfaces'
 
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 import { countOccurences } from '../../utils';
 
+interface PieChartCountryProps {
+  posts: Post[];
+  selectedCountry: string | null
+}
+
 Chart.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
-export default function PieChartCountry({ selectedCountry, posts }) {
+export default function PieChartCountry({ selectedCountry, posts }: PieChartCountryProps): JSX.Element {
   const categoriesFromCountry = posts
     .filter((post) => post.country === selectedCountry)
     .map((post) => post.category)
@@ -53,7 +59,7 @@ export default function PieChartCountry({ selectedCountry, posts }) {
     ],
   };
 
-  const options = {
+  const options:ChartOptions<'doughnut'> = {
     responsive: true,
     plugins: {
       legend: {

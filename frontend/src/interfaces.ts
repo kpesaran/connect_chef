@@ -3,7 +3,7 @@ interface Post {
       _id: string;
       title: string;
       body: string;
-      category: string;
+      category: string[];
       neighborhood: string;
   city: string;
   country: string;

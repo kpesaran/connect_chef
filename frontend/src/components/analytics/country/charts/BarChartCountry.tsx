@@ -1,11 +1,15 @@
-import {Chart as ChartJS, CategoryScale, LinearScale, BarElement, scales} from 'chart.js'
+import {Chart as ChartJS, CategoryScale, LinearScale, BarElement, ChartOptions} from 'chart.js'
 import { Bar } from 'react-chartjs-2'
+import { Post } from '../../../../interfaces'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement)
 
+interface BarChartCountryProps {
+    posts: Post[];
+    selectedCountry: string | null
+}
 
-
-export default function BarChartCountry({ posts, selectedCountry }) {
+export default function BarChartCountry({ posts, selectedCountry }:BarChartCountryProps):JSX.Element {
     let filteredPostsByCountry = []
     if (selectedCountry)
     {
@@ -91,7 +95,7 @@ export default function BarChartCountry({ posts, selectedCountry }) {
         }
         ]
     };
-    const options = {
+    const options:ChartOptions<'bar'> = {
         scales: {
             x: {
                 ticks: {
