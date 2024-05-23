@@ -7,13 +7,13 @@ import './styles.css';
 import type { Location } from '../interfaces';
 import type { Post } from '../interfaces';
 
-
+type LocationKey = keyof Location
 
 export default function Home() {
   const [location, setLocation] = useState<Partial<Location>>({});
 
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const [filter, setFilter] = useState<keyof Location>('city');
+  const [filter, setFilter] = useState<LocationKey>('city');
   const [sortOn, setSortOn] = useState<string>('');
 
   // const [locationProvided, setLocationProvided] = useState(true);
@@ -84,7 +84,7 @@ export default function Home() {
   function handleCuisineFilterChange(newCuisine:string) {
     setCuisineFilter(newCuisine);
   }
-  function handleFilterChange(newFilter:keyof Location) {
+  function handleFilterChange(newFilter:LocationKey) {
     setFilter(newFilter);
   }
   function handleSearchChange(newTerm:string) {

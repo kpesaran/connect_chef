@@ -17,7 +17,7 @@ interface PostContainerProps {
   onCuisineFilterChange: (val: string) => void;
   fetchPosts: (val: Location) => void;
   location: Location;
-  updatePostViewCount: (postId: string) => void;
+  updatePostViewCount: (post: Post) => void;
   setShowForm: () => void;
 }
 
