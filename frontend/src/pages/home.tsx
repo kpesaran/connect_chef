@@ -7,13 +7,19 @@ import './styles.css';
 import type { Location } from '../interfaces';
 import type { Post } from '../interfaces';
 
-type LocationKey = keyof Location
+type LocationKey = keyof Location;
+
+enum LocationFilter {
+  City = 'city',
+  Global = 'global',
+  Country = 'country'
+}
 
 export default function Home() {
-  const [location, setLocation] = useState<Partial<Location>>({});
+  const [location, setLocation] = useState<Location | null>(null);
 
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const [filter, setFilter] = useState<LocationKey>('city');
+  const [filter, setFilter] = useState<LocationFilter>(LocationFilter.City);
   const [sortOn, setSortOn] = useState<string>('');
 
   // const [locationProvided, setLocationProvided] = useState(true);
@@ -23,7 +29,7 @@ export default function Home() {
 
   // const [isLoading, setIsLoading] = useState(true)
 
-  const fetchData = async(localLocation:Location) => {
+  const fetchData = async (localLocation: Location) => {
     // setIsLoading(true)
     try {
       // use location data to make your api requests
@@ -81,16 +87,16 @@ export default function Home() {
     }
   };
 
-  function handleCuisineFilterChange(newCuisine:string) {
+  function handleCuisineFilterChange(newCuisine: string) {
     setCuisineFilter(newCuisine);
   }
-  function handleFilterChange(newFilter:LocationKey) {
+  function handleFilterChange(newFilter: LocationKey) {
     setFilter(newFilter);
   }
-  function handleSearchChange(newTerm:string) {
+  function handleSearchChange(newTerm: string) {
     setSearchTerm(newTerm);
   }
-  function handleSortChange(newSort:string) {
+  function handleSortChange(newSort: string) {
     setSortOn(newSort);
   }
   function updatePostViewCount(updatedPost: Post) {
@@ -137,7 +143,7 @@ export default function Home() {
     <>
       {/* {isLoading ? <h4>Data is loading...</h4> : */}
       <div>
-        {showForm ? (
+        {showForm && location ? (
           <PostForm
             location={location}
             onCreatePost={fetchData}
@@ -146,18 +152,18 @@ export default function Home() {
         ) : (
           <div>
             <div></div>
-
-            <PostContainer
-              posts={posts}
-              location={location}
-              onSearch={handleSearchChange}
-              onFilterChange={handleFilterChange}
-              setShowForm={handleSetShowForm}
-              onSortChange={handleSortChange}
-              onCuisineFilterChange={handleCuisineFilterChange}
-              fetchPosts={fetchData}
-              updatePostViewCount={updatePostViewCount}
-            />
+              {location && 
+                <PostContainer
+                  posts={posts}
+                  location={location}
+                  onSearch={handleSearchChange}
+                  onFilterChange={handleFilterChange}
+                  setShowForm={handleSetShowForm}
+                  onSortChange={handleSortChange}
+                  onCuisineFilterChange={handleCuisineFilterChange}
+                  fetchPosts={fetchData}
+                  updatePostViewCount={updatePostViewCount}
+                />}
           </div>
         )}
       </div>

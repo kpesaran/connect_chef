@@ -1,6 +1,13 @@
+// import type {Location} from '../../../interfaces' 
 
 interface FilterComponentProps {
-  onFilterChange: (value: string) => void
+  onFilterChange: (value: LocationFilter) => void
+}
+
+enum LocationFilter {
+  City = 'city',
+  Global = 'global',
+  Country = 'country'
 }
 
 export default function FilterComponent({ onFilterChange }: FilterComponentProps): JSX.Element {
@@ -23,7 +30,7 @@ export default function FilterComponent({ onFilterChange }: FilterComponentProps
         defaultChecked
         name='filter'
         value='city'
-        onChange={(e) => onFilterChange(e.target.value)}
+        onChange={(e) => onFilterChange(e.target.value as LocationFilter)}
       />
       <label htmlFor='city'>City</label>
       <br />
@@ -43,7 +50,7 @@ export default function FilterComponent({ onFilterChange }: FilterComponentProps
         id='country'
         name='filter'
         value='country'
-        onChange={(e) => onFilterChange(e.target.value)}
+        onChange={(e) => onFilterChange(e.target.value as LocationFilter)}
       />
       <label htmlFor='country'>Country</label>
       <br />
@@ -52,7 +59,7 @@ export default function FilterComponent({ onFilterChange }: FilterComponentProps
         id='global'
         name='filter'
         value='global'
-        onChange={(e) => onFilterChange(e.target.value)}
+        onChange={(e) => onFilterChange(e.target.value as LocationFilter)}
       />
       <label htmlFor='global'>Global</label>
     </div>

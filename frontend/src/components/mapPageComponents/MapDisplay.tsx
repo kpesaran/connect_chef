@@ -71,7 +71,7 @@ export default function MapDisplay()
   return (
     <>
       <div className='map-container mt-12'>
-        <APIProvider apiKey='AIzaSyCm9Mipa7yue_lBZGmm08BwcR_KNMK7b5E'>
+        <APIProvider apiKey='AIzaSyAF4zqoOMCz8hzo5CeKMGkPy8O--IsYraI'>
           <div className='flex justify-around'>
             <Map
               style={{ width: '60vw', height: '85vh' }}

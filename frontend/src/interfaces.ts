@@ -15,7 +15,11 @@ interface Post {
       createdBy: string | null
     views: number
 }
-
+enum LocationFilter {
+    City = 'city',
+    Global = 'global',
+    Country = 'country'
+  }
 interface Location {
     city: string;
     country: string;
@@ -25,7 +29,11 @@ interface Location {
     neighborhood: string;
     state: string;
     zipcode: string;
+    
 }
+
+
+
 interface Ingredient {
     name: string;
     quantity: string
