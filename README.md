@@ -1,8 +1,10 @@
 # connect_chef
 Developed a dynamic web application that allows users to share and explore recipes locally or from around the world.
 
-
-
+## How It's Made:
+Utilized a MERN (MongoDB, Express.js, React.js, Node.js) stack along with Typescript, Tailwind, and the React Router Dom library.
+Leveraged Google Maps Api, Google's Geocoding API, and Chart.js.
+Used JWT and Bcrypt.js for authentication.
 
 
 #### Interactive Mapping: 
@@ -30,10 +32,5 @@ Utilized JWT (JSON Web Token) for authentication for login and authentication.
 
 <img width="1034" alt="image" src="https://github.com/kpesaran/connect_chef/assets/95396160/f27cd59b-3610-4dfe-82f7-e57db24d022c">
 
-
-## How It's Made:
-Utilized a MERN (MongoDB, Express.js, React.js, Node.js) stack along with Typescript, Tailwind, and the React Router Dom library.
-Leveraged Google Maps Api, Google's Geocoding API, and Chart.js.
-Used JWT and Bcrypt.js for authentication.
 
 
