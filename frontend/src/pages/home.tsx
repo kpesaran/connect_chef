@@ -4,19 +4,12 @@ import PostForm from '../components/post-form/PostForm';
 import PostContainer from '../components/posts/PostContainer';
 import fetchLocationData from '../utilities/locationUtils';
 import './styles.css';
-import type { Location } from '../interfaces';
 import type { Post } from '../interfaces';
+import { LocationClass, LocationFilter } from '../LocationClass';
 
-type LocationKey = keyof Location;
-
-enum LocationFilter {
-  City = 'city',
-  Global = 'global',
-  Country = 'country'
-}
 
 export default function Home() {
-  const [location, setLocation] = useState<Location | null>(null);
+  const [location, setLocation] = useState<LocationClass | null>(null);
 
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [filter, setFilter] = useState<LocationFilter>(LocationFilter.City);
@@ -29,11 +22,11 @@ export default function Home() {
 
   // const [isLoading, setIsLoading] = useState(true)
 
-  const fetchData = async (localLocation: Location) => {
+  const fetchData = async (localLocation: LocationClass) => {
     // setIsLoading(true)
     try {
       // use location data to make your api requests
-      const locationVal = localLocation[filter];
+      const locationVal = localLocation.findLocation(filter);
 
       let endpoint = `http://localhost:3001/api/v1/postings?`;
       if (locationVal) {
@@ -90,7 +83,7 @@ export default function Home() {
   function handleCuisineFilterChange(newCuisine: string) {
     setCuisineFilter(newCuisine);
   }
-  function handleFilterChange(newFilter: LocationKey) {
+  function handleFilterChange(newFilter: LocationFilter) {
     setFilter(newFilter);
   }
   function handleSearchChange(newTerm: string) {
@@ -119,11 +112,20 @@ export default function Home() {
     async function getLocation() {
       try {
         const locationData = await fetchLocationData();
-        console.log(locationData);
-        setLocation({ ...locationData });
-        console.log(JSON.stringify(locationData));
-        localStorage.setItem('location', JSON.stringify(locationData));
-        fetchData(locationData);
+        const localLocation = new LocationClass(
+          locationData.city,
+          locationData.country,
+          locationData.county,
+          locationData.lat,
+          locationData.lng,
+          locationData.neighborhood,
+          locationData.state,
+          locationData.zipcode
+        );
+        setLocation(localLocation);
+        console.log(JSON.stringify(localLocation));
+        localStorage.setItem('location', JSON.stringify(localLocation));
+        fetchData(localLocation);
       } catch (err) {
         console.error('Error fetching location:', err);
       }
@@ -132,8 +134,18 @@ export default function Home() {
 
     if (storedLocation) {
       const storedLocationObj = JSON.parse(storedLocation);
-      setLocation(storedLocationObj);
-      fetchData(storedLocationObj);
+      const localLocation = new LocationClass(
+        storedLocationObj.city,
+        storedLocationObj.country,
+        storedLocationObj.county,
+        storedLocationObj.lat,
+        storedLocationObj.lng,
+        storedLocationObj.neighborhood,
+        storedLocationObj.state,
+        storedLocationObj.zipcode
+      );
+      setLocation(localLocation);
+      fetchData(localLocation);
     } else {
       getLocation();
     }
@@ -152,18 +164,19 @@ export default function Home() {
         ) : (
           <div>
             <div></div>
-              {location && 
-                <PostContainer
-                  posts={posts}
-                  location={location}
-                  onSearch={handleSearchChange}
-                  onFilterChange={handleFilterChange}
-                  setShowForm={handleSetShowForm}
-                  onSortChange={handleSortChange}
-                  onCuisineFilterChange={handleCuisineFilterChange}
-                  fetchPosts={fetchData}
-                  updatePostViewCount={updatePostViewCount}
-                />}
+            {location && (
+              <PostContainer
+                posts={posts}
+                location={location}
+                onSearch={handleSearchChange}
+                onFilterChange={handleFilterChange}
+                setShowForm={handleSetShowForm}
+                onSortChange={handleSortChange}
+                onCuisineFilterChange={handleCuisineFilterChange}
+                fetchPosts={fetchData}
+                updatePostViewCount={updatePostViewCount}
+              />
+            )}
           </div>
         )}
       </div>

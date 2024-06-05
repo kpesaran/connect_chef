@@ -15,22 +15,7 @@ interface Post {
       createdBy: string | null
     views: number
 }
-enum LocationFilter {
-    City = 'city',
-    Global = 'global',
-    Country = 'country'
-  }
-interface Location {
-    city: string;
-    country: string;
-    county: string;
-    lat: number | string;
-    lng: number | string;
-    neighborhood: string;
-    state: string;
-    zipcode: string;
-    
-}
+
 
 
 
@@ -40,4 +25,4 @@ interface Ingredient {
 }
 
   
-export type {Post, Location, Ingredient}
+export type {Post, Ingredient}

@@ -4,11 +4,12 @@ import FilterComponent from './location-filter/FilterComponent'
 
 import SortComponent from './sort/SortComponent'
 import CuisineFilter from './cuisine_filter/CuisineFilter';
+import { LocationFilter } from '../../LocationClass';
 
 
 interface SearchFilterSortSidebarProps {
     onSearch: (val: string) => void;
-    onFilterChange: (val: string) => void;
+    onFilterChange: (val: LocationFilter) => void;
     onSortChange: (val: string) => void;
     onCuisineFilterChange: (val: string) => void;
 }

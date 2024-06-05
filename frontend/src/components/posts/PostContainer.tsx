@@ -7,16 +7,17 @@ import SearchFilterSortSidebar from '../searchFilterSort/SearchFilterSortSidebar
 
 import SinglePost from './SinglePost';
 import PostFullScreen from './PostFullScreen';
-import type { Post, Location } from '../../interfaces';
+import type { Post} from '../../interfaces';
+import { LocationClass, LocationFilter } from '../../LocationClass';
 
 interface PostContainerProps {
   posts: Post[];
   onSearch: (val: string) => void;
-  onFilterChange: (val: string) => void;
+  onFilterChange: (val: LocationFilter) => void;
   onSortChange: (val: string) => void;
   onCuisineFilterChange: (val: string) => void;
-  fetchPosts: (val: Location) => void;
-  location: Location;
+  fetchPosts: (val: LocationClass) => void;
+  location: LocationClass;
   updatePostViewCount: (post: Post) => void;
   setShowForm: () => void;
 }

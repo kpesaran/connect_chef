@@ -2,6 +2,8 @@ import React from 'react';
 
 import './styles.css';
 
+import { Post } from '../../interfaces';
+
 export default function PostInfoCard({ post }) {
   return (
     // <div className ="" onClick = {()=> setSelectedPost({})}>

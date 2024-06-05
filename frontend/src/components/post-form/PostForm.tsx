@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './style.css'
-import type { Location, Ingredient } from '../../interfaces';
+import type { Ingredient } from '../../interfaces';
+import { LocationClass } from '../../LocationClass';
 
 const cuisineOptions = [
   'French', 'Indian', 'Japanese', 'Thai', 'Italian', 'American',
@@ -12,8 +13,8 @@ const cuisineOptions = [
 ];
 
 interface PostFormProps {
-  location: Location;
-  onCreatePost: (location: Location) => void;
+  location: LocationClass;
+  onCreatePost: (location: LocationClass) => void;
   onCloseForm: () => void;
 }
 

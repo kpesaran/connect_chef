@@ -1,8 +1,9 @@
 import axios from 'axios';
+import { LocationClass } from '../LocationClass';
 
-import type {Location} from '../interfaces'
 
-const fetchLocationData = (): Promise<Location> => {
+
+const fetchLocationData = (): Promise<LocationClass> => {
     return new Promise((resolve, reject) => {
         if (!navigator.geolocation) {
             reject(new Error("Geolocation is not supported by your browser"))
@@ -14,7 +15,7 @@ const fetchLocationData = (): Promise<Location> => {
             const endpoint = "http://localhost:3001/api/v1/reverse-geocode"
 
             try {
-                const response = await axios.post<Location>(endpoint, { latitude, longitude })
+                const response = await axios.post<LocationClass>(endpoint, { latitude, longitude })
                 resolve(response.data)
             }
             catch (error) {
@@ -27,31 +28,3 @@ const fetchLocationData = (): Promise<Location> => {
 }
 
 export default fetchLocationData
-
-
- 
-// const getLocation = () => {
-//     if (!navigator.geolocation) {
-//         alert("Geolocation is not supported by your browser")
-//         return
-//     }
-//     navigator.geolocation.getCurrentPosition(success, error);
-  
-
-
-// }
-// const success = async (position) => {
-//     const latitude = position.coords.latitude
-//     const longitude = position.coords.longitude
-//     const coordData = {
-//         latitude, 
-//         longitude
-//     }
-//     const endpoint = 'http://localhost:3001/api/v1/reverse-geocode'
-//     const response = await axios.post(endpoint, coordData )
-//     console.log(response)
-//     setData(response.data)
-// }
-// const error = () => {
-//     alert("unable to retrieve location")
-// }

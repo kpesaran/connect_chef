@@ -11,14 +11,14 @@ class LocationClass {
     city: string; 
     country: string;
     county: string;
-    lat: string;
-    lng: string;
+    lat: string | number;
+    lng: string | number;
     neighborhood: string;
     state: string;
     zipcode: string;
     
 
-    constructor(city: string, country: string, county: string, lat: string, lng: string, neighborhood: string, state: string, zipcode: string) {
+    constructor(city: string, country: string, county: string, lat: number | string, lng: number | string, neighborhood: string, state: string, zipcode: string) {
         this.city = city 
         this.country = country
         this.lat = lat;
@@ -45,4 +45,4 @@ class LocationClass {
     } 
 }
 
-export default LocationClass 
+export { LocationClass, LocationFilter } 

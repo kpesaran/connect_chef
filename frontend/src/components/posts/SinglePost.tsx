@@ -1,12 +1,13 @@
 import './styles.css';
 import axios from 'axios';
-import type { Post, Location } from '../../interfaces';
+import type { Post } from '../../interfaces';
+import { LocationClass } from '../../LocationClass';
 interface PostProps {
   post: Post;
   onOpen: (val: string) => void;
   userId: string | null;
-  fetchPosts: (val: Location) => void;
-  location: Location;
+  fetchPosts: (val: LocationClass) => void;
+  location: LocationClass;
 }
 
 const SinglePost: React.FC<PostProps> = ({
