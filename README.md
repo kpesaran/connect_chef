@@ -1,4 +1,4 @@
-# geocode_app
+# connect_chef
 Developed a dynamic web application that allows users to share and explore recipes locally or from around the world.
 
 Interactive Mapping: maps page used the Google Maps API, where recipes, using longitude and latitude data, are represented as pins. As users adjust the map's zoom level or bounds, corresponding recipe posts dynamically update on the sidebar.
