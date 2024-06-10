@@ -8,11 +8,16 @@ import { APIProvider, Map, Marker, InfoWindow, useMap} from '@vis.gl/react-googl
 
 import './styles.css';
 import { info } from 'console';
+import { Post } from '../../interfaces';
+
+interface MapHookComponentProp {
+  posts : Post[]
+}
 
 
-const MyComponent = ({posts}) => {
+const MapHookComponent:React.FC<MapHookComponentProp> = ({posts}) => {
   const map = useMap();
-  const [bounds, setBounds] = useState(null)
+  const [bounds, setBounds] = useState(undefined)
   console.log(map)
   console.log(bounds)
   useEffect(() => {
@@ -36,7 +41,7 @@ const MyComponent = ({posts}) => {
 export default function MapDisplay()
 {
   const [posts, setPosts] = useState([]);
-  const [infoCardVisible, setInfoCardVisible] = useState(false);
+  // const [infoCardVisible, setInfoCardVisible] = useState(false);
   const [selectedPost, setSelectedPost] = useState({});
 
 
@@ -66,12 +71,10 @@ export default function MapDisplay()
     } else setInfoCardVisible(true);
   };
 
-  // console.log(selectedPost);
-  // console.log(infoCardVisible);
   return (
     <>
       <div className='map-container mt-12'>
-        <APIProvider apiKey='AIzaSyAF4zqoOMCz8hzo5CeKMGkPy8O--IsYraI'>
+        <APIProvider apiKey=''>
           <div className='flex justify-around'>
             <Map
               style={{ width: '60vw', height: '85vh' }}
@@ -102,7 +105,7 @@ export default function MapDisplay()
               ))}
             
             </Map>
-            <MyComponent posts = {posts} />
+            <MapHookComponent posts = {posts} />
             
          
           </div>

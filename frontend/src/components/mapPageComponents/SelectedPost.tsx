@@ -4,7 +4,12 @@ import './styles.css';
 
 import { Post } from '../../interfaces';
 
-export default function PostInfoCard({ post }) {
+interface SelectedPostProp {
+  post : Post
+}
+
+
+export default function PostInfoCard({ post }:SelectedPostProp):JSX.Element {
   return (
     // <div className ="" onClick = {()=> setSelectedPost({})}>
     <div className='info-card'>
