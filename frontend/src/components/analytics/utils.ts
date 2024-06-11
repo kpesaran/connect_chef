@@ -38,7 +38,6 @@ function mostPopularIngredient(posts: Post[]) {
             }
         })
     })
-    console.log(ingredientCount)
         let mostPopularIngredient = null;
         let maxCount = 0
 

@@ -22,8 +22,6 @@ function App() {
           <Route path='login' element={<Login />} />
           <Route element={<Layout />}>
             <Route path='/' element={<Home />} />
-
-            {/* <Route path='/login' element={<Login />} /> */}
             <Route path='/map/' element={<MapPage />} />
             <Route path='analytics' element={<AnalyticsPage />}>
               <Route path='country' element={<CountryDashboard />} />

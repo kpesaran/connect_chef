@@ -66,13 +66,6 @@ export default function BarChartCountry({ posts, selectedCountry }:BarChartCount
         }
         return Math.round(sum / sublist.length*10)/10
     })
-
-    
-
-    console.log(averageCountIngredients)
-
-
-    ;
     const data = {
         labels: labels,
         datasets: [{
@@ -119,8 +112,6 @@ export default function BarChartCountry({ posts, selectedCountry }:BarChartCount
             }
         }
     }
-
-
     return (
         <div>
             <h4 className='chart-title'>Average Amount of Ingredients & Steps By Cuisine</h4>
