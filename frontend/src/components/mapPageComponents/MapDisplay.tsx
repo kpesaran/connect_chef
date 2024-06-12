@@ -1,13 +1,14 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState} from 'react';
 import axios from 'axios';
 
 import PostInfoCard from './SelectedPost';
 import DisplayedPosts from './DisplayedPosts';
 
-import { APIProvider, Map, Marker, InfoWindow, useMap} from '@vis.gl/react-google-maps';
+import { APIProvider, Map, Marker, InfoWindow, useMap } from '@vis.gl/react-google-maps';
+
 
 import './styles.css';
-import { info } from 'console';
+
 import { Post } from '../../interfaces';
 
 interface MapHookComponentProp {
@@ -17,7 +18,7 @@ interface MapHookComponentProp {
 
 const MapHookComponent:React.FC<MapHookComponentProp> = ({posts}) => {
   const map = useMap();
-  const [bounds, setBounds] = useState(undefined)
+  const [bounds, setBounds] = useState<google.maps.LatLngBounds | undefined>(undefined)
   console.log(map)
   console.log(bounds)
   useEffect(() => {
